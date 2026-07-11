@@ -1,0 +1,674 @@
+{
+  "allocation": {
+    "entries": [
+      {
+        "chosen_by": "author",
+        "demand": "dcdc.i_dcdc",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.adc",
+        "state": "pinned",
+        "unit": 0
+      },
+      {
+        "chosen_by": "author",
+        "demand": "load.i_load",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.adc",
+        "state": "pinned",
+        "unit": 1
+      },
+      {
+        "chosen_by": "author",
+        "demand": "dcdc.v_hv",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.adc",
+        "state": "pinned",
+        "unit": 2
+      },
+      {
+        "chosen_by": "author",
+        "demand": "dcdc.v_lv",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.adc",
+        "state": "pinned",
+        "unit": 3
+      },
+      {
+        "chosen_by": "author",
+        "demand": "temp.tap",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.adc",
+        "state": "pinned",
+        "unit": 4
+      },
+      {
+        "chosen_by": "author",
+        "demand": "leds.led1_sel",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.gpio",
+        "state": "pinned",
+        "unit": 0
+      },
+      {
+        "chosen_by": "author",
+        "demand": "leds.led2_sel",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.gpio",
+        "state": "pinned",
+        "unit": 1
+      },
+      {
+        "chosen_by": "author",
+        "demand": "load.dis",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.gpio",
+        "state": "pinned",
+        "unit": 2
+      },
+      {
+        "chosen_by": "author",
+        "demand": "info.flag",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.gpio",
+        "state": "pinned",
+        "unit": 3
+      },
+      {
+        "chosen_by": "author",
+        "demand": "leds.led1_pwm",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.pwm",
+        "state": "pinned",
+        "unit": 0
+      },
+      {
+        "chosen_by": "author",
+        "demand": "psu.cp_pwm",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.pwm",
+        "state": "pinned",
+        "unit": 1
+      },
+      {
+        "chosen_by": "author",
+        "demand": "leds.led2_pwm",
+        "locked_by": "firmware-facing@1",
+        "pool": "mcu.pwm",
+        "state": "pinned",
+        "unit": 2
+      }
+    ],
+    "lock_groups": [
+      {
+        "covers": [
+          "connector_pinout"
+        ],
+        "name": "external-interface",
+        "owner": "hw-team",
+        "snapshot": [],
+        "sync_point": "spin-release",
+        "version": 1
+      },
+      {
+        "covers": [
+          "pool_allocation",
+          "pin_map"
+        ],
+        "name": "firmware-facing",
+        "owner": "fw-team",
+        "snapshot": [
+          {
+            "chosen_by": "author",
+            "demand": "dcdc.i_dcdc",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.adc",
+            "state": "pinned",
+            "unit": 0
+          },
+          {
+            "chosen_by": "author",
+            "demand": "load.i_load",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.adc",
+            "state": "pinned",
+            "unit": 1
+          },
+          {
+            "chosen_by": "author",
+            "demand": "dcdc.v_hv",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.adc",
+            "state": "pinned",
+            "unit": 2
+          },
+          {
+            "chosen_by": "author",
+            "demand": "dcdc.v_lv",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.adc",
+            "state": "pinned",
+            "unit": 3
+          },
+          {
+            "chosen_by": "author",
+            "demand": "temp.tap",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.adc",
+            "state": "pinned",
+            "unit": 4
+          },
+          {
+            "chosen_by": "author",
+            "demand": "leds.led1_sel",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.gpio",
+            "state": "pinned",
+            "unit": 0
+          },
+          {
+            "chosen_by": "author",
+            "demand": "leds.led2_sel",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.gpio",
+            "state": "pinned",
+            "unit": 1
+          },
+          {
+            "chosen_by": "author",
+            "demand": "load.dis",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.gpio",
+            "state": "pinned",
+            "unit": 2
+          },
+          {
+            "chosen_by": "author",
+            "demand": "info.flag",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.gpio",
+            "state": "pinned",
+            "unit": 3
+          },
+          {
+            "chosen_by": "author",
+            "demand": "leds.led1_pwm",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.pwm",
+            "state": "pinned",
+            "unit": 0
+          },
+          {
+            "chosen_by": "author",
+            "demand": "psu.cp_pwm",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.pwm",
+            "state": "pinned",
+            "unit": 1
+          },
+          {
+            "chosen_by": "author",
+            "demand": "leds.led2_pwm",
+            "locked_by": "firmware-facing@1",
+            "pool": "mcu.pwm",
+            "state": "pinned",
+            "unit": 2
+          }
+        ],
+        "sync_point": "firmware-freeze",
+        "version": 1
+      }
+    ],
+    "solver_version": "ga019-trivial-1"
+  },
+  "attrs": {
+    "resolutions": {
+      "can.bus_pwr": "rail:VBUS",
+      "can.ctrl": "role:mcu",
+      "can.pwr": "rail:+3V3",
+      "console.ser": "role:mcu",
+      "dcdc.amp": "rail:+3V3",
+      "dcdc.drv": "rail:+12V",
+      "dcdc.hv": "rail:HV",
+      "dcdc.hv_ret": "role:solar",
+      "dcdc.i_ref": "role:mcu",
+      "dcdc.pwm": "role:mcu",
+      "dcdc.vbat": "rail:VBUS",
+      "flash.bus": "role:mcu",
+      "flash.pwr": "rail:+3V3",
+      "info.meas": "role:load",
+      "load.amp": "rail:+3V3",
+      "load.cp": "role:psu",
+      "load.i_comp": "role:mcu",
+      "load.vbus": "rail:VBUS",
+      "loadout.out": "role:load",
+      "mcu.osc": "role:xtal",
+      "mcu.pwr": "rail:+3V3",
+      "psu.hv": "rail:HV",
+      "psu.vbat": "rail:VBUS",
+      "swd.dbg": "role:mcu",
+      "swd.pwr": "rail:+3V3",
+      "temp.pwr": "rail:+3V3",
+      "uext.i2c": "bus:I2C1",
+      "uext.pwr": "rail:+3V3",
+      "uext.ser": "role:mcu",
+      "uext.spi": "role:mcu"
+    }
+  },
+  "buses": [
+    {
+      "iface": "i2c",
+      "name": "I2C1"
+    }
+  ],
+  "grounds": [
+    {
+      "name": "GND"
+    }
+  ],
+  "layer": 1,
+  "pools": [
+    {
+      "name": "mcu.adc",
+      "port_signature": [
+        "io:in"
+      ],
+      "provides": "adc",
+      "role": "mcu",
+      "unit_count": 5
+    },
+    {
+      "name": "mcu.gpio",
+      "port_signature": [
+        "io:bidir"
+      ],
+      "provides": "gpio",
+      "role": "mcu",
+      "unit_count": 4
+    },
+    {
+      "name": "mcu.pwm",
+      "port_signature": [
+        "pwm:out"
+      ],
+      "provides": "pwm_ch",
+      "role": "mcu",
+      "unit_count": 3
+    }
+  ],
+  "rails": [
+    {
+      "name": "HV",
+      "volts": 60.0
+    },
+    {
+      "name": "VBUS",
+      "volts": 24.0
+    },
+    {
+      "name": "+12V",
+      "volts": 12.0
+    },
+    {
+      "name": "+3V3",
+      "volts": 3.3
+    }
+  ],
+  "roles": [
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "HV",
+          "volts": 60.0
+        },
+        {
+          "iface": "hv_return"
+        }
+      ],
+      "id": "solar",
+      "kind": "solar_input_port"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "VBUS",
+          "volts": 24.0
+        }
+      ],
+      "id": "battery",
+      "kind": "battery_port"
+    },
+    {
+      "demands": [
+        {
+          "id": "dcdc.hv",
+          "iface": "power",
+          "volts": 60.0
+        },
+        {
+          "id": "dcdc.vbat",
+          "iface": "power",
+          "volts": 24.0
+        },
+        {
+          "id": "dcdc.drv",
+          "iface": "power",
+          "volts": 12.0
+        },
+        {
+          "id": "dcdc.amp",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "dcdc.pwm",
+          "iface": "pwm_pair"
+        },
+        {
+          "id": "dcdc.i_ref",
+          "iface": "dac"
+        },
+        {
+          "id": "dcdc.i_dcdc",
+          "iface": "adc"
+        },
+        {
+          "id": "dcdc.v_hv",
+          "iface": "adc"
+        },
+        {
+          "id": "dcdc.v_lv",
+          "iface": "adc"
+        },
+        {
+          "id": "dcdc.hv_ret",
+          "iface": "hv_return"
+        }
+      ],
+      "id": "dcdc",
+      "kind": "mppt_sync_buck"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "+12V",
+          "volts": 12.0
+        },
+        {
+          "iface": "power",
+          "rail": "+3V3",
+          "volts": 3.3
+        },
+        {
+          "iface": "cp_rail"
+        }
+      ],
+      "demands": [
+        {
+          "id": "psu.hv",
+          "iface": "power",
+          "volts": 60.0
+        },
+        {
+          "id": "psu.vbat",
+          "iface": "power",
+          "volts": 24.0
+        },
+        {
+          "id": "psu.cp_pwm",
+          "iface": "pwm_ch"
+        }
+      ],
+      "id": "psu",
+      "kind": "mppt_supply_chain"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "i2c_master"
+        },
+        {
+          "iface": "pwm_pair"
+        },
+        {
+          "iface": "can_ctrl"
+        },
+        {
+          "iface": "spi1"
+        },
+        {
+          "iface": "spi2"
+        },
+        {
+          "iface": "usart1"
+        },
+        {
+          "iface": "usart2"
+        },
+        {
+          "iface": "swd"
+        },
+        {
+          "iface": "dac"
+        },
+        {
+          "iface": "comp"
+        }
+      ],
+      "demands": [
+        {
+          "id": "mcu.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "mcu.osc",
+          "iface": "osc8"
+        }
+      ],
+      "id": "mcu",
+      "kind": "stm32g431_mcu"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "osc8"
+        }
+      ],
+      "id": "xtal",
+      "kind": "ceramic_resonator_8m"
+    },
+    {
+      "demands": [
+        {
+          "id": "flash.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "flash.bus",
+          "iface": "spi2"
+        }
+      ],
+      "id": "flash",
+      "kind": "spi_flash_8m"
+    },
+    {
+      "demands": [
+        {
+          "id": "uext.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "uext.ser",
+          "iface": "usart2"
+        },
+        {
+          "id": "uext.spi",
+          "iface": "spi1"
+        },
+        {
+          "bus": "I2C1",
+          "id": "uext.i2c",
+          "iface": "i2c"
+        }
+      ],
+      "id": "uext",
+      "kind": "uext_port"
+    },
+    {
+      "demands": [
+        {
+          "id": "console.ser",
+          "iface": "usart1"
+        }
+      ],
+      "id": "console",
+      "kind": "console_port"
+    },
+    {
+      "demands": [
+        {
+          "id": "swd.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "swd.dbg",
+          "iface": "swd"
+        }
+      ],
+      "id": "swd",
+      "kind": "swd_port"
+    },
+    {
+      "demands": [
+        {
+          "id": "temp.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "temp.tap",
+          "iface": "adc"
+        }
+      ],
+      "id": "temp",
+      "kind": "ntc_sense"
+    },
+    {
+      "demands": [
+        {
+          "id": "leds.led1_sel",
+          "iface": "gpio"
+        },
+        {
+          "id": "leds.led1_pwm",
+          "iface": "pwm_ch"
+        },
+        {
+          "id": "leds.led2_sel",
+          "iface": "gpio"
+        },
+        {
+          "id": "leds.led2_pwm",
+          "iface": "pwm_ch"
+        }
+      ],
+      "id": "leds",
+      "kind": "dual_led_indicator"
+    },
+    {
+      "demands": [
+        {
+          "id": "can.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "can.bus_pwr",
+          "iface": "power",
+          "volts": 24.0
+        },
+        {
+          "id": "can.ctrl",
+          "iface": "can_ctrl"
+        }
+      ],
+      "id": "can",
+      "kind": "can_interface"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "load_out"
+        },
+        {
+          "iface": "meas_lv"
+        }
+      ],
+      "demands": [
+        {
+          "id": "load.vbus",
+          "iface": "power",
+          "volts": 24.0
+        },
+        {
+          "id": "load.amp",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "load.cp",
+          "iface": "cp_rail"
+        },
+        {
+          "id": "load.dis",
+          "iface": "gpio"
+        },
+        {
+          "id": "load.i_load",
+          "iface": "adc"
+        },
+        {
+          "id": "load.i_comp",
+          "iface": "comp"
+        }
+      ],
+      "id": "load",
+      "kind": "hs_load_switch"
+    },
+    {
+      "demands": [
+        {
+          "id": "info.flag",
+          "iface": "gpio"
+        },
+        {
+          "id": "info.meas",
+          "iface": "meas_lv"
+        }
+      ],
+      "id": "info",
+      "kind": "power_info_port"
+    },
+    {
+      "demands": [
+        {
+          "id": "loadout.out",
+          "iface": "load_out"
+        }
+      ],
+      "id": "loadout",
+      "kind": "load_output_port"
+    },
+    {
+      "id": "mech",
+      "kind": "board_hardware"
+    }
+  ],
+  "series": "A"
+}

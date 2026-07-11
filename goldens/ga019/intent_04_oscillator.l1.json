@@ -1,0 +1,74 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "attrs": {
+    "resolutions": {
+      "mcu.osc": "role:xtal",
+      "mcu.pwr": "rail:+3V3"
+    }
+  },
+  "grounds": [
+    {
+      "name": "GND"
+    }
+  ],
+  "layer": 1,
+  "rails": [
+    {
+      "name": "+3V3",
+      "volts": 3.3
+    }
+  ],
+  "roles": [
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "+3V3",
+          "volts": 3.3
+        }
+      ],
+      "id": "supply",
+      "kind": "supply"
+    },
+    {
+      "demands": [
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap"
+            ]
+          },
+          "id": "mcu.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "id": "mcu.osc",
+          "iface": "oscillator"
+        }
+      ],
+      "id": "mcu",
+      "kind": "mcu"
+    },
+    {
+      "capabilities": [
+        {
+          "attrs": {
+            "companions": [
+              "load_cap",
+              "load_cap"
+            ]
+          },
+          "iface": "oscillator"
+        }
+      ],
+      "id": "xtal",
+      "kind": "crystal"
+    }
+  ],
+  "series": "A"
+}

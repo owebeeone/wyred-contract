@@ -1,0 +1,119 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "attrs": {
+    "resolutions": {
+      "load_a.pwr": "rail:+5V",
+      "load_b.pwr": "rail:+3V3",
+      "reg33.vin": "rail:VIN",
+      "reg5.vin": "rail:VIN"
+    }
+  },
+  "grounds": [
+    {
+      "name": "GND"
+    }
+  ],
+  "layer": 1,
+  "rails": [
+    {
+      "name": "VIN",
+      "volts": 12.0
+    },
+    {
+      "name": "+5V",
+      "volts": 5.0
+    },
+    {
+      "name": "+3V3",
+      "volts": 3.3
+    }
+  ],
+  "roles": [
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "VIN",
+          "volts": 12.0
+        }
+      ],
+      "id": "src",
+      "kind": "supply"
+    },
+    {
+      "capabilities": [
+        {
+          "attrs": {
+            "companions": [
+              "input_cap",
+              "output_cap"
+            ]
+          },
+          "iface": "power",
+          "rail": "+5V",
+          "volts": 5.0
+        }
+      ],
+      "demands": [
+        {
+          "id": "reg5.vin",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "reg5",
+      "kind": "regulator"
+    },
+    {
+      "capabilities": [
+        {
+          "attrs": {
+            "companions": [
+              "input_cap",
+              "output_cap"
+            ]
+          },
+          "iface": "power",
+          "rail": "+3V3",
+          "volts": 3.3
+        }
+      ],
+      "demands": [
+        {
+          "id": "reg33.vin",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "reg33",
+      "kind": "regulator"
+    },
+    {
+      "demands": [
+        {
+          "id": "load_a.pwr",
+          "iface": "power",
+          "volts": 5.0
+        }
+      ],
+      "id": "load_a",
+      "kind": "load"
+    },
+    {
+      "demands": [
+        {
+          "id": "load_b.pwr",
+          "iface": "power",
+          "volts": 3.3
+        }
+      ],
+      "id": "load_b",
+      "kind": "load"
+    }
+  ],
+  "series": "A"
+}

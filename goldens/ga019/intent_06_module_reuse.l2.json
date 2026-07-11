@@ -1,0 +1,466 @@
+{
+  "components": [
+    {
+      "attrs": {
+        "l1_role": "supply",
+        "voltage": 3.3
+      },
+      "authored": true,
+      "kind": "source",
+      "logic_fn": null,
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 3.3,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-3.3V"
+    },
+    {
+      "attrs": {
+        "l1_role": "mcu"
+      },
+      "authored": true,
+      "kind": "mcu",
+      "logic_fn": null,
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VDD",
+          "prov_v": null,
+          "req_v": 3.3,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": "i2c",
+          "iface_member": "sda",
+          "name": "SDA",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "i2c",
+          "iface_member": "scl",
+          "name": "SCL",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        }
+      ],
+      "value": "MCU-I2C"
+    },
+    {
+      "attrs": {
+        "i2c_addr": 72,
+        "l1_role": "s1.sensor"
+      },
+      "authored": true,
+      "kind": "sensor",
+      "logic_fn": null,
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VDD",
+          "prov_v": null,
+          "req_v": 3.3,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": "i2c",
+          "iface_member": "sda",
+          "name": "SDA",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "i2c",
+          "iface_member": "scl",
+          "name": "SCL",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        }
+      ],
+      "value": "TMP-I2C"
+    },
+    {
+      "attrs": {
+        "i2c_addr": 73,
+        "l1_role": "s2.sensor"
+      },
+      "authored": true,
+      "kind": "sensor",
+      "logic_fn": null,
+      "refdes": "U3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VDD",
+          "prov_v": null,
+          "req_v": 3.3,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": "i2c",
+          "iface_member": "sda",
+          "name": "SDA",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "i2c",
+          "iface_member": "scl",
+          "name": "SCL",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        }
+      ],
+      "value": "TMP-I2C"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for mcu.pwr",
+        "for_demand": "mcu.pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for s1.sensor.pwr",
+        "for_demand": "s1.sensor.pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for s2.sensor.pwr",
+        "for_demand": "s2.sensor.pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "pull-up 4.7k for i2c_speed=standard (library default) on bus I2C0, rail +3V3",
+        "for_demand": "s1.sensor.i2c"
+      },
+      "authored": false,
+      "kind": "resistor",
+      "logic_fn": null,
+      "refdes": "R1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "4.7k"
+    },
+    {
+      "attrs": {
+        "derived": "pull-up 4.7k for i2c_speed=standard (library default) on bus I2C0, rail +3V3",
+        "for_demand": "s1.sensor.i2c"
+      },
+      "authored": false,
+      "kind": "resistor",
+      "logic_fn": null,
+      "refdes": "R2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "4.7k"
+    }
+  ],
+  "escalations": [],
+  "invariants": [],
+  "nets": [
+    {
+      "ground_kind": "ground",
+      "ground_role": "none",
+      "kind": "ground",
+      "name": "GND",
+      "nodes": [
+        [
+          "PS1",
+          "GND"
+        ],
+        [
+          "U1",
+          "GND"
+        ],
+        [
+          "C1",
+          "2"
+        ],
+        [
+          "U2",
+          "GND"
+        ],
+        [
+          "C2",
+          "2"
+        ],
+        [
+          "U3",
+          "GND"
+        ],
+        [
+          "C3",
+          "2"
+        ]
+      ],
+      "voltage": 0.0
+    },
+    {
+      "kind": "power",
+      "name": "+3V3",
+      "nodes": [
+        [
+          "PS1",
+          "VOUT"
+        ],
+        [
+          "U1",
+          "VDD"
+        ],
+        [
+          "C1",
+          "1"
+        ],
+        [
+          "U2",
+          "VDD"
+        ],
+        [
+          "C2",
+          "1"
+        ],
+        [
+          "U3",
+          "VDD"
+        ],
+        [
+          "C3",
+          "1"
+        ],
+        [
+          "R1",
+          "2"
+        ],
+        [
+          "R2",
+          "2"
+        ]
+      ],
+      "voltage": 3.3
+    },
+    {
+      "kind": "signal",
+      "name": "I2C0_SCL",
+      "nodes": [
+        [
+          "U1",
+          "SCL"
+        ],
+        [
+          "U2",
+          "SCL"
+        ],
+        [
+          "U3",
+          "SCL"
+        ],
+        [
+          "R2",
+          "1"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "I2C0_SDA",
+      "nodes": [
+        [
+          "U1",
+          "SDA"
+        ],
+        [
+          "U2",
+          "SDA"
+        ],
+        [
+          "U3",
+          "SDA"
+        ],
+        [
+          "R1",
+          "1"
+        ]
+      ],
+      "voltage": null
+    }
+  ]
+}

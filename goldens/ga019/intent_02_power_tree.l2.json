@@ -1,0 +1,411 @@
+{
+  "components": [
+    {
+      "attrs": {
+        "l1_role": "src",
+        "voltage": 12.0
+      },
+      "authored": true,
+      "kind": "source",
+      "logic_fn": null,
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 12.0,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-12V"
+    },
+    {
+      "attrs": {
+        "l1_role": "reg5"
+      },
+      "authored": true,
+      "kind": "ldo",
+      "logic_fn": null,
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VIN",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 5.0,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "LDO-12-5V"
+    },
+    {
+      "attrs": {
+        "l1_role": "reg33"
+      },
+      "authored": true,
+      "kind": "ldo",
+      "logic_fn": null,
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VIN",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 3.3,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "LDO-12-3.3V"
+    },
+    {
+      "attrs": {
+        "l1_role": "load_a"
+      },
+      "authored": true,
+      "kind": "resistor",
+      "logic_fn": null,
+      "refdes": "R1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": 5.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "RLOAD"
+    },
+    {
+      "attrs": {
+        "l1_role": "load_b"
+      },
+      "authored": true,
+      "kind": "resistor",
+      "logic_fn": null,
+      "refdes": "R2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": 3.3,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "RLOAD"
+    },
+    {
+      "attrs": {
+        "derived": "input cap for reg5",
+        "for_demand": "reg5"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1uF"
+    },
+    {
+      "attrs": {
+        "derived": "output cap for reg5",
+        "for_demand": "reg5"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "2.2uF"
+    },
+    {
+      "attrs": {
+        "derived": "input cap for reg33",
+        "for_demand": "reg33"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1uF"
+    },
+    {
+      "attrs": {
+        "derived": "output cap for reg33",
+        "for_demand": "reg33"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C4",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "2.2uF"
+    }
+  ],
+  "escalations": [],
+  "invariants": [],
+  "nets": [
+    {
+      "ground_kind": "ground",
+      "ground_role": "none",
+      "kind": "ground",
+      "name": "GND",
+      "nodes": [
+        [
+          "PS1",
+          "GND"
+        ],
+        [
+          "U1",
+          "GND"
+        ],
+        [
+          "C1",
+          "2"
+        ],
+        [
+          "C2",
+          "2"
+        ],
+        [
+          "U2",
+          "GND"
+        ],
+        [
+          "C3",
+          "2"
+        ],
+        [
+          "C4",
+          "2"
+        ],
+        [
+          "R1",
+          "B"
+        ],
+        [
+          "R2",
+          "B"
+        ]
+      ],
+      "voltage": 0.0
+    },
+    {
+      "kind": "power",
+      "name": "VIN",
+      "nodes": [
+        [
+          "PS1",
+          "VOUT"
+        ],
+        [
+          "C1",
+          "1"
+        ],
+        [
+          "U1",
+          "VIN"
+        ],
+        [
+          "C3",
+          "1"
+        ],
+        [
+          "U2",
+          "VIN"
+        ]
+      ],
+      "voltage": 12.0
+    },
+    {
+      "kind": "power",
+      "name": "+5V",
+      "nodes": [
+        [
+          "U1",
+          "VOUT"
+        ],
+        [
+          "C2",
+          "1"
+        ],
+        [
+          "R1",
+          "A"
+        ]
+      ],
+      "voltage": 5.0
+    },
+    {
+      "kind": "power",
+      "name": "+3V3",
+      "nodes": [
+        [
+          "U2",
+          "VOUT"
+        ],
+        [
+          "C4",
+          "1"
+        ],
+        [
+          "R2",
+          "A"
+        ]
+      ],
+      "voltage": 3.3
+    }
+  ]
+}

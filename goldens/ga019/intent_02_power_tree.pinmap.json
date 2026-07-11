@@ -1,0 +1,213 @@
+{
+  "allocations": [],
+  "artifact": "intent_02_power_tree",
+  "components": [
+    {
+      "authored": false,
+      "for_demand": "reg5",
+      "kind": "capacitor",
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "VIN",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "1uF"
+    },
+    {
+      "authored": false,
+      "for_demand": "reg5",
+      "kind": "capacitor",
+      "refdes": "C2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+5V",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "2.2uF"
+    },
+    {
+      "authored": false,
+      "for_demand": "reg33",
+      "kind": "capacitor",
+      "refdes": "C3",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "VIN",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "1uF"
+    },
+    {
+      "authored": false,
+      "for_demand": "reg33",
+      "kind": "capacitor",
+      "refdes": "C4",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "2.2uF"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "l1_role": "src",
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "VIN",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-12V"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "l1_role": "load_a",
+      "refdes": "R1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "A",
+          "net": "+5V",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "B",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "RLOAD"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "l1_role": "load_b",
+      "refdes": "R2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "A",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "B",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "RLOAD"
+    },
+    {
+      "authored": true,
+      "kind": "ldo",
+      "l1_role": "reg5",
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VIN",
+          "net": "VIN",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "+5V",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "LDO-12-5V"
+    },
+    {
+      "authored": true,
+      "kind": "ldo",
+      "l1_role": "reg33",
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VIN",
+          "net": "VIN",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "+3V3",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "LDO-12-3.3V"
+    }
+  ],
+  "path": "pinmap",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

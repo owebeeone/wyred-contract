@@ -1,0 +1,143 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "attrs": {
+    "resolutions": {
+      "mcu.pwr": "rail:+3V3",
+      "s1.i2c": "bus:I2C0",
+      "s1.pwr": "rail:+3V3",
+      "s2.i2c": "bus:I2C0",
+      "s2.pwr": "rail:+3V3",
+      "s3.i2c": "bus:I2C0",
+      "s3.pwr": "rail:+3V3"
+    }
+  },
+  "buses": [
+    {
+      "iface": "i2c",
+      "name": "I2C0"
+    }
+  ],
+  "grounds": [
+    {
+      "name": "GND"
+    }
+  ],
+  "layer": 1,
+  "rails": [
+    {
+      "name": "+3V3",
+      "volts": 3.3
+    }
+  ],
+  "roles": [
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "+3V3",
+          "volts": 3.3
+        }
+      ],
+      "id": "supply",
+      "kind": "supply"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "i2c_master"
+        }
+      ],
+      "demands": [
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap"
+            ]
+          },
+          "id": "mcu.pwr",
+          "iface": "power",
+          "volts": 3.3
+        }
+      ],
+      "id": "mcu",
+      "kind": "mcu"
+    },
+    {
+      "demands": [
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap"
+            ]
+          },
+          "id": "s1.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "attrs": {
+            "i2c_addr": 72
+          },
+          "bus": "I2C0",
+          "id": "s1.i2c",
+          "iface": "i2c"
+        }
+      ],
+      "id": "s1",
+      "kind": "sensor"
+    },
+    {
+      "demands": [
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap"
+            ]
+          },
+          "id": "s2.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "attrs": {
+            "i2c_addr": 72
+          },
+          "bus": "I2C0",
+          "id": "s2.i2c",
+          "iface": "i2c"
+        }
+      ],
+      "id": "s2",
+      "kind": "sensor"
+    },
+    {
+      "demands": [
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap"
+            ]
+          },
+          "id": "s3.pwr",
+          "iface": "power",
+          "volts": 3.3
+        },
+        {
+          "attrs": {
+            "i2c_addr": 73
+          },
+          "bus": "I2C0",
+          "id": "s3.i2c",
+          "iface": "i2c"
+        }
+      ],
+      "id": "s3",
+      "kind": "sensor"
+    }
+  ],
+  "series": "A"
+}

@@ -1,0 +1,181 @@
+{
+  "artifact": "intent_08_three_phase_bridge",
+  "authored_total": 16,
+  "component_total": 47,
+  "generated_total": 31,
+  "line_items": [
+    {
+      "authored": false,
+      "derived": {
+        "C1": "decoupling for mcu.pwr",
+        "C10": "bootstrap cap for drive.bridge2.hs.gate_pwr",
+        "C11": "bootstrap cap for drive.bridge2.ls.gate_pwr",
+        "C12": "bootstrap cap for drive.bridge3.hs.gate_pwr",
+        "C13": "bootstrap cap for drive.bridge3.ls.gate_pwr",
+        "C2": "decoupling for drive.bridge1.hs.gate_pwr",
+        "C3": "decoupling for drive.bridge1.ls.gate_pwr",
+        "C4": "decoupling for drive.bridge2.hs.gate_pwr",
+        "C5": "decoupling for drive.bridge2.ls.gate_pwr",
+        "C6": "decoupling for drive.bridge3.hs.gate_pwr",
+        "C7": "decoupling for drive.bridge3.ls.gate_pwr",
+        "C8": "bootstrap cap for drive.bridge1.hs.gate_pwr",
+        "C9": "bootstrap cap for drive.bridge1.ls.gate_pwr"
+      },
+      "kind": "capacitor",
+      "qty": 13,
+      "refdes": [
+        "C1",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "D1": "bootstrap diode for drive.bridge1.hs.gate_pwr",
+        "D2": "bootstrap diode for drive.bridge1.ls.gate_pwr",
+        "D3": "bootstrap diode for drive.bridge2.hs.gate_pwr",
+        "D4": "bootstrap diode for drive.bridge2.ls.gate_pwr",
+        "D5": "bootstrap diode for drive.bridge3.hs.gate_pwr",
+        "D6": "bootstrap diode for drive.bridge3.ls.gate_pwr"
+      },
+      "kind": "diode",
+      "qty": 6,
+      "refdes": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "value": "1N4148"
+    },
+    {
+      "authored": true,
+      "kind": "logic_gate",
+      "qty": 6,
+      "refdes": [
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7"
+      ],
+      "value": "GDRV-BUF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "U10": "interlock NOT for drive.bridge1.ls",
+        "U12": "interlock NOT for drive.bridge2.hs",
+        "U14": "interlock NOT for drive.bridge2.ls",
+        "U16": "interlock NOT for drive.bridge3.hs",
+        "U18": "interlock NOT for drive.bridge3.ls",
+        "U8": "interlock NOT for drive.bridge1.hs"
+      },
+      "kind": "logic_gate",
+      "qty": 6,
+      "refdes": [
+        "U10",
+        "U12",
+        "U14",
+        "U16",
+        "U18",
+        "U8"
+      ],
+      "value": "SN74LVC1G04"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "U11": "interlock AND for drive.bridge1.ls",
+        "U13": "interlock AND for drive.bridge2.hs",
+        "U15": "interlock AND for drive.bridge2.ls",
+        "U17": "interlock AND for drive.bridge3.hs",
+        "U19": "interlock AND for drive.bridge3.ls",
+        "U9": "interlock AND for drive.bridge1.hs"
+      },
+      "kind": "logic_gate",
+      "qty": 6,
+      "refdes": [
+        "U11",
+        "U13",
+        "U15",
+        "U17",
+        "U19",
+        "U9"
+      ],
+      "value": "SN74LVC1G08"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "qty": 1,
+      "refdes": [
+        "U1"
+      ],
+      "value": "MCU-PWM6"
+    },
+    {
+      "authored": true,
+      "kind": "mosfet",
+      "qty": 6,
+      "refdes": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6"
+      ],
+      "value": "NFET-100V"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "PS3"
+      ],
+      "value": "SRC-12V"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "PS1"
+      ],
+      "value": "SRC-3.3V"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "PS2"
+      ],
+      "value": "SRC-48V"
+    }
+  ],
+  "path": "bom",
+  "stamp": {
+    "locks": {
+      "firmware-facing": 0
+    },
+    "series": "A"
+  }
+}

@@ -1,0 +1,426 @@
+{
+  "allocation": {
+    "entries": [
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge1.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 0
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge1.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 1
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge2.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 2
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge2.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 3
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge3.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 4
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge3.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 5
+      }
+    ],
+    "lock_groups": [
+      {
+        "covers": [
+          "pool_allocation",
+          "pin_map"
+        ],
+        "name": "firmware-facing",
+        "owner": "fw-team",
+        "snapshot": null,
+        "sync_point": "firmware-freeze",
+        "version": 0
+      }
+    ],
+    "solver_version": "ga019-trivial-1"
+  },
+  "attrs": {
+    "resolutions": {
+      "drive.bridge1.hs.gate_pwr": "rail:+12V",
+      "drive.bridge1.ls.gate_pwr": "rail:+12V",
+      "drive.bridge1.vbus": "rail:VBUS48",
+      "drive.bridge2.hs.gate_pwr": "rail:+12V",
+      "drive.bridge2.ls.gate_pwr": "rail:+12V",
+      "drive.bridge2.vbus": "rail:VBUS48",
+      "drive.bridge3.hs.gate_pwr": "rail:+12V",
+      "drive.bridge3.ls.gate_pwr": "rail:+12V",
+      "drive.bridge3.vbus": "rail:VBUS48",
+      "mcu.pwr": "rail:+3V3"
+    }
+  },
+  "bonds": [
+    {
+      "joins": [
+        "GND",
+        "PGND"
+      ],
+      "name": "star1"
+    }
+  ],
+  "grounds": [
+    {
+      "name": "GND"
+    },
+    {
+      "name": "PGND",
+      "role": "power",
+      "scope": "drive"
+    }
+  ],
+  "invariants": [
+    {
+      "inputs": [
+        "drive.bridge1.hs.cmd",
+        "drive.bridge1.ls.cmd"
+      ],
+      "kind": "mutual_exclusion",
+      "subjects": [
+        "drive.bridge1.hs.gate",
+        "drive.bridge1.ls.gate"
+      ]
+    },
+    {
+      "inputs": [
+        "drive.bridge2.hs.cmd",
+        "drive.bridge2.ls.cmd"
+      ],
+      "kind": "mutual_exclusion",
+      "subjects": [
+        "drive.bridge2.hs.gate",
+        "drive.bridge2.ls.gate"
+      ]
+    },
+    {
+      "inputs": [
+        "drive.bridge3.hs.cmd",
+        "drive.bridge3.ls.cmd"
+      ],
+      "kind": "mutual_exclusion",
+      "subjects": [
+        "drive.bridge3.hs.gate",
+        "drive.bridge3.ls.gate"
+      ]
+    }
+  ],
+  "layer": 1,
+  "pools": [
+    {
+      "name": "mcu.pwms",
+      "port_signature": [
+        "pwm:out"
+      ],
+      "provides": "pwm",
+      "role": "mcu",
+      "unit_count": 6
+    }
+  ],
+  "rails": [
+    {
+      "name": "+3V3",
+      "volts": 3.3
+    },
+    {
+      "name": "VBUS48",
+      "scope": "drive",
+      "volts": 48.0
+    },
+    {
+      "name": "+12V",
+      "scope": "drive",
+      "volts": 12.0
+    }
+  ],
+  "roles": [
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "+3V3",
+          "volts": 3.3
+        }
+      ],
+      "id": "supply",
+      "kind": "supply"
+    },
+    {
+      "demands": [
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap"
+            ]
+          },
+          "id": "mcu.pwr",
+          "iface": "power",
+          "volts": 3.3
+        }
+      ],
+      "id": "mcu",
+      "kind": "mcu"
+    },
+    {
+      "id": "drive",
+      "kind": "three_phase_bridge",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "VBUS48",
+          "volts": 48.0
+        }
+      ],
+      "id": "drive.bus_src",
+      "kind": "supply",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "+12V",
+          "volts": 12.0
+        }
+      ],
+      "id": "drive.drv_src",
+      "kind": "supply",
+      "scope": "drive"
+    },
+    {
+      "demands": [
+        {
+          "id": "drive.bridge1.vbus",
+          "iface": "power",
+          "volts": 48.0
+        }
+      ],
+      "id": "drive.bridge1",
+      "kind": "half_bridge_module",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "gate_drive"
+        }
+      ],
+      "demands": [
+        {
+          "id": "drive.bridge1.hs.cmd",
+          "iface": "pwm"
+        },
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap",
+              "bootstrap"
+            ]
+          },
+          "id": "drive.bridge1.hs.gate_pwr",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "drive.bridge1.hs",
+      "kind": "bridge_leg",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "gate_drive"
+        }
+      ],
+      "demands": [
+        {
+          "id": "drive.bridge1.ls.cmd",
+          "iface": "pwm"
+        },
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap",
+              "bootstrap"
+            ]
+          },
+          "id": "drive.bridge1.ls.gate_pwr",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "drive.bridge1.ls",
+      "kind": "bridge_leg",
+      "scope": "drive"
+    },
+    {
+      "demands": [
+        {
+          "id": "drive.bridge2.vbus",
+          "iface": "power",
+          "volts": 48.0
+        }
+      ],
+      "id": "drive.bridge2",
+      "kind": "half_bridge_module",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "gate_drive"
+        }
+      ],
+      "demands": [
+        {
+          "id": "drive.bridge2.hs.cmd",
+          "iface": "pwm"
+        },
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap",
+              "bootstrap"
+            ]
+          },
+          "id": "drive.bridge2.hs.gate_pwr",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "drive.bridge2.hs",
+      "kind": "bridge_leg",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "gate_drive"
+        }
+      ],
+      "demands": [
+        {
+          "id": "drive.bridge2.ls.cmd",
+          "iface": "pwm"
+        },
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap",
+              "bootstrap"
+            ]
+          },
+          "id": "drive.bridge2.ls.gate_pwr",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "drive.bridge2.ls",
+      "kind": "bridge_leg",
+      "scope": "drive"
+    },
+    {
+      "demands": [
+        {
+          "id": "drive.bridge3.vbus",
+          "iface": "power",
+          "volts": 48.0
+        }
+      ],
+      "id": "drive.bridge3",
+      "kind": "half_bridge_module",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "gate_drive"
+        }
+      ],
+      "demands": [
+        {
+          "id": "drive.bridge3.hs.cmd",
+          "iface": "pwm"
+        },
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap",
+              "bootstrap"
+            ]
+          },
+          "id": "drive.bridge3.hs.gate_pwr",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "drive.bridge3.hs",
+      "kind": "bridge_leg",
+      "scope": "drive"
+    },
+    {
+      "capabilities": [
+        {
+          "iface": "gate_drive"
+        }
+      ],
+      "demands": [
+        {
+          "id": "drive.bridge3.ls.cmd",
+          "iface": "pwm"
+        },
+        {
+          "attrs": {
+            "companions": [
+              "decoupling_cap",
+              "bootstrap"
+            ]
+          },
+          "id": "drive.bridge3.ls.gate_pwr",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "drive.bridge3.ls",
+      "kind": "bridge_leg",
+      "scope": "drive"
+    }
+  ],
+  "scopes": [
+    {
+      "id": "drive"
+    }
+  ],
+  "series": "A"
+}

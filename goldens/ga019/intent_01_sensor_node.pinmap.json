@@ -1,0 +1,306 @@
+{
+  "allocations": [],
+  "artifact": "intent_01_sensor_node",
+  "components": [
+    {
+      "authored": false,
+      "for_demand": "reg",
+      "kind": "capacitor",
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "VBUS",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "1uF"
+    },
+    {
+      "authored": false,
+      "for_demand": "reg",
+      "kind": "capacitor",
+      "refdes": "C2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "2.2uF"
+    },
+    {
+      "authored": false,
+      "for_demand": "mcu.pwr",
+      "kind": "capacitor",
+      "refdes": "C3",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": false,
+      "for_demand": "sensor_a.pwr",
+      "kind": "capacitor",
+      "refdes": "C4",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": false,
+      "for_demand": "sensor_b.pwr",
+      "kind": "capacitor",
+      "refdes": "C5",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "l1_role": "supply",
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "VBUS",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-5V"
+    },
+    {
+      "authored": false,
+      "for_demand": "sensor_a.i2c",
+      "kind": "resistor",
+      "refdes": "R1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "I2C0_SDA",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "+3V3",
+          "role": "passive"
+        }
+      ],
+      "value": "2.2k"
+    },
+    {
+      "authored": false,
+      "for_demand": "sensor_a.i2c",
+      "kind": "resistor",
+      "refdes": "R2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "I2C0_SCL",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "+3V3",
+          "role": "passive"
+        }
+      ],
+      "value": "2.2k"
+    },
+    {
+      "authored": true,
+      "kind": "ldo",
+      "l1_role": "reg",
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VIN",
+          "net": "VBUS",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "+3V3",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "LDO-5-3.3V"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "l1_role": "mcu",
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VDD",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "name": "SDA",
+          "net": "I2C0_SDA",
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "SCL",
+          "net": "I2C0_SCL",
+          "role": "signal"
+        }
+      ],
+      "value": "MCU-I2C"
+    },
+    {
+      "authored": true,
+      "kind": "sensor",
+      "l1_role": "sensor_a",
+      "refdes": "U3",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VDD",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "name": "SDA",
+          "net": "I2C0_SDA",
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "SCL",
+          "net": "I2C0_SCL",
+          "role": "signal"
+        }
+      ],
+      "value": "TMP-I2C"
+    },
+    {
+      "authored": true,
+      "kind": "sensor",
+      "l1_role": "sensor_b",
+      "refdes": "U4",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VDD",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "name": "SDA",
+          "net": "I2C0_SDA",
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "SCL",
+          "net": "I2C0_SCL",
+          "role": "signal"
+        }
+      ],
+      "value": "TMP-I2C"
+    }
+  ],
+  "path": "pinmap",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

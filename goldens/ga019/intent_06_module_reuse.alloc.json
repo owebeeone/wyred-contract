@@ -1,0 +1,51 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "bindings": {
+    "mcu": "U1",
+    "s1.sensor": "U2",
+    "s2.sensor": "U3",
+    "supply": "PS1"
+  },
+  "bound_parts": {
+    "mcu": [
+      {
+        "chosen_by": "solver",
+        "part": "MCU-I2C",
+        "refdes": "U1"
+      }
+    ],
+    "s1.sensor": [
+      {
+        "chosen_by": "solver",
+        "part": "TMP-I2C",
+        "refdes": "U2"
+      }
+    ],
+    "s2.sensor": [
+      {
+        "chosen_by": "solver",
+        "part": "TMP-I2C",
+        "refdes": "U3"
+      }
+    ],
+    "supply": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-3.3V",
+        "refdes": "PS1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  },
+  "wiring": []
+}

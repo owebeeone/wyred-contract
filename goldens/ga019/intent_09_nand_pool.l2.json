@@ -1,0 +1,496 @@
+{
+  "components": [
+    {
+      "attrs": {
+        "l1_role": "supply",
+        "voltage": 3.3
+      },
+      "authored": true,
+      "kind": "source",
+      "logic_fn": null,
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 3.3,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-3.3V"
+    },
+    {
+      "attrs": {
+        "l1_role": "quad"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": "nand",
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VDD",
+          "prov_v": null,
+          "req_v": 3.3,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": "nand",
+          "iface_member": "provide",
+          "name": "Y1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": "nand",
+          "iface_member": "provide",
+          "name": "Y2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A3",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B3",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": "nand",
+          "iface_member": "provide",
+          "name": "Y3",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A4",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B4",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": "nand",
+          "iface_member": "provide",
+          "name": "Y4",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "74HC00"
+    },
+    {
+      "attrs": {
+        "l1_role": "glue_a"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": null,
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "N0_A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "N0_B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "nand",
+          "iface_member": "require",
+          "name": "N0_Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "N1_A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "N1_B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "nand",
+          "iface_member": "require",
+          "name": "N1_Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        }
+      ],
+      "value": "GLUE-2N"
+    },
+    {
+      "attrs": {
+        "l1_role": "glue_b"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": null,
+      "refdes": "U3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "N0_A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "N0_B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "nand",
+          "iface_member": "require",
+          "name": "N0_Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        }
+      ],
+      "value": "GLUE-1N"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for quad.pwr",
+        "for_demand": "quad.pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    }
+  ],
+  "escalations": [],
+  "invariants": [],
+  "nets": [
+    {
+      "ground_kind": "ground",
+      "ground_role": "none",
+      "kind": "ground",
+      "name": "GND",
+      "nodes": [
+        [
+          "PS1",
+          "GND"
+        ],
+        [
+          "U1",
+          "GND"
+        ],
+        [
+          "C1",
+          "2"
+        ],
+        [
+          "U1",
+          "A4"
+        ],
+        [
+          "U1",
+          "B4"
+        ]
+      ],
+      "voltage": 0.0
+    },
+    {
+      "kind": "power",
+      "name": "+3V3",
+      "nodes": [
+        [
+          "PS1",
+          "VOUT"
+        ],
+        [
+          "U1",
+          "VDD"
+        ],
+        [
+          "C1",
+          "1"
+        ]
+      ],
+      "voltage": 3.3
+    },
+    {
+      "kind": "signal",
+      "name": "glue_a.nands.0.a",
+      "nodes": [
+        [
+          "U1",
+          "A1"
+        ],
+        [
+          "U2",
+          "N0_A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_a.nands.0.b",
+      "nodes": [
+        [
+          "U1",
+          "B1"
+        ],
+        [
+          "U2",
+          "N0_B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_a.nands.0.y",
+      "nodes": [
+        [
+          "U1",
+          "Y1"
+        ],
+        [
+          "U2",
+          "N0_Y"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_a.nands.1.a",
+      "nodes": [
+        [
+          "U1",
+          "A2"
+        ],
+        [
+          "U2",
+          "N1_A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_a.nands.1.b",
+      "nodes": [
+        [
+          "U1",
+          "B2"
+        ],
+        [
+          "U2",
+          "N1_B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_a.nands.1.y",
+      "nodes": [
+        [
+          "U1",
+          "Y2"
+        ],
+        [
+          "U2",
+          "N1_Y"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_b.nand.0.a",
+      "nodes": [
+        [
+          "U1",
+          "A3"
+        ],
+        [
+          "U3",
+          "N0_A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_b.nand.0.b",
+      "nodes": [
+        [
+          "U1",
+          "B3"
+        ],
+        [
+          "U3",
+          "N0_B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "glue_b.nand.0.y",
+      "nodes": [
+        [
+          "U1",
+          "Y3"
+        ],
+        [
+          "U3",
+          "N0_Y"
+        ]
+      ],
+      "voltage": null
+    }
+  ]
+}

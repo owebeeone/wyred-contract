@@ -1,0 +1,905 @@
+{
+  "artifact": "mppt_2420_hc",
+  "authored_total": 43,
+  "component_total": 169,
+  "generated_total": 126,
+  "line_items": [
+    {
+      "authored": true,
+      "kind": "buck_regulator",
+      "qty": 1,
+      "refdes": [
+        "U4"
+      ],
+      "value": "LMR16006X"
+    },
+    {
+      "authored": true,
+      "kind": "can_transceiver",
+      "qty": 1,
+      "refdes": [
+        "U7"
+      ],
+      "value": "TCAN334"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C42": "inductor-side shunt sense, INA186 application (board values): film cap, inductor side",
+        "C44": "inductor-side shunt sense, INA186 application (board values): film cap, VBUS side"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C42",
+        "C44"
+      ],
+      "value": "0.22\u00b5F"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C10": "LM5107 half-bridge gate-drive network (datasheet application): bootstrap cap",
+        "C13": "INA186 supply decoupling",
+        "C20": "LMR16006X 3V3 buck (datasheet application, board values): BOOT cap",
+        "C22": "STM32G431 application circuit: VDD decoupling",
+        "C24": "discrete charge pump for the HS gate rails (board topology): CP_OUT reservoir (returns to VBUS, board topology)",
+        "C28": "INA186 supply decoupling",
+        "C29": "STM32G431 application circuit: NRST filter",
+        "C30": "STM32G431 application circuit: VDD decoupling",
+        "C31": "STM32G431 application circuit: VDD decoupling",
+        "C32": "STM32G431 application circuit: VDD decoupling",
+        "C4": "HV input ceramic",
+        "C48": "STM32G431 application circuit: VREF+ decoupling",
+        "C7": "TCAN334 supply decoupling",
+        "C9": "NTC divider filter (board value)"
+      },
+      "kind": "capacitor",
+      "qty": 14,
+      "refdes": [
+        "C10",
+        "C13",
+        "C20",
+        "C22",
+        "C24",
+        "C28",
+        "C29",
+        "C30",
+        "C31",
+        "C32",
+        "C4",
+        "C48",
+        "C7",
+        "C9"
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C14": "HV divider filter",
+        "C16": "battery divider filter",
+        "C17": "solar-input RF bypass across the terminals (board value)",
+        "C25": "discrete charge pump for the HS gate rails (board topology): flying cap",
+        "C26": "load-current ADC filter",
+        "C34": "STM32G431 application circuit: VDDA decoupling",
+        "C37": "load-output RF bypass",
+        "C45": "comparator input filter",
+        "C8": "battery-terminal RF bypass (board value)"
+      },
+      "kind": "capacitor",
+      "qty": 9,
+      "refdes": [
+        "C14",
+        "C16",
+        "C17",
+        "C25",
+        "C26",
+        "C34",
+        "C37",
+        "C45",
+        "C8"
+      ],
+      "value": "10nF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C21": "LMR16006X 3V3 buck (datasheet application, board values): output cap",
+        "C23": "LMR16006X 3V3 buck (datasheet application, board values): output cap"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C21",
+        "C23"
+      ],
+      "value": "10\u00b5F"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C11": "inductor-side shunt sense, INA186 application (board values): differential filter",
+        "C15": "inductor-side shunt sense, INA186 application (board values): ADC filter"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C11",
+        "C15"
+      ],
+      "value": "1nF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C18": "supply-input bulk",
+        "C3": "HV input ceramic",
+        "C40": "supply-input ceramic"
+      },
+      "kind": "capacitor",
+      "qty": 3,
+      "refdes": [
+        "C18",
+        "C3",
+        "C40"
+      ],
+      "value": "1\u00b5F"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C6": "switch-node RC snubber (board values)"
+      },
+      "kind": "capacitor",
+      "qty": 1,
+      "refdes": [
+        "C6"
+      ],
+      "value": "2.2nF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C12": "12V zener-follower rail (board topology): output cap",
+        "C33": "STM32G431 application circuit: VDD bulk",
+        "C39": "STM32G431 application circuit: VDDA bulk",
+        "C49": "STM32G431 application circuit: VREF+ bulk"
+      },
+      "kind": "capacitor",
+      "qty": 4,
+      "refdes": [
+        "C12",
+        "C33",
+        "C39",
+        "C49"
+      ],
+      "value": "2.2\u00b5F"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C1": "HV input bulk (board value; BOM says 560\u00b5F \u2014 confessed discrepancy)",
+        "C2": "HV input bulk (board value; BOM says 560\u00b5F \u2014 confessed discrepancy)"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C1",
+        "C2"
+      ],
+      "value": "390\u00b5F"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C19": "LMR16006X 3V3 buck (datasheet application, board values): VIN cap",
+        "C41": "12V zener-follower rail (board topology): output cap"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C19",
+        "C41"
+      ],
+      "value": "4.7\u00b5F"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C27": "battery-side bulk",
+        "C5": "battery-side bulk"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C27",
+        "C5"
+      ],
+      "value": "680\u00b5F"
+    },
+    {
+      "authored": true,
+      "kind": "connector",
+      "qty": 2,
+      "refdes": [
+        "J4",
+        "J5"
+      ],
+      "value": "8P8C"
+    },
+    {
+      "authored": true,
+      "kind": "connector",
+      "qty": 1,
+      "refdes": [
+        "P1"
+      ],
+      "value": "CONN_01X02"
+    },
+    {
+      "authored": true,
+      "kind": "connector",
+      "qty": 1,
+      "refdes": [
+        "J6"
+      ],
+      "value": "JST PH"
+    },
+    {
+      "authored": true,
+      "kind": "connector",
+      "qty": 3,
+      "refdes": [
+        "J1",
+        "J2",
+        "J3"
+      ],
+      "value": "MKDS 5/ 2-9,5"
+    },
+    {
+      "authored": true,
+      "kind": "connector",
+      "qty": 1,
+      "refdes": [
+        "SWD1"
+      ],
+      "value": "ST_Nucleo_SWD"
+    },
+    {
+      "authored": true,
+      "kind": "connector",
+      "qty": 1,
+      "refdes": [
+        "J7"
+      ],
+      "value": "UEXT"
+    },
+    {
+      "authored": true,
+      "kind": "current_sense",
+      "qty": 2,
+      "refdes": [
+        "U3",
+        "U5"
+      ],
+      "value": "INA186"
+    },
+    {
+      "authored": true,
+      "kind": "diode",
+      "qty": 2,
+      "refdes": [
+        "D3",
+        "D5"
+      ],
+      "value": "12V"
+    },
+    {
+      "authored": true,
+      "kind": "diode",
+      "qty": 1,
+      "refdes": [
+        "D10"
+      ],
+      "value": "1N4148"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "D16": "LM5107 half-bridge gate-drive network (datasheet application): bootstrap diode"
+      },
+      "kind": "diode",
+      "qty": 1,
+      "refdes": [
+        "D16"
+      ],
+      "value": "1N4148"
+    },
+    {
+      "authored": true,
+      "kind": "diode",
+      "qty": 1,
+      "refdes": [
+        "D9"
+      ],
+      "value": "47V"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "D4": "discrete charge pump for the HS gate rails (board topology): dual-schottky rectifier (+12V -> CP_OUT)"
+      },
+      "kind": "diode",
+      "qty": 1,
+      "refdes": [
+        "D4"
+      ],
+      "value": "BAS70-04"
+    },
+    {
+      "authored": true,
+      "kind": "diode",
+      "qty": 1,
+      "refdes": [
+        "D2"
+      ],
+      "value": "NRVTS260ESFT1G"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "D6": "CAN_GND ground-shift clamp (board topology)"
+      },
+      "kind": "diode",
+      "qty": 1,
+      "refdes": [
+        "D6"
+      ],
+      "value": "NRVTS260ESFT1G"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "D14": "LM5107 half-bridge gate-drive network (datasheet application): HS gate speed-up",
+        "D15": "LM5107 half-bridge gate-drive network (datasheet application): LS gate speed-up",
+        "D7": "reverse-protection gate charge from the LS drive (board topology)"
+      },
+      "kind": "diode",
+      "qty": 3,
+      "refdes": [
+        "D14",
+        "D15",
+        "D7"
+      ],
+      "value": "SS14FL"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "D1": "LMR16006X 3V3 buck (datasheet application, board values): catch diode"
+      },
+      "kind": "diode",
+      "qty": 1,
+      "refdes": [
+        "D1"
+      ],
+      "value": "SS16FP"
+    },
+    {
+      "authored": true,
+      "kind": "fiducial",
+      "qty": 3,
+      "refdes": [
+        "FID1",
+        "FID2",
+        "FID3"
+      ],
+      "value": "Fiducial"
+    },
+    {
+      "authored": true,
+      "kind": "flash",
+      "qty": 1,
+      "refdes": [
+        "U6"
+      ],
+      "value": "W25Q80DVS"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "F2": "CAN bus power feed from VBUS (polyfuses + diode, board values): polyfuse",
+        "F3": "CAN bus power feed from VBUS (polyfuses + diode, board values): polyfuse"
+      },
+      "kind": "fuse",
+      "qty": 2,
+      "refdes": [
+        "F2",
+        "F3"
+      ],
+      "value": "500mA"
+    },
+    {
+      "authored": true,
+      "kind": "fuse_holder",
+      "qty": 1,
+      "refdes": [
+        "XF1"
+      ],
+      "value": "Fuse_Holder"
+    },
+    {
+      "authored": true,
+      "kind": "gate_driver",
+      "qty": 1,
+      "refdes": [
+        "U1"
+      ],
+      "value": "LM5107"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "L2": "LMR16006X 3V3 buck (datasheet application, board values): input filter"
+      },
+      "kind": "inductor",
+      "qty": 1,
+      "refdes": [
+        "L2"
+      ],
+      "value": "4.7\u00b5H"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "L3": "LMR16006X 3V3 buck (datasheet application, board values): inductor"
+      },
+      "kind": "inductor",
+      "qty": 1,
+      "refdes": [
+        "L3"
+      ],
+      "value": "47\u00b5H"
+    },
+    {
+      "authored": true,
+      "kind": "inductor",
+      "qty": 1,
+      "refdes": [
+        "L1"
+      ],
+      "value": "53\u00b5H"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "JP1": "CAN termination jumper (normally closed)"
+      },
+      "kind": "jumper",
+      "qty": 1,
+      "refdes": [
+        "JP1"
+      ],
+      "value": "Jumper_NC_Small"
+    },
+    {
+      "authored": true,
+      "kind": "led",
+      "qty": 2,
+      "refdes": [
+        "LED1",
+        "LED2"
+      ],
+      "value": "LED_Dual_PLCC4"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "qty": 1,
+      "refdes": [
+        "U2"
+      ],
+      "value": "STM32G431CBTx"
+    },
+    {
+      "authored": true,
+      "kind": "mechanical",
+      "qty": 4,
+      "refdes": [
+        "MK1",
+        "MK2",
+        "MK3",
+        "MK4"
+      ],
+      "value": "Mounting_Hole"
+    },
+    {
+      "authored": true,
+      "kind": "mosfet",
+      "qty": 1,
+      "refdes": [
+        "Q4"
+      ],
+      "value": "BUK98180-100A"
+    },
+    {
+      "authored": true,
+      "kind": "mosfet",
+      "qty": 4,
+      "refdes": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q7"
+      ],
+      "value": "IPA045N10N3G"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R13": "HV voltage divider 100k/2.2k (board values)",
+        "R17": "battery voltage divider 100k/5.6k (board values)",
+        "R22": "discrete charge pump for the HS gate rails (board topology): push-pull pull-up",
+        "R30": "SCK idle pull-down (board value)",
+        "R58": "HS load-switch gate network from CP_OUT (board topology): CP_OUT series",
+        "R60": "HV supply harvest (Q4 source follower, board topology): gate pull-up",
+        "R65": "HV supply harvest (Q4 source follower, board topology): CP_OUT feedback into T2"
+      },
+      "kind": "resistor",
+      "qty": 7,
+      "refdes": [
+        "R13",
+        "R17",
+        "R22",
+        "R30",
+        "R58",
+        "R60",
+        "R65"
+      ],
+      "value": "100k"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R8": "inductor-side shunt sense, INA186 application (board values): IN+ filter",
+        "R9": "inductor-side shunt sense, INA186 application (board values): IN- filter"
+      },
+      "kind": "resistor",
+      "qty": 2,
+      "refdes": [
+        "R8",
+        "R9"
+      ],
+      "value": "10R"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "qty": 1,
+      "refdes": [
+        "R7"
+      ],
+      "value": "10k"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R16": "discrete charge pump for the HS gate rails (board topology): PWM base series",
+        "R19": "HV supply harvest (Q4 source follower, board topology): T2 base bias",
+        "R24": "LMR16006X 3V3 buck (datasheet application, board values): FB divider 33k/10k",
+        "R49": "overcurrent comparator divider 10k/8.2k",
+        "R59": "HS load-switch gate network from CP_OUT (board topology): disable pull",
+        "R64": "12V zener-follower rail (board topology): zener bias"
+      },
+      "kind": "resistor",
+      "qty": 6,
+      "refdes": [
+        "R16",
+        "R19",
+        "R24",
+        "R49",
+        "R59",
+        "R64"
+      ],
+      "value": "10k"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R11": "CAN split termination (board value)"
+      },
+      "kind": "resistor",
+      "qty": 1,
+      "refdes": [
+        "R11"
+      ],
+      "value": "120R"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R15": "discrete charge pump for the HS gate rails (board topology): PWM idle pull-down",
+        "R56": "reverse-protection gate bleed",
+        "R61": "HS load-switch gate network from CP_OUT (board topology): gate-source bleed"
+      },
+      "kind": "resistor",
+      "qty": 3,
+      "refdes": [
+        "R15",
+        "R56",
+        "R61"
+      ],
+      "value": "1M"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R10": "inductor-side shunt sense, INA186 application (board values): ADC series",
+        "R25": "discrete charge pump for the HS gate rails (board topology): push-pull base series",
+        "R26": "dual-LED drive: GPIO selects colour, timer PWM dims (board values)",
+        "R29": "dual-LED drive: GPIO selects colour, timer PWM dims (board values)",
+        "R66": "HV supply harvest (Q4 source follower, board topology): gate pull-down series"
+      },
+      "kind": "resistor",
+      "qty": 5,
+      "refdes": [
+        "R10",
+        "R25",
+        "R26",
+        "R29",
+        "R66"
+      ],
+      "value": "1k"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R14": "HV voltage divider 100k/2.2k",
+        "R20": "I2C1 bus pull-up (SCL), 3V3 logic (board value)",
+        "R21": "I2C1 bus pull-up (SDA), 3V3 logic (board value)",
+        "R31": "CS# pull-up (board value)",
+        "R44": "load-current ADC series (board value)",
+        "R57": "HS load-switch gate network from CP_OUT (board topology): disable base series"
+      },
+      "kind": "resistor",
+      "qty": 6,
+      "refdes": [
+        "R14",
+        "R20",
+        "R21",
+        "R31",
+        "R44",
+        "R57"
+      ],
+      "value": "2.2k"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "qty": 2,
+      "refdes": [
+        "R6",
+        "R62"
+      ],
+      "value": "2m"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R23": "LMR16006X 3V3 buck (datasheet application, board values): FB divider 33k/10k"
+      },
+      "kind": "resistor",
+      "qty": 1,
+      "refdes": [
+        "R23"
+      ],
+      "value": "33k"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R1": "LM5107 half-bridge gate-drive network (datasheet application): HS gate resistor",
+        "R2": "LM5107 half-bridge gate-drive network (datasheet application): LS gate resistor",
+        "R3": "LM5107 half-bridge gate-drive network (datasheet application): bootstrap feed",
+        "R5": "LM5107 half-bridge gate-drive network (datasheet application): bootstrap series"
+      },
+      "kind": "resistor",
+      "qty": 4,
+      "refdes": [
+        "R1",
+        "R2",
+        "R3",
+        "R5"
+      ],
+      "value": "3R3"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R27": "SPI2 series termination (board values)",
+        "R28": "SPI2 series termination (board values)",
+        "R32": "SPI2 series termination (board values)",
+        "R40": "STM32G431 application circuit: VDDA feed"
+      },
+      "kind": "resistor",
+      "qty": 4,
+      "refdes": [
+        "R27",
+        "R28",
+        "R32",
+        "R40"
+      ],
+      "value": "47R"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R12": "switch-node RC snubber (board values)",
+        "R4": "switch-node RC snubber (board values)"
+      },
+      "kind": "resistor",
+      "qty": 2,
+      "refdes": [
+        "R12",
+        "R4"
+      ],
+      "value": "4R7"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R18": "battery voltage divider 100k/5.6k"
+      },
+      "kind": "resistor",
+      "qty": 1,
+      "refdes": [
+        "R18"
+      ],
+      "value": "5.6k"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R50": "overcurrent comparator divider 10k/8.2k"
+      },
+      "kind": "resistor",
+      "qty": 1,
+      "refdes": [
+        "R50"
+      ],
+      "value": "8.2k"
+    },
+    {
+      "authored": true,
+      "kind": "resonator",
+      "qty": 1,
+      "refdes": [
+        "Y1"
+      ],
+      "value": "8MHz"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "TP1": "board testpoint: I_DCDC",
+        "TP10": "board testpoint: CP_OUT",
+        "TP11": "board testpoint: +3V3",
+        "TP12": "board testpoint: LED1_A",
+        "TP13": "board testpoint: LED1_K",
+        "TP14": "board testpoint: LED2_A",
+        "TP15": "board testpoint: TEMP_INT",
+        "TP16": "board testpoint: LOAD+",
+        "TP17": "board testpoint: CAN_TX",
+        "TP18": "board testpoint: CAN_STB",
+        "TP19": "board testpoint: CAN_RX",
+        "TP2": "board testpoint: I_LOAD",
+        "TP20": "board testpoint: LED2_K",
+        "TP21": "board testpoint: PWM_HS",
+        "TP22": "board testpoint: PWM_LS",
+        "TP3": "board testpoint: V_DCDC_H",
+        "TP4": "board testpoint: +12V",
+        "TP5": "board testpoint: HV-",
+        "TP6": "board testpoint: V_DCDC_L",
+        "TP7": "board testpoint: HV+",
+        "TP8": "board testpoint: VBUS",
+        "TP9": "board testpoint: SUPPLY_INPUT"
+      },
+      "kind": "test_point",
+      "qty": 22,
+      "refdes": [
+        "TP1",
+        "TP10",
+        "TP11",
+        "TP12",
+        "TP13",
+        "TP14",
+        "TP15",
+        "TP16",
+        "TP17",
+        "TP18",
+        "TP19",
+        "TP2",
+        "TP20",
+        "TP21",
+        "TP22",
+        "TP3",
+        "TP4",
+        "TP5",
+        "TP6",
+        "TP7",
+        "TP8",
+        "TP9"
+      ],
+      "value": "1.5mm"
+    },
+    {
+      "authored": true,
+      "kind": "thermistor",
+      "qty": 1,
+      "refdes": [
+        "RT1"
+      ],
+      "value": "10k"
+    },
+    {
+      "authored": true,
+      "kind": "transistor",
+      "qty": 1,
+      "refdes": [
+        "T10"
+      ],
+      "value": "BC846B"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "T1": "discrete charge pump for the HS gate rails (board topology): level shifter",
+        "T2": "HV supply harvest (Q4 source follower, board topology): cutoff when the charge pump runs",
+        "T3": "discrete charge pump for the HS gate rails (board topology): push",
+        "T5": "HS load-switch gate network from CP_OUT (board topology): disable switch"
+      },
+      "kind": "transistor",
+      "qty": 4,
+      "refdes": [
+        "T1",
+        "T2",
+        "T3",
+        "T5"
+      ],
+      "value": "BC846B"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "T4": "discrete charge pump for the HS gate rails (board topology): pull"
+      },
+      "kind": "transistor",
+      "qty": 1,
+      "refdes": [
+        "T4"
+      ],
+      "value": "BC856B"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "RV2": "solar-input surge varistor (board value)"
+      },
+      "kind": "varistor",
+      "qty": 1,
+      "refdes": [
+        "RV2"
+      ],
+      "value": "82V"
+    }
+  ],
+  "path": "bom",
+  "stamp": {
+    "locks": {
+      "external-interface": 0,
+      "firmware-facing": 0
+    },
+    "series": "A"
+  }
+}

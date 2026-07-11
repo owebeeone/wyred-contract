@@ -1,0 +1,414 @@
+{
+  "connector_pinout": [
+    {
+      "connector": "J1",
+      "function": "SOLAR+",
+      "locked_by": "external-interface@1",
+      "net": "HV",
+      "pin": "1"
+    },
+    {
+      "connector": "J1",
+      "function": "SOLAR-",
+      "locked_by": "external-interface@1",
+      "net": "dcdc.hv_ret.ret",
+      "pin": "2"
+    },
+    {
+      "connector": "J2",
+      "function": "BAT+",
+      "locked_by": "external-interface@1",
+      "net": "battery.BAT_P",
+      "pin": "1"
+    },
+    {
+      "connector": "J2",
+      "function": "BAT-",
+      "locked_by": "external-interface@1",
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J3",
+      "function": "LOAD+",
+      "locked_by": "external-interface@1",
+      "net": "loadout.out.out",
+      "pin": "1"
+    },
+    {
+      "connector": "J3",
+      "function": "LOAD-",
+      "locked_by": "external-interface@1",
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_H",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_H",
+      "pin": "1"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_L",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_L",
+      "pin": "2"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_GND",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_GND",
+      "pin": "3"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_PWR",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_PWR1",
+      "pin": "4"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_PWR",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_PWR1",
+      "pin": "5"
+    },
+    {
+      "connector": "J4",
+      "function": "NC",
+      "locked_by": "external-interface@1",
+      "net": null,
+      "pin": "6"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_GND",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_GND",
+      "pin": "7"
+    },
+    {
+      "connector": "J4",
+      "function": "NC",
+      "locked_by": "external-interface@1",
+      "net": null,
+      "pin": "8"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_H",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_H",
+      "pin": "1"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_L",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_L",
+      "pin": "2"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_GND",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_GND",
+      "pin": "3"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_PWR",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_PWR2",
+      "pin": "4"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_PWR",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_PWR2",
+      "pin": "5"
+    },
+    {
+      "connector": "J5",
+      "function": "NC",
+      "locked_by": "external-interface@1",
+      "net": null,
+      "pin": "6"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_GND",
+      "locked_by": "external-interface@1",
+      "net": "can.CAN_GND",
+      "pin": "7"
+    },
+    {
+      "connector": "J5",
+      "function": "NC",
+      "locked_by": "external-interface@1",
+      "net": null,
+      "pin": "8"
+    },
+    {
+      "connector": "J6",
+      "function": "PWR_INFO",
+      "locked_by": "external-interface@1",
+      "net": "info.flag.0.io",
+      "pin": "1"
+    },
+    {
+      "connector": "J6",
+      "function": "GND",
+      "locked_by": "external-interface@1",
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J6",
+      "function": "MEAS_LV+",
+      "locked_by": "external-interface@1",
+      "net": "info.meas.out",
+      "pin": "3"
+    },
+    {
+      "connector": "J7",
+      "function": "+3.3V",
+      "locked_by": "external-interface@1",
+      "net": "+3V3",
+      "pin": "1"
+    },
+    {
+      "connector": "J7",
+      "function": "SSEL",
+      "locked_by": "external-interface@1",
+      "net": "uext.spi.ssel",
+      "pin": "10"
+    },
+    {
+      "connector": "J7",
+      "function": "GND",
+      "locked_by": "external-interface@1",
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J7",
+      "function": "TXD",
+      "locked_by": "external-interface@1",
+      "net": "uext.ser.tx",
+      "pin": "3"
+    },
+    {
+      "connector": "J7",
+      "function": "RXD",
+      "locked_by": "external-interface@1",
+      "net": "uext.ser.rx",
+      "pin": "4"
+    },
+    {
+      "connector": "J7",
+      "function": "SCL",
+      "locked_by": "external-interface@1",
+      "net": "I2C1_SCL",
+      "pin": "5"
+    },
+    {
+      "connector": "J7",
+      "function": "SDA",
+      "locked_by": "external-interface@1",
+      "net": "I2C1_SDA",
+      "pin": "6"
+    },
+    {
+      "connector": "J7",
+      "function": "MISO",
+      "locked_by": "external-interface@1",
+      "net": "uext.spi.miso",
+      "pin": "7"
+    },
+    {
+      "connector": "J7",
+      "function": "MOSI",
+      "locked_by": "external-interface@1",
+      "net": "uext.spi.mosi",
+      "pin": "8"
+    },
+    {
+      "connector": "J7",
+      "function": "SCK",
+      "locked_by": "external-interface@1",
+      "net": "uext.spi.sck",
+      "pin": "9"
+    },
+    {
+      "connector": "P1",
+      "function": "TX",
+      "locked_by": "external-interface@1",
+      "net": "console.ser.tx",
+      "pin": "1"
+    },
+    {
+      "connector": "P1",
+      "function": "RX",
+      "locked_by": "external-interface@1",
+      "net": "console.ser.rx",
+      "pin": "2"
+    },
+    {
+      "connector": "SWD1",
+      "function": "VDD_TARGET",
+      "locked_by": "external-interface@1",
+      "net": "+3V3",
+      "pin": "1"
+    },
+    {
+      "connector": "SWD1",
+      "function": "SWCLK",
+      "locked_by": "external-interface@1",
+      "net": "swd.dbg.clk",
+      "pin": "2"
+    },
+    {
+      "connector": "SWD1",
+      "function": "GND",
+      "locked_by": "external-interface@1",
+      "net": "GND",
+      "pin": "3"
+    },
+    {
+      "connector": "SWD1",
+      "function": "SWDIO",
+      "locked_by": "external-interface@1",
+      "net": "swd.dbg.dio",
+      "pin": "4"
+    },
+    {
+      "connector": "SWD1",
+      "function": "NRST",
+      "locked_by": "external-interface@1",
+      "net": "swd.dbg.rst",
+      "pin": "5"
+    }
+  ],
+  "groups": {
+    "external-interface": {
+      "covers": [
+        "connector_pinout"
+      ],
+      "entries": [],
+      "version": 1
+    },
+    "firmware-facing": {
+      "covers": [
+        "pin_map",
+        "pool_allocation"
+      ],
+      "entries": [
+        {
+          "chosen_by": "author",
+          "demand": "dcdc.i_dcdc",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.adc",
+          "state": "pinned",
+          "unit": 0
+        },
+        {
+          "chosen_by": "author",
+          "demand": "load.i_load",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.adc",
+          "state": "pinned",
+          "unit": 1
+        },
+        {
+          "chosen_by": "author",
+          "demand": "dcdc.v_hv",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.adc",
+          "state": "pinned",
+          "unit": 2
+        },
+        {
+          "chosen_by": "author",
+          "demand": "dcdc.v_lv",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.adc",
+          "state": "pinned",
+          "unit": 3
+        },
+        {
+          "chosen_by": "author",
+          "demand": "temp.tap",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.adc",
+          "state": "pinned",
+          "unit": 4
+        },
+        {
+          "chosen_by": "author",
+          "demand": "leds.led1_sel",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.gpio",
+          "state": "pinned",
+          "unit": 0
+        },
+        {
+          "chosen_by": "author",
+          "demand": "leds.led2_sel",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.gpio",
+          "state": "pinned",
+          "unit": 1
+        },
+        {
+          "chosen_by": "author",
+          "demand": "load.dis",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.gpio",
+          "state": "pinned",
+          "unit": 2
+        },
+        {
+          "chosen_by": "author",
+          "demand": "info.flag",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.gpio",
+          "state": "pinned",
+          "unit": 3
+        },
+        {
+          "chosen_by": "author",
+          "demand": "leds.led1_pwm",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.pwm",
+          "state": "pinned",
+          "unit": 0
+        },
+        {
+          "chosen_by": "author",
+          "demand": "psu.cp_pwm",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.pwm",
+          "state": "pinned",
+          "unit": 1
+        },
+        {
+          "chosen_by": "author",
+          "demand": "leds.led2_pwm",
+          "locked_by": "firmware-facing@1",
+          "pool": "mcu.pwm",
+          "state": "pinned",
+          "unit": 2
+        }
+      ],
+      "version": 1
+    }
+  },
+  "series": "A",
+  "solver_version": "ga019-trivial-1"
+}

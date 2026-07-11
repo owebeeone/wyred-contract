@@ -1,0 +1,1406 @@
+{
+  "allocation": {
+    "entries": [
+      {
+        "chosen_by": "solver",
+        "demand": "dcdc.i_dcdc",
+        "locked_by": null,
+        "pool": "mcu.adc",
+        "state": "sticky",
+        "unit": 0
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "dcdc.v_hv",
+        "locked_by": null,
+        "pool": "mcu.adc",
+        "state": "sticky",
+        "unit": 1
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "dcdc.v_lv",
+        "locked_by": null,
+        "pool": "mcu.adc",
+        "state": "sticky",
+        "unit": 2
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "load.i_load",
+        "locked_by": null,
+        "pool": "mcu.adc",
+        "state": "sticky",
+        "unit": 3
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "temp.tap",
+        "locked_by": null,
+        "pool": "mcu.adc",
+        "state": "sticky",
+        "unit": 4
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "info.flag",
+        "locked_by": null,
+        "pool": "mcu.gpio",
+        "state": "sticky",
+        "unit": 0
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "leds.led1_sel",
+        "locked_by": null,
+        "pool": "mcu.gpio",
+        "state": "sticky",
+        "unit": 1
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "leds.led2_sel",
+        "locked_by": null,
+        "pool": "mcu.gpio",
+        "state": "sticky",
+        "unit": 2
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "load.dis",
+        "locked_by": null,
+        "pool": "mcu.gpio",
+        "state": "sticky",
+        "unit": 3
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "leds.led1_pwm",
+        "locked_by": null,
+        "pool": "mcu.pwm",
+        "state": "sticky",
+        "unit": 0
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "leds.led2_pwm",
+        "locked_by": null,
+        "pool": "mcu.pwm",
+        "state": "sticky",
+        "unit": 1
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "psu.cp_pwm",
+        "locked_by": null,
+        "pool": "mcu.pwm",
+        "state": "sticky",
+        "unit": 2
+      }
+    ],
+    "lock_groups": [
+      {
+        "covers": [
+          "connector_pinout"
+        ],
+        "name": "external-interface",
+        "owner": "hw-team",
+        "snapshot": null,
+        "sync_point": "spin-release",
+        "version": 0
+      },
+      {
+        "covers": [
+          "pool_allocation",
+          "pin_map"
+        ],
+        "name": "firmware-facing",
+        "owner": "fw-team",
+        "snapshot": null,
+        "sync_point": "firmware-freeze",
+        "version": 0
+      }
+    ],
+    "solver_version": "ga019-trivial-1"
+  },
+  "bindings": {
+    "console": "P1",
+    "info": "J6",
+    "loadout": "J3",
+    "swd": "SWD1",
+    "uext": "J7",
+    "xtal": "Y1"
+  },
+  "bound_parts": {
+    "battery": [
+      {
+        "chosen_by": "solver",
+        "part": "MKDS 5/ 2-9,5",
+        "refdes": "J2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Fuse_Holder",
+        "refdes": "XF1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C8"
+      }
+    ],
+    "can": [
+      {
+        "chosen_by": "solver",
+        "part": "TCAN334",
+        "refdes": "U7"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "8P8C",
+        "refdes": "J4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "8P8C",
+        "refdes": "J5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "NRVTS260ESFT1G",
+        "refdes": "D2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Jumper_NC_Small",
+        "refdes": "JP1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "120R",
+        "refdes": "R11"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "500mA",
+        "refdes": "F2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "500mA",
+        "refdes": "F3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "NRVTS260ESFT1G",
+        "refdes": "D6"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C7"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP17"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP18"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP19"
+      }
+    ],
+    "console": [
+      {
+        "chosen_by": "solver",
+        "part": "CONN_01X02",
+        "refdes": "P1"
+      }
+    ],
+    "dcdc": [
+      {
+        "chosen_by": "solver",
+        "part": "LM5107",
+        "refdes": "U1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "IPA045N10N3G",
+        "refdes": "Q1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "IPA045N10N3G",
+        "refdes": "Q2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "IPA045N10N3G",
+        "refdes": "Q3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "53\u00b5H",
+        "refdes": "L1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2m",
+        "refdes": "R6"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "INA186",
+        "refdes": "U3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "3R3",
+        "refdes": "R1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "3R3",
+        "refdes": "R2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "3R3",
+        "refdes": "R3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "3R3",
+        "refdes": "R5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1N4148",
+        "refdes": "D16"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C10"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "SS14FL",
+        "refdes": "D14"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "SS14FL",
+        "refdes": "D15"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "SS14FL",
+        "refdes": "D7"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1M",
+        "refdes": "R56"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2nF",
+        "refdes": "C6"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "4R7",
+        "refdes": "R4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "4R7",
+        "refdes": "R12"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "390\u00b5F",
+        "refdes": "C1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "390\u00b5F",
+        "refdes": "C2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1\u00b5F",
+        "refdes": "C3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "680\u00b5F",
+        "refdes": "C5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "680\u00b5F",
+        "refdes": "C27"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "0.22\u00b5F",
+        "refdes": "C44"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "0.22\u00b5F",
+        "refdes": "C42"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10R",
+        "refdes": "R8"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10R",
+        "refdes": "R9"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1nF",
+        "refdes": "C11"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1k",
+        "refdes": "R10"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1nF",
+        "refdes": "C15"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R13"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2k",
+        "refdes": "R14"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C14"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R17"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "5.6k",
+        "refdes": "R18"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C16"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C13"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP6"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP8"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP21"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP22"
+      }
+    ],
+    "flash": [
+      {
+        "chosen_by": "solver",
+        "part": "W25Q80DVS",
+        "refdes": "U6"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "47R",
+        "refdes": "R27"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "47R",
+        "refdes": "R28"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "47R",
+        "refdes": "R32"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R30"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2k",
+        "refdes": "R31"
+      }
+    ],
+    "info": [
+      {
+        "chosen_by": "solver",
+        "part": "JST PH",
+        "refdes": "J6"
+      }
+    ],
+    "leds": [
+      {
+        "chosen_by": "solver",
+        "part": "LED_Dual_PLCC4",
+        "refdes": "LED1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "LED_Dual_PLCC4",
+        "refdes": "LED2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1k",
+        "refdes": "R29"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1k",
+        "refdes": "R26"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP12"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP13"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP14"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP20"
+      }
+    ],
+    "load": [
+      {
+        "chosen_by": "solver",
+        "part": "IPA045N10N3G",
+        "refdes": "Q7"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "INA186",
+        "refdes": "U5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2m",
+        "refdes": "R62"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "12V",
+        "refdes": "D3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R58"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R59"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1M",
+        "refdes": "R61"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BC846B",
+        "refdes": "T5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2k",
+        "refdes": "R57"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C37"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2k",
+        "refdes": "R44"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R49"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "8.2k",
+        "refdes": "R50"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C26"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C45"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C28"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP16"
+      }
+    ],
+    "loadout": [
+      {
+        "chosen_by": "solver",
+        "part": "MKDS 5/ 2-9,5",
+        "refdes": "J3"
+      }
+    ],
+    "mcu": [
+      {
+        "chosen_by": "solver",
+        "part": "STM32G431CBTx",
+        "refdes": "U2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C22"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C30"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C31"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C32"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2\u00b5F",
+        "refdes": "C33"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "47R",
+        "refdes": "R40"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C34"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2\u00b5F",
+        "refdes": "C39"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C48"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2\u00b5F",
+        "refdes": "C49"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C29"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2k",
+        "refdes": "R20"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2k",
+        "refdes": "R21"
+      }
+    ],
+    "mech": [
+      {
+        "chosen_by": "solver",
+        "part": "Mounting_Hole",
+        "refdes": "MK1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Mounting_Hole",
+        "refdes": "MK2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Mounting_Hole",
+        "refdes": "MK3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Mounting_Hole",
+        "refdes": "MK4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Fiducial",
+        "refdes": "FID1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Fiducial",
+        "refdes": "FID2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "Fiducial",
+        "refdes": "FID3"
+      }
+    ],
+    "psu": [
+      {
+        "chosen_by": "solver",
+        "part": "LMR16006X",
+        "refdes": "U4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BUK98180-100A",
+        "refdes": "Q4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BC846B",
+        "refdes": "T10"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1N4148",
+        "refdes": "D10"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "12V",
+        "refdes": "D5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R64"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "4.7\u00b5H",
+        "refdes": "L2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1\u00b5F",
+        "refdes": "C18"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1\u00b5F",
+        "refdes": "C40"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "2.2\u00b5F",
+        "refdes": "C12"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "4.7\u00b5F",
+        "refdes": "C41"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "4.7\u00b5F",
+        "refdes": "C19"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C20"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "SS16FP",
+        "refdes": "D1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "47\u00b5H",
+        "refdes": "L3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "33k",
+        "refdes": "R23"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R24"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10\u00b5F",
+        "refdes": "C21"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10\u00b5F",
+        "refdes": "C23"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "47V",
+        "refdes": "D9"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R60"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1k",
+        "refdes": "R66"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BC846B",
+        "refdes": "T2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R19"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R65"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1M",
+        "refdes": "R15"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R16"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BC846B",
+        "refdes": "T1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R22"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1k",
+        "refdes": "R25"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BC846B",
+        "refdes": "T3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BC856B",
+        "refdes": "T4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C25"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "BAS70-04",
+        "refdes": "D4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C24"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP9"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP10"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP11"
+      }
+    ],
+    "solar": [
+      {
+        "chosen_by": "solver",
+        "part": "MKDS 5/ 2-9,5",
+        "refdes": "J1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "82V",
+        "refdes": "RV2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10nF",
+        "refdes": "C17"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP7"
+      }
+    ],
+    "swd": [
+      {
+        "chosen_by": "solver",
+        "part": "ST_Nucleo_SWD",
+        "refdes": "SWD1"
+      }
+    ],
+    "temp": [
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "RT1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R7"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100nF",
+        "refdes": "C9"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "1.5mm",
+        "refdes": "TP15"
+      }
+    ],
+    "uext": [
+      {
+        "chosen_by": "solver",
+        "part": "UEXT",
+        "refdes": "J7"
+      }
+    ],
+    "xtal": [
+      {
+        "chosen_by": "solver",
+        "part": "8MHz",
+        "refdes": "Y1"
+      }
+    ]
+  },
+  "connector_pinout": [
+    {
+      "connector": "J1",
+      "function": "SOLAR+",
+      "locked_by": null,
+      "net": "HV",
+      "pin": "1"
+    },
+    {
+      "connector": "J1",
+      "function": "SOLAR-",
+      "locked_by": null,
+      "net": "dcdc.hv_ret.ret",
+      "pin": "2"
+    },
+    {
+      "connector": "J2",
+      "function": "BAT+",
+      "locked_by": null,
+      "net": "battery.BAT_P",
+      "pin": "1"
+    },
+    {
+      "connector": "J2",
+      "function": "BAT-",
+      "locked_by": null,
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J3",
+      "function": "LOAD+",
+      "locked_by": null,
+      "net": "loadout.out.out",
+      "pin": "1"
+    },
+    {
+      "connector": "J3",
+      "function": "LOAD-",
+      "locked_by": null,
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_H",
+      "locked_by": null,
+      "net": "can.CAN_H",
+      "pin": "1"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_L",
+      "locked_by": null,
+      "net": "can.CAN_L",
+      "pin": "2"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_GND",
+      "locked_by": null,
+      "net": "can.CAN_GND",
+      "pin": "3"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_PWR",
+      "locked_by": null,
+      "net": "can.CAN_PWR1",
+      "pin": "4"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_PWR",
+      "locked_by": null,
+      "net": "can.CAN_PWR1",
+      "pin": "5"
+    },
+    {
+      "connector": "J4",
+      "function": "NC",
+      "locked_by": null,
+      "net": null,
+      "pin": "6"
+    },
+    {
+      "connector": "J4",
+      "function": "CAN_GND",
+      "locked_by": null,
+      "net": "can.CAN_GND",
+      "pin": "7"
+    },
+    {
+      "connector": "J4",
+      "function": "NC",
+      "locked_by": null,
+      "net": null,
+      "pin": "8"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_H",
+      "locked_by": null,
+      "net": "can.CAN_H",
+      "pin": "1"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_L",
+      "locked_by": null,
+      "net": "can.CAN_L",
+      "pin": "2"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_GND",
+      "locked_by": null,
+      "net": "can.CAN_GND",
+      "pin": "3"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_PWR",
+      "locked_by": null,
+      "net": "can.CAN_PWR2",
+      "pin": "4"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_PWR",
+      "locked_by": null,
+      "net": "can.CAN_PWR2",
+      "pin": "5"
+    },
+    {
+      "connector": "J5",
+      "function": "NC",
+      "locked_by": null,
+      "net": null,
+      "pin": "6"
+    },
+    {
+      "connector": "J5",
+      "function": "CAN_GND",
+      "locked_by": null,
+      "net": "can.CAN_GND",
+      "pin": "7"
+    },
+    {
+      "connector": "J5",
+      "function": "NC",
+      "locked_by": null,
+      "net": null,
+      "pin": "8"
+    },
+    {
+      "connector": "J6",
+      "function": "PWR_INFO",
+      "locked_by": null,
+      "net": "info.flag.0.io",
+      "pin": "1"
+    },
+    {
+      "connector": "J6",
+      "function": "GND",
+      "locked_by": null,
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J6",
+      "function": "MEAS_LV+",
+      "locked_by": null,
+      "net": "info.meas.out",
+      "pin": "3"
+    },
+    {
+      "connector": "J7",
+      "function": "+3.3V",
+      "locked_by": null,
+      "net": "+3V3",
+      "pin": "1"
+    },
+    {
+      "connector": "J7",
+      "function": "SSEL",
+      "locked_by": null,
+      "net": "uext.spi.ssel",
+      "pin": "10"
+    },
+    {
+      "connector": "J7",
+      "function": "GND",
+      "locked_by": null,
+      "net": "GND",
+      "pin": "2"
+    },
+    {
+      "connector": "J7",
+      "function": "TXD",
+      "locked_by": null,
+      "net": "uext.ser.tx",
+      "pin": "3"
+    },
+    {
+      "connector": "J7",
+      "function": "RXD",
+      "locked_by": null,
+      "net": "uext.ser.rx",
+      "pin": "4"
+    },
+    {
+      "connector": "J7",
+      "function": "SCL",
+      "locked_by": null,
+      "net": "I2C1_SCL",
+      "pin": "5"
+    },
+    {
+      "connector": "J7",
+      "function": "SDA",
+      "locked_by": null,
+      "net": "I2C1_SDA",
+      "pin": "6"
+    },
+    {
+      "connector": "J7",
+      "function": "MISO",
+      "locked_by": null,
+      "net": "uext.spi.miso",
+      "pin": "7"
+    },
+    {
+      "connector": "J7",
+      "function": "MOSI",
+      "locked_by": null,
+      "net": "uext.spi.mosi",
+      "pin": "8"
+    },
+    {
+      "connector": "J7",
+      "function": "SCK",
+      "locked_by": null,
+      "net": "uext.spi.sck",
+      "pin": "9"
+    },
+    {
+      "connector": "P1",
+      "function": "TX",
+      "locked_by": null,
+      "net": "console.ser.tx",
+      "pin": "1"
+    },
+    {
+      "connector": "P1",
+      "function": "RX",
+      "locked_by": null,
+      "net": "console.ser.rx",
+      "pin": "2"
+    },
+    {
+      "connector": "SWD1",
+      "function": "VDD_TARGET",
+      "locked_by": null,
+      "net": "+3V3",
+      "pin": "1"
+    },
+    {
+      "connector": "SWD1",
+      "function": "SWCLK",
+      "locked_by": null,
+      "net": "swd.dbg.clk",
+      "pin": "2"
+    },
+    {
+      "connector": "SWD1",
+      "function": "GND",
+      "locked_by": null,
+      "net": "GND",
+      "pin": "3"
+    },
+    {
+      "connector": "SWD1",
+      "function": "SWDIO",
+      "locked_by": null,
+      "net": "swd.dbg.dio",
+      "pin": "4"
+    },
+    {
+      "connector": "SWD1",
+      "function": "NRST",
+      "locked_by": null,
+      "net": "swd.dbg.rst",
+      "pin": "5"
+    }
+  ],
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {
+      "external-interface": 0,
+      "firmware-facing": 0
+    },
+    "series": "A"
+  },
+  "wiring": [
+    {
+      "demand": "dcdc.i_dcdc",
+      "net": "dcdc.i_dcdc.0.io",
+      "node": "U2.8",
+      "pool": "mcu.adc",
+      "unit": 0
+    },
+    {
+      "demand": "dcdc.v_hv",
+      "net": "dcdc.v_hv.0.io",
+      "node": "U2.9",
+      "pool": "mcu.adc",
+      "unit": 1
+    },
+    {
+      "demand": "dcdc.v_lv",
+      "net": "dcdc.v_lv.0.io",
+      "node": "U2.16",
+      "pool": "mcu.adc",
+      "unit": 2
+    },
+    {
+      "demand": "load.i_load",
+      "net": "load.i_load.0.io",
+      "node": "U2.17",
+      "pool": "mcu.adc",
+      "unit": 3
+    },
+    {
+      "demand": "temp.tap",
+      "net": "temp.tap.0.io",
+      "node": "U2.26",
+      "pool": "mcu.adc",
+      "unit": 4
+    },
+    {
+      "demand": "info.flag",
+      "net": "info.flag.0.io",
+      "node": "U2.3",
+      "pool": "mcu.gpio",
+      "unit": 0
+    },
+    {
+      "demand": "leds.led1_sel",
+      "net": "leds.led1_sel.0.io",
+      "node": "U2.4",
+      "pool": "mcu.gpio",
+      "unit": 1
+    },
+    {
+      "demand": "leds.led2_sel",
+      "net": "leds.led2_sel.0.io",
+      "node": "U2.18",
+      "pool": "mcu.gpio",
+      "unit": 2
+    },
+    {
+      "demand": "load.dis",
+      "net": "load.dis.0.io",
+      "node": "U2.22",
+      "pool": "mcu.gpio",
+      "unit": 3
+    },
+    {
+      "demand": "leds.led1_pwm",
+      "net": "leds.led1_pwm.0.pwm",
+      "node": "U2.14",
+      "pool": "mcu.pwm",
+      "unit": 0
+    },
+    {
+      "demand": "leds.led2_pwm",
+      "net": "leds.led2_pwm.0.pwm",
+      "node": "U2.45",
+      "pool": "mcu.pwm",
+      "unit": 1
+    },
+    {
+      "demand": "psu.cp_pwm",
+      "net": "psu.cp_pwm.0.pwm",
+      "node": "U2.46",
+      "pool": "mcu.pwm",
+      "unit": 2
+    }
+  ]
+}

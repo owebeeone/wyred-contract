@@ -1,0 +1,66 @@
+{
+  "artifact": "intent_04_oscillator",
+  "authored_total": 3,
+  "component_total": 6,
+  "generated_total": 3,
+  "line_items": [
+    {
+      "authored": false,
+      "derived": {
+        "C1": "decoupling for mcu.pwr"
+      },
+      "kind": "capacitor",
+      "qty": 1,
+      "refdes": [
+        "C1"
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C2": "load cap 0 for xtal: 2*(CL-Cstray) = 2*(12.5-2.5) = 20pF",
+        "C3": "load cap 1 for xtal: 2*(CL-Cstray) = 2*(12.5-2.5) = 20pF"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C2",
+        "C3"
+      ],
+      "value": "20pF"
+    },
+    {
+      "authored": true,
+      "kind": "crystal",
+      "qty": 1,
+      "refdes": [
+        "Y1"
+      ],
+      "value": "XTAL-8MHz"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "qty": 1,
+      "refdes": [
+        "U1"
+      ],
+      "value": "MCU-XTAL"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "PS1"
+      ],
+      "value": "SRC-3.3V"
+    }
+  ],
+  "path": "bom",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

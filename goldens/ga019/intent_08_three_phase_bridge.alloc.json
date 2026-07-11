@@ -1,0 +1,229 @@
+{
+  "allocation": {
+    "entries": [
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge1.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 0
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge1.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 1
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge2.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 2
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge2.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 3
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge3.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 4
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge3.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 5
+      }
+    ],
+    "lock_groups": [
+      {
+        "covers": [
+          "pool_allocation",
+          "pin_map"
+        ],
+        "name": "firmware-facing",
+        "owner": "fw-team",
+        "snapshot": null,
+        "sync_point": "firmware-freeze",
+        "version": 0
+      }
+    ],
+    "solver_version": "ga019-trivial-1"
+  },
+  "bindings": {
+    "drive.bus_src": "PS2",
+    "drive.drv_src": "PS3",
+    "mcu": "U1",
+    "supply": "PS1"
+  },
+  "bound_parts": {
+    "drive.bridge1.hs": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U2"
+      }
+    ],
+    "drive.bridge1.ls": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U3"
+      }
+    ],
+    "drive.bridge2.hs": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U4"
+      }
+    ],
+    "drive.bridge2.ls": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U5"
+      }
+    ],
+    "drive.bridge3.hs": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U6"
+      }
+    ],
+    "drive.bridge3.ls": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q6"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U7"
+      }
+    ],
+    "drive.bus_src": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-48V",
+        "refdes": "PS2"
+      }
+    ],
+    "drive.drv_src": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-12V",
+        "refdes": "PS3"
+      }
+    ],
+    "mcu": [
+      {
+        "chosen_by": "solver",
+        "part": "MCU-PWM6",
+        "refdes": "U1"
+      }
+    ],
+    "supply": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-3.3V",
+        "refdes": "PS1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {
+      "firmware-facing": 0
+    },
+    "series": "A"
+  },
+  "wiring": [
+    {
+      "demand": "drive.bridge1.hs.cmd",
+      "net": "CMD.drive.bridge1.hs.cmd",
+      "node": "U1.PWM0",
+      "pool": "mcu.pwms",
+      "unit": 0
+    },
+    {
+      "demand": "drive.bridge1.ls.cmd",
+      "net": "CMD.drive.bridge1.ls.cmd",
+      "node": "U1.PWM1",
+      "pool": "mcu.pwms",
+      "unit": 1
+    },
+    {
+      "demand": "drive.bridge2.hs.cmd",
+      "net": "CMD.drive.bridge2.hs.cmd",
+      "node": "U1.PWM2",
+      "pool": "mcu.pwms",
+      "unit": 2
+    },
+    {
+      "demand": "drive.bridge2.ls.cmd",
+      "net": "CMD.drive.bridge2.ls.cmd",
+      "node": "U1.PWM3",
+      "pool": "mcu.pwms",
+      "unit": 3
+    },
+    {
+      "demand": "drive.bridge3.hs.cmd",
+      "net": "CMD.drive.bridge3.hs.cmd",
+      "node": "U1.PWM4",
+      "pool": "mcu.pwms",
+      "unit": 4
+    },
+    {
+      "demand": "drive.bridge3.ls.cmd",
+      "net": "CMD.drive.bridge3.ls.cmd",
+      "node": "U1.PWM5",
+      "pool": "mcu.pwms",
+      "unit": 5
+    }
+  ]
+}

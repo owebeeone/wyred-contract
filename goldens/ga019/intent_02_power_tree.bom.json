@@ -1,0 +1,78 @@
+{
+  "artifact": "intent_02_power_tree",
+  "authored_total": 5,
+  "component_total": 9,
+  "generated_total": 4,
+  "line_items": [
+    {
+      "authored": false,
+      "derived": {
+        "C1": "input cap for reg5",
+        "C3": "input cap for reg33"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C1",
+        "C3"
+      ],
+      "value": "1uF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C2": "output cap for reg5",
+        "C4": "output cap for reg33"
+      },
+      "kind": "capacitor",
+      "qty": 2,
+      "refdes": [
+        "C2",
+        "C4"
+      ],
+      "value": "2.2uF"
+    },
+    {
+      "authored": true,
+      "kind": "ldo",
+      "qty": 1,
+      "refdes": [
+        "U2"
+      ],
+      "value": "LDO-12-3.3V"
+    },
+    {
+      "authored": true,
+      "kind": "ldo",
+      "qty": 1,
+      "refdes": [
+        "U1"
+      ],
+      "value": "LDO-12-5V"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "qty": 2,
+      "refdes": [
+        "R1",
+        "R2"
+      ],
+      "value": "RLOAD"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "PS1"
+      ],
+      "value": "SRC-12V"
+    }
+  ],
+  "path": "bom",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

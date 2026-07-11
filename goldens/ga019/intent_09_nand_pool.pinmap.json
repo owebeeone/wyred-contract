@@ -1,0 +1,250 @@
+{
+  "allocations": [
+    {
+      "chosen_by": "solver",
+      "demand": "glue_a.nands",
+      "locked_by": null,
+      "net": "glue_a.nands.0.a",
+      "node": "U1.A1",
+      "pool": "quad.nands",
+      "state": "sticky",
+      "unit": 0
+    },
+    {
+      "chosen_by": "solver",
+      "demand": "glue_a.nands",
+      "locked_by": null,
+      "net": "glue_a.nands.1.a",
+      "node": "U1.A2",
+      "pool": "quad.nands",
+      "state": "sticky",
+      "unit": 1
+    },
+    {
+      "chosen_by": "solver",
+      "demand": "glue_b.nand",
+      "locked_by": null,
+      "net": "glue_b.nand.0.a",
+      "node": "U1.A3",
+      "pool": "quad.nands",
+      "state": "sticky",
+      "unit": 2
+    }
+  ],
+  "artifact": "intent_09_nand_pool",
+  "components": [
+    {
+      "authored": false,
+      "for_demand": "quad.pwr",
+      "kind": "capacitor",
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "l1_role": "supply",
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "+3V3",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-3.3V"
+    },
+    {
+      "authored": true,
+      "kind": "logic_gate",
+      "l1_role": "quad",
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VDD",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "name": "A1",
+          "net": "glue_a.nands.0.a",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "B1",
+          "net": "glue_a.nands.0.b",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "Y1",
+          "net": "glue_a.nands.0.y",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "A2",
+          "net": "glue_a.nands.1.a",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "B2",
+          "net": "glue_a.nands.1.b",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "Y2",
+          "net": "glue_a.nands.1.y",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "A3",
+          "net": "glue_b.nand.0.a",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "B3",
+          "net": "glue_b.nand.0.b",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "Y3",
+          "net": "glue_b.nand.0.y",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "A4",
+          "net": "GND",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "B4",
+          "net": "GND",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "Y4",
+          "net": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "74HC00"
+    },
+    {
+      "authored": true,
+      "kind": "logic_gate",
+      "l1_role": "glue_a",
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "N0_A",
+          "net": "glue_a.nands.0.a",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "N0_B",
+          "net": "glue_a.nands.0.b",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "N0_Y",
+          "net": "glue_a.nands.0.y",
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "name": "N1_A",
+          "net": "glue_a.nands.1.a",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "N1_B",
+          "net": "glue_a.nands.1.b",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "N1_Y",
+          "net": "glue_a.nands.1.y",
+          "role": "logic_in"
+        }
+      ],
+      "value": "GLUE-2N"
+    },
+    {
+      "authored": true,
+      "kind": "logic_gate",
+      "l1_role": "glue_b",
+      "refdes": "U3",
+      "terminals": [
+        {
+          "function": "",
+          "name": "N0_A",
+          "net": "glue_b.nand.0.a",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "N0_B",
+          "net": "glue_b.nand.0.b",
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "name": "N0_Y",
+          "net": "glue_b.nand.0.y",
+          "role": "logic_in"
+        }
+      ],
+      "value": "GLUE-1N"
+    }
+  ],
+  "path": "pinmap",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

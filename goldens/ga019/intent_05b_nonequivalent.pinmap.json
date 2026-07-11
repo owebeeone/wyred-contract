@@ -1,0 +1,165 @@
+{
+  "allocations": [],
+  "artifact": "intent_05b_nonequivalent",
+  "components": [
+    {
+      "authored": false,
+      "for_demand": "mcu.pwr",
+      "kind": "capacitor",
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "l1_role": "supply",
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "+3V3",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-3.3V"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "l1_role": "mcu",
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VDD",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "name": "U0_TX",
+          "net": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "U0_RX",
+          "net": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "U1_TX",
+          "net": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "U1_RX",
+          "net": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "U2_TX",
+          "net": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "U2_RX",
+          "net": null,
+          "role": "signal"
+        }
+      ],
+      "value": "MCU-3UART"
+    },
+    {
+      "authored": true,
+      "kind": "uart_device",
+      "l1_role": "bitbang",
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "TXO",
+          "net": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "RXI",
+          "net": null,
+          "role": "signal"
+        }
+      ],
+      "value": "SW-UART"
+    },
+    {
+      "authored": true,
+      "kind": "uart_device",
+      "l1_role": "periph",
+      "refdes": "U3",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VDD",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "name": "TX",
+          "net": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "name": "RX",
+          "net": null,
+          "role": "signal"
+        }
+      ],
+      "value": "uart-peripheral"
+    }
+  ],
+  "path": "pinmap",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

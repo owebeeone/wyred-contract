@@ -1,0 +1,59 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "bindings": {
+    "load_a": "R1",
+    "load_b": "R2",
+    "reg33": "U2",
+    "reg5": "U1",
+    "src": "PS1"
+  },
+  "bound_parts": {
+    "load_a": [
+      {
+        "chosen_by": "solver",
+        "part": "RLOAD",
+        "refdes": "R1"
+      }
+    ],
+    "load_b": [
+      {
+        "chosen_by": "solver",
+        "part": "RLOAD",
+        "refdes": "R2"
+      }
+    ],
+    "reg33": [
+      {
+        "chosen_by": "solver",
+        "part": "LDO-12-3.3V",
+        "refdes": "U2"
+      }
+    ],
+    "reg5": [
+      {
+        "chosen_by": "solver",
+        "part": "LDO-12-5V",
+        "refdes": "U1"
+      }
+    ],
+    "src": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-12V",
+        "refdes": "PS1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  },
+  "wiring": []
+}

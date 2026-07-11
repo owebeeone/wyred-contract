@@ -1,0 +1,150 @@
+{
+  "allocations": [],
+  "artifact": "intent_04_oscillator",
+  "components": [
+    {
+      "authored": false,
+      "for_demand": "mcu.pwr",
+      "kind": "capacitor",
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "+3V3",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": false,
+      "for_demand": "xtal",
+      "kind": "capacitor",
+      "refdes": "C2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "mcu.osc.p1",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "20pF"
+    },
+    {
+      "authored": false,
+      "for_demand": "xtal",
+      "kind": "capacitor",
+      "refdes": "C3",
+      "terminals": [
+        {
+          "function": "",
+          "name": "1",
+          "net": "mcu.osc.p2",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "2",
+          "net": "GND",
+          "role": "passive"
+        }
+      ],
+      "value": "20pF"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "l1_role": "supply",
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VOUT",
+          "net": "+3V3",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-3.3V"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "l1_role": "mcu",
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "VDD",
+          "net": "+3V3",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "GND",
+          "net": "GND",
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "name": "OSC1",
+          "net": "mcu.osc.p1",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "OSC2",
+          "net": "mcu.osc.p2",
+          "role": "passive"
+        }
+      ],
+      "value": "MCU-XTAL"
+    },
+    {
+      "authored": true,
+      "kind": "crystal",
+      "l1_role": "xtal",
+      "refdes": "Y1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "X1",
+          "net": "mcu.osc.p1",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "X2",
+          "net": "mcu.osc.p2",
+          "role": "passive"
+        }
+      ],
+      "value": "XTAL-8MHz"
+    }
+  ],
+  "path": "pinmap",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

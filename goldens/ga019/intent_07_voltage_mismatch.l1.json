@@ -1,0 +1,44 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "grounds": [
+    {
+      "name": "GND"
+    }
+  ],
+  "layer": 1,
+  "rails": [
+    {
+      "name": "+3V3",
+      "volts": 3.3
+    }
+  ],
+  "roles": [
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "+3V3",
+          "volts": 3.3
+        }
+      ],
+      "id": "supply",
+      "kind": "supply"
+    },
+    {
+      "demands": [
+        {
+          "id": "dev.pwr",
+          "iface": "power",
+          "volts": 5.0
+        }
+      ],
+      "id": "dev",
+      "kind": "actuator"
+    }
+  ],
+  "series": "A"
+}

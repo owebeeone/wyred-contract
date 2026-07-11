@@ -1,0 +1,2710 @@
+{
+  "components": [
+    {
+      "attrs": {
+        "l1_role": "supply",
+        "voltage": 3.3
+      },
+      "authored": true,
+      "kind": "source",
+      "logic_fn": null,
+      "refdes": "PS1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 3.3,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-3.3V"
+    },
+    {
+      "attrs": {
+        "l1_role": "mcu"
+      },
+      "authored": true,
+      "kind": "mcu",
+      "logic_fn": null,
+      "refdes": "U1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VDD",
+          "prov_v": null,
+          "req_v": 3.3,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": "pwm",
+          "iface_member": "provide",
+          "name": "PWM0",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "pwm",
+          "iface_member": "provide",
+          "name": "PWM1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "pwm",
+          "iface_member": "provide",
+          "name": "PWM2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "pwm",
+          "iface_member": "provide",
+          "name": "PWM3",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "pwm",
+          "iface_member": "provide",
+          "name": "PWM4",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": "pwm",
+          "iface_member": "provide",
+          "name": "PWM5",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        }
+      ],
+      "value": "MCU-PWM6"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bus_src",
+        "voltage": 48.0
+      },
+      "authored": true,
+      "kind": "source",
+      "logic_fn": null,
+      "refdes": "PS2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 48.0,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-48V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.drv_src",
+        "voltage": 12.0
+      },
+      "authored": true,
+      "kind": "source",
+      "logic_fn": null,
+      "refdes": "PS3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VOUT",
+          "prov_v": 12.0,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "SRC-12V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge1.hs"
+      },
+      "authored": true,
+      "kind": "mosfet",
+      "logic_fn": null,
+      "refdes": "Q1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "G",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "D",
+          "prov_v": null,
+          "req_v": null,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "S",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "NFET-100V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge1.hs"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": "buf",
+      "refdes": "U2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VCC",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "IN",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "OUT",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "bootstrap",
+          "iface_member": null,
+          "name": "VB",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VS",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "GDRV-BUF"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge1.ls"
+      },
+      "authored": true,
+      "kind": "mosfet",
+      "logic_fn": null,
+      "refdes": "Q2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "G",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "D",
+          "prov_v": null,
+          "req_v": null,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "S",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "NFET-100V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge1.ls"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": "buf",
+      "refdes": "U3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VCC",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "IN",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "OUT",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "bootstrap",
+          "iface_member": null,
+          "name": "VB",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VS",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "GDRV-BUF"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge2.hs"
+      },
+      "authored": true,
+      "kind": "mosfet",
+      "logic_fn": null,
+      "refdes": "Q3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "G",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "D",
+          "prov_v": null,
+          "req_v": null,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "S",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "NFET-100V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge2.hs"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": "buf",
+      "refdes": "U4",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VCC",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "IN",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "OUT",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "bootstrap",
+          "iface_member": null,
+          "name": "VB",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VS",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "GDRV-BUF"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge2.ls"
+      },
+      "authored": true,
+      "kind": "mosfet",
+      "logic_fn": null,
+      "refdes": "Q4",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "G",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "D",
+          "prov_v": null,
+          "req_v": null,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "S",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "NFET-100V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge2.ls"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": "buf",
+      "refdes": "U5",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VCC",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "IN",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "OUT",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "bootstrap",
+          "iface_member": null,
+          "name": "VB",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VS",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "GDRV-BUF"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge3.hs"
+      },
+      "authored": true,
+      "kind": "mosfet",
+      "logic_fn": null,
+      "refdes": "Q5",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "G",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "D",
+          "prov_v": null,
+          "req_v": null,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "S",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "NFET-100V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge3.hs"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": "buf",
+      "refdes": "U6",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VCC",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "IN",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "OUT",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "bootstrap",
+          "iface_member": null,
+          "name": "VB",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VS",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "GDRV-BUF"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge3.ls"
+      },
+      "authored": true,
+      "kind": "mosfet",
+      "logic_fn": null,
+      "refdes": "Q6",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "G",
+          "prov_v": null,
+          "req_v": null,
+          "role": "signal"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "D",
+          "prov_v": null,
+          "req_v": null,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "S",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "NFET-100V"
+    },
+    {
+      "attrs": {
+        "l1_role": "drive.bridge3.ls"
+      },
+      "authored": true,
+      "kind": "logic_gate",
+      "logic_fn": "buf",
+      "refdes": "U7",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VCC",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "GND",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "IN",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "OUT",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        },
+        {
+          "function": "",
+          "iface": "bootstrap",
+          "iface_member": null,
+          "name": "VB",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "VS",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "GDRV-BUF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for mcu.pwr",
+        "for_demand": "mcu.pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for drive.bridge1.hs.gate_pwr",
+        "for_demand": "drive.bridge1.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for drive.bridge1.ls.gate_pwr",
+        "for_demand": "drive.bridge1.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for drive.bridge2.hs.gate_pwr",
+        "for_demand": "drive.bridge2.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C4",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for drive.bridge2.ls.gate_pwr",
+        "for_demand": "drive.bridge2.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C5",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for drive.bridge3.hs.gate_pwr",
+        "for_demand": "drive.bridge3.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C6",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "decoupling for drive.bridge3.ls.gate_pwr",
+        "for_demand": "drive.bridge3.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C7",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "interlock NOT for drive.bridge1.hs",
+        "for_demand": "drive.bridge1"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "not",
+      "refdes": "U8",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G04"
+    },
+    {
+      "attrs": {
+        "derived": "interlock AND for drive.bridge1.hs",
+        "for_demand": "drive.bridge1"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "and",
+      "refdes": "U9",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G08"
+    },
+    {
+      "attrs": {
+        "derived": "interlock NOT for drive.bridge1.ls",
+        "for_demand": "drive.bridge1"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "not",
+      "refdes": "U10",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G04"
+    },
+    {
+      "attrs": {
+        "derived": "interlock AND for drive.bridge1.ls",
+        "for_demand": "drive.bridge1"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "and",
+      "refdes": "U11",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G08"
+    },
+    {
+      "attrs": {
+        "derived": "interlock NOT for drive.bridge2.hs",
+        "for_demand": "drive.bridge2"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "not",
+      "refdes": "U12",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G04"
+    },
+    {
+      "attrs": {
+        "derived": "interlock AND for drive.bridge2.hs",
+        "for_demand": "drive.bridge2"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "and",
+      "refdes": "U13",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G08"
+    },
+    {
+      "attrs": {
+        "derived": "interlock NOT for drive.bridge2.ls",
+        "for_demand": "drive.bridge2"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "not",
+      "refdes": "U14",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G04"
+    },
+    {
+      "attrs": {
+        "derived": "interlock AND for drive.bridge2.ls",
+        "for_demand": "drive.bridge2"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "and",
+      "refdes": "U15",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G08"
+    },
+    {
+      "attrs": {
+        "derived": "interlock NOT for drive.bridge3.hs",
+        "for_demand": "drive.bridge3"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "not",
+      "refdes": "U16",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G04"
+    },
+    {
+      "attrs": {
+        "derived": "interlock AND for drive.bridge3.hs",
+        "for_demand": "drive.bridge3"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "and",
+      "refdes": "U17",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G08"
+    },
+    {
+      "attrs": {
+        "derived": "interlock NOT for drive.bridge3.ls",
+        "for_demand": "drive.bridge3"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "not",
+      "refdes": "U18",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G04"
+    },
+    {
+      "attrs": {
+        "derived": "interlock AND for drive.bridge3.ls",
+        "for_demand": "drive.bridge3"
+      },
+      "authored": false,
+      "kind": "logic_gate",
+      "logic_fn": "and",
+      "refdes": "U19",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "Y",
+          "prov_v": null,
+          "req_v": null,
+          "role": "logic_out"
+        }
+      ],
+      "value": "SN74LVC1G08"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap diode for drive.bridge1.hs.gate_pwr",
+        "for_demand": "drive.bridge1.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "diode",
+      "logic_fn": null,
+      "refdes": "D1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "K",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1N4148"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap cap for drive.bridge1.hs.gate_pwr",
+        "for_demand": "drive.bridge1.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C8",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap diode for drive.bridge1.ls.gate_pwr",
+        "for_demand": "drive.bridge1.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "diode",
+      "logic_fn": null,
+      "refdes": "D2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "K",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1N4148"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap cap for drive.bridge1.ls.gate_pwr",
+        "for_demand": "drive.bridge1.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C9",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap diode for drive.bridge2.hs.gate_pwr",
+        "for_demand": "drive.bridge2.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "diode",
+      "logic_fn": null,
+      "refdes": "D3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "K",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1N4148"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap cap for drive.bridge2.hs.gate_pwr",
+        "for_demand": "drive.bridge2.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C10",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap diode for drive.bridge2.ls.gate_pwr",
+        "for_demand": "drive.bridge2.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "diode",
+      "logic_fn": null,
+      "refdes": "D4",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "K",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1N4148"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap cap for drive.bridge2.ls.gate_pwr",
+        "for_demand": "drive.bridge2.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C11",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap diode for drive.bridge3.hs.gate_pwr",
+        "for_demand": "drive.bridge3.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "diode",
+      "logic_fn": null,
+      "refdes": "D5",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "K",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1N4148"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap cap for drive.bridge3.hs.gate_pwr",
+        "for_demand": "drive.bridge3.hs.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C12",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap diode for drive.bridge3.ls.gate_pwr",
+        "for_demand": "drive.bridge3.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "diode",
+      "logic_fn": null,
+      "refdes": "D6",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "K",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "1N4148"
+    },
+    {
+      "attrs": {
+        "derived": "bootstrap cap for drive.bridge3.ls.gate_pwr",
+        "for_demand": "drive.bridge3.ls.gate_pwr"
+      },
+      "authored": false,
+      "kind": "capacitor",
+      "logic_fn": null,
+      "refdes": "C13",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "1",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "2",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "100nF"
+    }
+  ],
+  "escalations": [],
+  "invariants": [
+    {
+      "a": [
+        "Q1",
+        "G"
+      ],
+      "b": [
+        "Q2",
+        "G"
+      ],
+      "inputs": [
+        [
+          "U1",
+          "PWM0"
+        ],
+        [
+          "U1",
+          "PWM1"
+        ]
+      ],
+      "kind": "mutual_exclusion"
+    },
+    {
+      "a": [
+        "Q3",
+        "G"
+      ],
+      "b": [
+        "Q4",
+        "G"
+      ],
+      "inputs": [
+        [
+          "U1",
+          "PWM2"
+        ],
+        [
+          "U1",
+          "PWM3"
+        ]
+      ],
+      "kind": "mutual_exclusion"
+    },
+    {
+      "a": [
+        "Q5",
+        "G"
+      ],
+      "b": [
+        "Q6",
+        "G"
+      ],
+      "inputs": [
+        [
+          "U1",
+          "PWM4"
+        ],
+        [
+          "U1",
+          "PWM5"
+        ]
+      ],
+      "kind": "mutual_exclusion"
+    }
+  ],
+  "nets": [
+    {
+      "bond": "star1",
+      "ground_kind": "ground",
+      "ground_role": "none",
+      "kind": "ground",
+      "name": "GND",
+      "nodes": [
+        [
+          "PS1",
+          "GND"
+        ],
+        [
+          "U1",
+          "GND"
+        ],
+        [
+          "C1",
+          "2"
+        ]
+      ],
+      "voltage": 0.0
+    },
+    {
+      "kind": "power",
+      "name": "+3V3",
+      "nodes": [
+        [
+          "PS1",
+          "VOUT"
+        ],
+        [
+          "U1",
+          "VDD"
+        ],
+        [
+          "C1",
+          "1"
+        ]
+      ],
+      "voltage": 3.3
+    },
+    {
+      "bond": "star1",
+      "ground_kind": "ground",
+      "ground_role": "power",
+      "kind": "ground",
+      "name": "PGND",
+      "nodes": [
+        [
+          "PS2",
+          "GND"
+        ],
+        [
+          "PS3",
+          "GND"
+        ],
+        [
+          "U2",
+          "GND"
+        ],
+        [
+          "C2",
+          "2"
+        ],
+        [
+          "U3",
+          "GND"
+        ],
+        [
+          "C3",
+          "2"
+        ],
+        [
+          "U4",
+          "GND"
+        ],
+        [
+          "C4",
+          "2"
+        ],
+        [
+          "U5",
+          "GND"
+        ],
+        [
+          "C5",
+          "2"
+        ],
+        [
+          "U6",
+          "GND"
+        ],
+        [
+          "C6",
+          "2"
+        ],
+        [
+          "U7",
+          "GND"
+        ],
+        [
+          "C7",
+          "2"
+        ],
+        [
+          "Q2",
+          "S"
+        ],
+        [
+          "Q4",
+          "S"
+        ],
+        [
+          "Q6",
+          "S"
+        ],
+        [
+          "C9",
+          "2"
+        ],
+        [
+          "U3",
+          "VS"
+        ],
+        [
+          "C11",
+          "2"
+        ],
+        [
+          "U5",
+          "VS"
+        ],
+        [
+          "C13",
+          "2"
+        ],
+        [
+          "U7",
+          "VS"
+        ]
+      ],
+      "voltage": 0.0
+    },
+    {
+      "kind": "power",
+      "name": "VBUS48",
+      "nodes": [
+        [
+          "PS2",
+          "VOUT"
+        ],
+        [
+          "Q1",
+          "D"
+        ],
+        [
+          "Q3",
+          "D"
+        ],
+        [
+          "Q5",
+          "D"
+        ]
+      ],
+      "voltage": 48.0
+    },
+    {
+      "kind": "power",
+      "name": "+12V",
+      "nodes": [
+        [
+          "PS3",
+          "VOUT"
+        ],
+        [
+          "U2",
+          "VCC"
+        ],
+        [
+          "C2",
+          "1"
+        ],
+        [
+          "U3",
+          "VCC"
+        ],
+        [
+          "C3",
+          "1"
+        ],
+        [
+          "U4",
+          "VCC"
+        ],
+        [
+          "C4",
+          "1"
+        ],
+        [
+          "U5",
+          "VCC"
+        ],
+        [
+          "C5",
+          "1"
+        ],
+        [
+          "U6",
+          "VCC"
+        ],
+        [
+          "C6",
+          "1"
+        ],
+        [
+          "U7",
+          "VCC"
+        ],
+        [
+          "C7",
+          "1"
+        ],
+        [
+          "D1",
+          "A"
+        ],
+        [
+          "D2",
+          "A"
+        ],
+        [
+          "D3",
+          "A"
+        ],
+        [
+          "D4",
+          "A"
+        ],
+        [
+          "D5",
+          "A"
+        ],
+        [
+          "D6",
+          "A"
+        ]
+      ],
+      "voltage": 12.0
+    },
+    {
+      "kind": "signal",
+      "name": "CMD.drive.bridge1.hs.cmd",
+      "nodes": [
+        [
+          "U1",
+          "PWM0"
+        ],
+        [
+          "U9",
+          "A"
+        ],
+        [
+          "U10",
+          "A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "CMD.drive.bridge1.ls.cmd",
+      "nodes": [
+        [
+          "U1",
+          "PWM1"
+        ],
+        [
+          "U8",
+          "A"
+        ],
+        [
+          "U11",
+          "A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "CMD.drive.bridge2.hs.cmd",
+      "nodes": [
+        [
+          "U1",
+          "PWM2"
+        ],
+        [
+          "U13",
+          "A"
+        ],
+        [
+          "U14",
+          "A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "CMD.drive.bridge2.ls.cmd",
+      "nodes": [
+        [
+          "U1",
+          "PWM3"
+        ],
+        [
+          "U12",
+          "A"
+        ],
+        [
+          "U15",
+          "A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "CMD.drive.bridge3.hs.cmd",
+      "nodes": [
+        [
+          "U1",
+          "PWM4"
+        ],
+        [
+          "U17",
+          "A"
+        ],
+        [
+          "U18",
+          "A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "CMD.drive.bridge3.ls.cmd",
+      "nodes": [
+        [
+          "U1",
+          "PWM5"
+        ],
+        [
+          "U16",
+          "A"
+        ],
+        [
+          "U19",
+          "A"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "PHASE.drive.bridge1",
+      "nodes": [
+        [
+          "Q1",
+          "S"
+        ],
+        [
+          "Q2",
+          "D"
+        ],
+        [
+          "C8",
+          "2"
+        ],
+        [
+          "U2",
+          "VS"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "GATE.drive.bridge1.hs",
+      "nodes": [
+        [
+          "U2",
+          "OUT"
+        ],
+        [
+          "Q1",
+          "G"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "GATE.drive.bridge1.ls",
+      "nodes": [
+        [
+          "U3",
+          "OUT"
+        ],
+        [
+          "Q2",
+          "G"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "PHASE.drive.bridge2",
+      "nodes": [
+        [
+          "Q3",
+          "S"
+        ],
+        [
+          "Q4",
+          "D"
+        ],
+        [
+          "C10",
+          "2"
+        ],
+        [
+          "U4",
+          "VS"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "GATE.drive.bridge2.hs",
+      "nodes": [
+        [
+          "U4",
+          "OUT"
+        ],
+        [
+          "Q3",
+          "G"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "GATE.drive.bridge2.ls",
+      "nodes": [
+        [
+          "U5",
+          "OUT"
+        ],
+        [
+          "Q4",
+          "G"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "PHASE.drive.bridge3",
+      "nodes": [
+        [
+          "Q5",
+          "S"
+        ],
+        [
+          "Q6",
+          "D"
+        ],
+        [
+          "C12",
+          "2"
+        ],
+        [
+          "U6",
+          "VS"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "GATE.drive.bridge3.hs",
+      "nodes": [
+        [
+          "U6",
+          "OUT"
+        ],
+        [
+          "Q5",
+          "G"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "GATE.drive.bridge3.ls",
+      "nodes": [
+        [
+          "U7",
+          "OUT"
+        ],
+        [
+          "Q6",
+          "G"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "NCMD.drive.bridge1.hs",
+      "nodes": [
+        [
+          "U8",
+          "Y"
+        ],
+        [
+          "U9",
+          "B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "DRV.drive.bridge1.hs",
+      "nodes": [
+        [
+          "U9",
+          "Y"
+        ],
+        [
+          "U2",
+          "IN"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "NCMD.drive.bridge1.ls",
+      "nodes": [
+        [
+          "U10",
+          "Y"
+        ],
+        [
+          "U11",
+          "B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "DRV.drive.bridge1.ls",
+      "nodes": [
+        [
+          "U11",
+          "Y"
+        ],
+        [
+          "U3",
+          "IN"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "NCMD.drive.bridge2.hs",
+      "nodes": [
+        [
+          "U12",
+          "Y"
+        ],
+        [
+          "U13",
+          "B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "DRV.drive.bridge2.hs",
+      "nodes": [
+        [
+          "U13",
+          "Y"
+        ],
+        [
+          "U4",
+          "IN"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "NCMD.drive.bridge2.ls",
+      "nodes": [
+        [
+          "U14",
+          "Y"
+        ],
+        [
+          "U15",
+          "B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "DRV.drive.bridge2.ls",
+      "nodes": [
+        [
+          "U15",
+          "Y"
+        ],
+        [
+          "U5",
+          "IN"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "NCMD.drive.bridge3.hs",
+      "nodes": [
+        [
+          "U16",
+          "Y"
+        ],
+        [
+          "U17",
+          "B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "DRV.drive.bridge3.hs",
+      "nodes": [
+        [
+          "U17",
+          "Y"
+        ],
+        [
+          "U6",
+          "IN"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "NCMD.drive.bridge3.ls",
+      "nodes": [
+        [
+          "U18",
+          "Y"
+        ],
+        [
+          "U19",
+          "B"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "DRV.drive.bridge3.ls",
+      "nodes": [
+        [
+          "U19",
+          "Y"
+        ],
+        [
+          "U7",
+          "IN"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "BOOT.drive.bridge1.hs",
+      "nodes": [
+        [
+          "U2",
+          "VB"
+        ],
+        [
+          "D1",
+          "K"
+        ],
+        [
+          "C8",
+          "1"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "BOOT.drive.bridge1.ls",
+      "nodes": [
+        [
+          "U3",
+          "VB"
+        ],
+        [
+          "D2",
+          "K"
+        ],
+        [
+          "C9",
+          "1"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "BOOT.drive.bridge2.hs",
+      "nodes": [
+        [
+          "U4",
+          "VB"
+        ],
+        [
+          "D3",
+          "K"
+        ],
+        [
+          "C10",
+          "1"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "BOOT.drive.bridge2.ls",
+      "nodes": [
+        [
+          "U5",
+          "VB"
+        ],
+        [
+          "D4",
+          "K"
+        ],
+        [
+          "C11",
+          "1"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "BOOT.drive.bridge3.hs",
+      "nodes": [
+        [
+          "U6",
+          "VB"
+        ],
+        [
+          "D5",
+          "K"
+        ],
+        [
+          "C12",
+          "1"
+        ]
+      ],
+      "voltage": null
+    },
+    {
+      "kind": "signal",
+      "name": "BOOT.drive.bridge3.ls",
+      "nodes": [
+        [
+          "U7",
+          "VB"
+        ],
+        [
+          "D6",
+          "K"
+        ],
+        [
+          "C13",
+          "1"
+        ]
+      ],
+      "voltage": null
+    }
+  ]
+}

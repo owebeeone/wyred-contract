@@ -1,0 +1,201 @@
+{
+  "allocation": {
+    "entries": [
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge1.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 0
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge1.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 1
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge2.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 2
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge2.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 3
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge3.hs.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 4
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "drive.bridge3.ls.cmd",
+        "locked_by": null,
+        "pool": "mcu.pwms",
+        "state": "sticky",
+        "unit": 5
+      }
+    ],
+    "lock_groups": [
+      {
+        "covers": [
+          "pool_allocation",
+          "pin_map"
+        ],
+        "name": "firmware-facing",
+        "owner": "fw-team",
+        "snapshot": null,
+        "sync_point": "firmware-freeze",
+        "version": 0
+      }
+    ],
+    "solver_version": "ga019-trivial-1"
+  },
+  "artifact": "intent_08_three_phase_bridge",
+  "bindings": {
+    "drive.bus_src": "PS2",
+    "drive.drv_src": "PS3",
+    "mcu": "U1",
+    "supply": "PS1"
+  },
+  "bound_parts": {
+    "drive.bridge1.hs": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U2"
+      }
+    ],
+    "drive.bridge1.ls": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U3"
+      }
+    ],
+    "drive.bridge2.hs": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q3"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U4"
+      }
+    ],
+    "drive.bridge2.ls": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q4"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U5"
+      }
+    ],
+    "drive.bridge3.hs": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q5"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U6"
+      }
+    ],
+    "drive.bridge3.ls": [
+      {
+        "chosen_by": "solver",
+        "part": "NFET-100V",
+        "refdes": "Q6"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "GDRV-BUF",
+        "refdes": "U7"
+      }
+    ],
+    "drive.bus_src": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-48V",
+        "refdes": "PS2"
+      }
+    ],
+    "drive.drv_src": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-12V",
+        "refdes": "PS3"
+      }
+    ],
+    "mcu": [
+      {
+        "chosen_by": "solver",
+        "part": "MCU-PWM6",
+        "refdes": "U1"
+      }
+    ],
+    "supply": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-3.3V",
+        "refdes": "PS1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "escalations": [],
+  "path": "records",
+  "pool_spares": {},
+  "resolutions": {
+    "drive.bridge1.hs.gate_pwr": "rail:+12V",
+    "drive.bridge1.ls.gate_pwr": "rail:+12V",
+    "drive.bridge1.vbus": "rail:VBUS48",
+    "drive.bridge2.hs.gate_pwr": "rail:+12V",
+    "drive.bridge2.ls.gate_pwr": "rail:+12V",
+    "drive.bridge2.vbus": "rail:VBUS48",
+    "drive.bridge3.hs.gate_pwr": "rail:+12V",
+    "drive.bridge3.ls.gate_pwr": "rail:+12V",
+    "drive.bridge3.vbus": "rail:VBUS48",
+    "mcu.pwr": "rail:+3V3"
+  },
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {
+      "firmware-facing": 0
+    },
+    "series": "A"
+  }
+}

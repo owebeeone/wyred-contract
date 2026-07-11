@@ -1,0 +1,79 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "artifact": "intent_05b_nonequivalent",
+  "bindings": {
+    "bitbang": "U2",
+    "mcu": "U1",
+    "periph": "U3",
+    "supply": "PS1"
+  },
+  "bound_parts": {
+    "bitbang": [
+      {
+        "chosen_by": "solver",
+        "part": "SW-UART",
+        "refdes": "U2"
+      }
+    ],
+    "mcu": [
+      {
+        "chosen_by": "solver",
+        "part": "MCU-3UART",
+        "refdes": "U1"
+      }
+    ],
+    "periph": [
+      {
+        "chosen_by": "solver",
+        "part": "uart-peripheral",
+        "refdes": "U3"
+      }
+    ],
+    "supply": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-3.3V",
+        "refdes": "PS1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "escalations": [
+    {
+      "code": "AMBIGUOUS_NONEQUIV",
+      "conflict": [
+        "periph.uart demands 'uart' (qty 1)",
+        "pool 'mcu.uarts' provides it (3 unit(s); 'uart' provides 'uart')",
+        "role 'bitbang' capability provides it ('uart_bitbang' provides 'uart')",
+        "the 2 candidate classes are not declared equivalent (no single pool spans them) and no selection policy or default is declared"
+      ],
+      "msg": "demand 'periph.uart' is satisfiable by 2 non-equivalent provider classes; the engine refuses to guess",
+      "relaxation": "declare default=<candidate> on demand 'periph.uart' (the policy), or pin one provider via a layer-2 refinement",
+      "subjects": [
+        "periph.uart"
+      ]
+    }
+  ],
+  "path": "records",
+  "pool_spares": {
+    "mcu.uarts": [
+      0,
+      1,
+      2
+    ]
+  },
+  "resolutions": {
+    "mcu.pwr": "rail:+3V3",
+    "periph.pwr": "rail:+3V3"
+  },
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

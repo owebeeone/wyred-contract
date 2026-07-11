@@ -1,0 +1,51 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "bindings": {
+    "bitbang": "U2",
+    "mcu": "U1",
+    "periph": "U3",
+    "supply": "PS1"
+  },
+  "bound_parts": {
+    "bitbang": [
+      {
+        "chosen_by": "solver",
+        "part": "SW-UART",
+        "refdes": "U2"
+      }
+    ],
+    "mcu": [
+      {
+        "chosen_by": "solver",
+        "part": "MCU-3UART",
+        "refdes": "U1"
+      }
+    ],
+    "periph": [
+      {
+        "chosen_by": "solver",
+        "part": "uart-peripheral",
+        "refdes": "U3"
+      }
+    ],
+    "supply": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-3.3V",
+        "refdes": "PS1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  },
+  "wiring": []
+}

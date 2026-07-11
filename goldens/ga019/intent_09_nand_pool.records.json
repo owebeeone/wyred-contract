@@ -1,0 +1,86 @@
+{
+  "allocation": {
+    "entries": [
+      {
+        "chosen_by": "solver",
+        "demand": "glue_a.nands",
+        "locked_by": null,
+        "pool": "quad.nands",
+        "state": "sticky",
+        "unit": 0
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "glue_a.nands",
+        "locked_by": null,
+        "pool": "quad.nands",
+        "state": "sticky",
+        "unit": 1
+      },
+      {
+        "chosen_by": "solver",
+        "demand": "glue_b.nand",
+        "locked_by": null,
+        "pool": "quad.nands",
+        "state": "sticky",
+        "unit": 2
+      }
+    ],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "artifact": "intent_09_nand_pool",
+  "bindings": {
+    "glue_a": "U2",
+    "glue_b": "U3",
+    "quad": "U1",
+    "supply": "PS1"
+  },
+  "bound_parts": {
+    "glue_a": [
+      {
+        "chosen_by": "solver",
+        "part": "GLUE-2N",
+        "refdes": "U2"
+      }
+    ],
+    "glue_b": [
+      {
+        "chosen_by": "solver",
+        "part": "GLUE-1N",
+        "refdes": "U3"
+      }
+    ],
+    "quad": [
+      {
+        "chosen_by": "solver",
+        "part": "74HC00",
+        "refdes": "U1"
+      }
+    ],
+    "supply": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-3.3V",
+        "refdes": "PS1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "escalations": [],
+  "path": "records",
+  "pool_spares": {
+    "quad.nands": [
+      3
+    ]
+  },
+  "resolutions": {
+    "quad.pwr": "rail:+3V3"
+  },
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

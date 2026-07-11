@@ -1,0 +1,50 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "artifact": "intent_04_oscillator",
+  "bindings": {
+    "mcu": "U1",
+    "supply": "PS1",
+    "xtal": "Y1"
+  },
+  "bound_parts": {
+    "mcu": [
+      {
+        "chosen_by": "solver",
+        "part": "MCU-XTAL",
+        "refdes": "U1"
+      }
+    ],
+    "supply": [
+      {
+        "chosen_by": "solver",
+        "part": "SRC-3.3V",
+        "refdes": "PS1"
+      }
+    ],
+    "xtal": [
+      {
+        "chosen_by": "solver",
+        "part": "XTAL-8MHz",
+        "refdes": "Y1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "escalations": [],
+  "path": "records",
+  "pool_spares": {},
+  "resolutions": {
+    "mcu.osc": "role:xtal",
+    "mcu.pwr": "rail:+3V3"
+  },
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

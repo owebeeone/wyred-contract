@@ -1,0 +1,71 @@
+{
+  "artifact": "intent_06_module_reuse",
+  "authored_total": 4,
+  "component_total": 9,
+  "generated_total": 5,
+  "line_items": [
+    {
+      "authored": false,
+      "derived": {
+        "C1": "decoupling for mcu.pwr",
+        "C2": "decoupling for s1.sensor.pwr",
+        "C3": "decoupling for s2.sensor.pwr"
+      },
+      "kind": "capacitor",
+      "qty": 3,
+      "refdes": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "qty": 1,
+      "refdes": [
+        "U1"
+      ],
+      "value": "MCU-I2C"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R1": "pull-up 4.7k for i2c_speed=standard (library default) on bus I2C0, rail +3V3",
+        "R2": "pull-up 4.7k for i2c_speed=standard (library default) on bus I2C0, rail +3V3"
+      },
+      "kind": "resistor",
+      "qty": 2,
+      "refdes": [
+        "R1",
+        "R2"
+      ],
+      "value": "4.7k"
+    },
+    {
+      "authored": true,
+      "kind": "sensor",
+      "qty": 2,
+      "refdes": [
+        "U2",
+        "U3"
+      ],
+      "value": "TMP-I2C"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "PS1"
+      ],
+      "value": "SRC-3.3V"
+    }
+  ],
+  "path": "bom",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}
