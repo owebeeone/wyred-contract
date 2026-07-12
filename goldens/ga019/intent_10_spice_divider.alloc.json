@@ -1,0 +1,44 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "bindings": {
+    "src": "V1"
+  },
+  "bound_parts": {
+    "div": [
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R3"
+      }
+    ],
+    "src": [
+      {
+        "chosen_by": "solver",
+        "part": "VSRC-12V",
+        "refdes": "V1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  },
+  "wiring": []
+}

@@ -1,0 +1,20 @@
+{
+  "artifact": "intent_10_spice_divider",
+  "modelled": {
+    "R1": "R",
+    "R2": "R",
+    "R3": "R",
+    "V1": "V"
+  },
+  "node_map": {
+    "GND": "0",
+    "VIN": "VIN",
+    "div.VOUT": "div_VOUT"
+  },
+  "not_simulated": [],
+  "path": "cir_confession",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "attrs": {
+    "resolutions": {
+      "div.pwr": "rail:VIN"
+    }
+  },
+  "grounds": [
+    {
+      "name": "GND"
+    }
+  ],
+  "layer": 1,
+  "rails": [
+    {
+      "name": "VIN",
+      "volts": 12.0
+    }
+  ],
+  "roles": [
+    {
+      "capabilities": [
+        {
+          "iface": "power",
+          "rail": "VIN",
+          "volts": 12.0
+        }
+      ],
+      "id": "src",
+      "kind": "div_source"
+    },
+    {
+      "demands": [
+        {
+          "id": "div.pwr",
+          "iface": "power",
+          "volts": 12.0
+        }
+      ],
+      "id": "div",
+      "kind": "spice_divider"
+    }
+  ],
+  "series": "A"
+}

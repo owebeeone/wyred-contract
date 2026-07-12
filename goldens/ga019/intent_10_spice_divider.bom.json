@@ -1,0 +1,41 @@
+{
+  "artifact": "intent_10_spice_divider",
+  "authored_total": 4,
+  "component_total": 4,
+  "generated_total": 0,
+  "line_items": [
+    {
+      "authored": true,
+      "kind": "resistor",
+      "qty": 1,
+      "refdes": [
+        "R3"
+      ],
+      "value": "100k"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "qty": 2,
+      "refdes": [
+        "R1",
+        "R2"
+      ],
+      "value": "10k"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "V1"
+      ],
+      "value": "VSRC-12V"
+    }
+  ],
+  "path": "bom",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

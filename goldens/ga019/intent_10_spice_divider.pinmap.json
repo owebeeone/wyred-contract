@@ -1,0 +1,96 @@
+{
+  "allocations": [],
+  "artifact": "intent_10_spice_divider",
+  "components": [
+    {
+      "authored": true,
+      "kind": "resistor",
+      "l1_role": "div",
+      "refdes": "R1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "A",
+          "net": "VIN",
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "name": "B",
+          "net": "div.VOUT",
+          "role": "passive"
+        }
+      ],
+      "value": "10k"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "l1_role": "div",
+      "refdes": "R2",
+      "terminals": [
+        {
+          "function": "",
+          "name": "A",
+          "net": "div.VOUT",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "B",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "10k"
+    },
+    {
+      "authored": true,
+      "kind": "resistor",
+      "l1_role": "div",
+      "refdes": "R3",
+      "terminals": [
+        {
+          "function": "",
+          "name": "A",
+          "net": "div.VOUT",
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "name": "B",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "100k"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "l1_role": "src",
+      "refdes": "V1",
+      "terminals": [
+        {
+          "function": "",
+          "name": "P",
+          "net": "VIN",
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "name": "N",
+          "net": "GND",
+          "role": "ground"
+        }
+      ],
+      "value": "VSRC-12V"
+    }
+  ],
+  "path": "pinmap",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "components": [
+    {
+      "attrs": {
+        "l1_role": "src",
+        "spice_model": {
+          "letter": "V",
+          "model": "primitive",
+          "params": {},
+          "value": "12"
+        },
+        "voltage": 12.0
+      },
+      "authored": true,
+      "kind": "source",
+      "logic_fn": null,
+      "refdes": "V1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "P",
+          "prov_v": 12.0,
+          "req_v": null,
+          "role": "power_out"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "N",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "VSRC-12V"
+    },
+    {
+      "attrs": {
+        "l1_role": "div"
+      },
+      "authored": true,
+      "kind": "resistor",
+      "logic_fn": null,
+      "refdes": "R1",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": 12.0,
+          "role": "power_in"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        }
+      ],
+      "value": "10k"
+    },
+    {
+      "attrs": {
+        "l1_role": "div"
+      },
+      "authored": true,
+      "kind": "resistor",
+      "logic_fn": null,
+      "refdes": "R2",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "10k"
+    },
+    {
+      "attrs": {
+        "l1_role": "div"
+      },
+      "authored": true,
+      "kind": "resistor",
+      "logic_fn": null,
+      "refdes": "R3",
+      "terminals": [
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "A",
+          "prov_v": null,
+          "req_v": null,
+          "role": "passive"
+        },
+        {
+          "function": "",
+          "iface": null,
+          "iface_member": null,
+          "name": "B",
+          "prov_v": null,
+          "req_v": null,
+          "role": "ground"
+        }
+      ],
+      "value": "100k"
+    }
+  ],
+  "escalations": [],
+  "invariants": [],
+  "nets": [
+    {
+      "ground_kind": "ground",
+      "ground_role": "none",
+      "kind": "ground",
+      "name": "GND",
+      "nodes": [
+        [
+          "V1",
+          "N"
+        ],
+        [
+          "R2",
+          "B"
+        ],
+        [
+          "R3",
+          "B"
+        ]
+      ],
+      "voltage": 0.0
+    },
+    {
+      "kind": "power",
+      "name": "VIN",
+      "nodes": [
+        [
+          "V1",
+          "P"
+        ],
+        [
+          "R1",
+          "A"
+        ]
+      ],
+      "voltage": 12.0
+    },
+    {
+      "kind": "signal",
+      "name": "div.VOUT",
+      "nodes": [
+        [
+          "R1",
+          "B"
+        ],
+        [
+          "R2",
+          "A"
+        ],
+        [
+          "R3",
+          "A"
+        ]
+      ],
+      "voltage": null
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "allocation": {
+    "entries": [],
+    "lock_groups": [],
+    "solver_version": "ga019-trivial-1"
+  },
+  "artifact": "intent_10_spice_divider",
+  "bindings": {
+    "src": "V1"
+  },
+  "bound_parts": {
+    "div": [
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R1"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "10k",
+        "refdes": "R2"
+      },
+      {
+        "chosen_by": "solver",
+        "part": "100k",
+        "refdes": "R3"
+      }
+    ],
+    "src": [
+      {
+        "chosen_by": "solver",
+        "part": "VSRC-12V",
+        "refdes": "V1"
+      }
+    ]
+  },
+  "connector_pinout": [],
+  "escalations": [],
+  "path": "records",
+  "pool_spares": {},
+  "resolutions": {
+    "div.pwr": "rail:VIN"
+  },
+  "series": "A",
+  "solver_version": "ga019-trivial-1",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

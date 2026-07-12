@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/cir.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — SPICE deck confession sidecar (.cir.json)",
+  "description": "Descriptive schema for the SPICE .cir.json confession sidecar, extracted from its producer wyred/paths.py `build_cir` (WyredPlanSpice step 1.3 / WyredSpiceContract §5). It describes the MACHINE-READABLE sidecar that rides alongside the human-readable ngspice `.cir` deck. NOTE: the `.cir` DECK itself is raw ngspice text, NOT JSON, and is deliberately outside the JSON contract — the validator globs only *.json, so no `.cir` schema exists or is possible; the deck's trust comes from crosscheck_cir's XCIR_* differential against the L2, not from JSON-schema validation. Six top-level keys, all always emitted: artifact/modelled/node_map/not_simulated/path/stamp. `path` is const \"cir_confession\". `modelled` maps every rendered refdes to its element-letter token (R/C/L/D/V/I) or \"subckt:<name>\"; `node_map` maps every L2 net name to its sanitized deck node token (ground -> \"0\", §3); `not_simulated` names every unmodelled refdes with its kind + reason (§5). Tamper-probeable: crosscheck_cir compares every field against the L2 + the deck each run (XCIR_CONFESSION). additionalProperties:false throughout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "modelled", "node_map", "not_simulated", "path", "stamp"],
+  "properties": {
+    "artifact": {"type": "string", "description": "the intent/artifact base name"},
+    "path": {"const": "cir_confession"},
+    "stamp": {"$ref": "common.defs.json#/$defs/stamp"},
+    "modelled": {
+      "description": "map <refdes> -> the token build_cir recorded for the rendered element: a single element letter (R/C/L/D/V/I) for a §1/§2 primitive, or \"subckt:<name>\" for a subckt-ref (§1). Empty {} when the deck models nothing.",
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "node_map": {
+      "description": "map <L2 net name> -> deck node token (§3 sanitization: ground-kind nets -> \"0\", others -> the name-preserving sanitized token). Bijective except for the many-to-one ground collapse.",
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "not_simulated": {
+      "description": "the confession (§5): every component the deck does NOT model, each named with its refdes, its L2 kind, and the reason it was not modelled. Empty [] for a fully-modelled intent (e.g. intent_10_spice_divider).",
+      "type": "array",
+      "items": {"$ref": "#/$defs/not_simulated_entry"}
+    }
+  },
+  "$defs": {
+    "not_simulated_entry": {
+      "description": "One confessed unmodelled component. All three keys always emitted. `reason` is the closed vocabulary build_cir emits: \"no_model\" (kind not in the §2 auto-map table and no explicit spice_model) or \"value_unparseable\" (§2a: a value that does not canonicalize is never a guessed number).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "reason", "refdes"],
+      "properties": {
+        "refdes": {"type": "string"},
+        "kind": {"type": "string"},
+        "reason": {"enum": ["no_model", "value_unparseable"]}
+      }
+    }
+  }
+}

@@ -595,7 +595,7 @@ goldens (contract v0). The gloss is orientation only.
 
 The standalone allocation wrapper `*.alloc.json`
 ([`schemas/alloc.schema.json`](schemas/alloc.schema.json)) is already
-introduced in Part C. The seven further prose-less kinds:
+introduced in Part C. The eight further prose-less kinds:
 
 | kind | file suffix | schema | one-sentence purpose |
 |---|---|---|---|
@@ -606,10 +606,21 @@ introduced in Part C. The seven further prose-less kinds:
 | **connlock** | `*.connlock.json` | [`connlock.schema.json`](schemas/connlock.schema.json) | Connector-pinout lock-gate record: gate verdict plus tamper-probe code arrays closed to the two-code gate vocabulary `CONNECTOR_LOCK_VIOLATION`/`CONNECTOR_SERIES_UNJUSTIFIED` (**F12**); forks additionally carry `fork_vs_parent_codes`. Producer `paths.check_connector_locks`. |
 | **pinmapdiff** | `*.pinmapdiff.json` | [`pinmapdiff.schema.json`](schemas/pinmapdiff.schema.json) | ECO pin-map diff between two stamps: added/changed/removed allocation deltas, per-terminal `a`/`b` sides (each nullable), and minimal-disturbance violations. Producer `paths.diff_pinmaps`. |
 | **lifecycle** | `*.lifecycle.json` | [`lifecycle.schema.json`](schemas/lifecycle.schema.json) | Series-fork lifecycle record: parent/child stamps, a **string** `forked_from` naming the parent artifact (**F4**), and lock-tamper code arrays closed to `LOCK_VIOLATION`/`SERIES_UNJUSTIFIED` (**F12**). Producer `emit.py` fork path. |
+| **cir** | `*.cir.json` | [`cir.schema.json`](schemas/cir.schema.json) | SPICE deck confession sidecar: the machine-readable companion to the `.cir` deck — `modelled` (refdes → element-letter/subckt token), `node_map` (net → sanitized deck node, ground → `0`), and the `not_simulated` confession (every unmodelled refdes + kind + reason). Tamper-probeable against the L2 by `XCIR_CONFESSION`. Producer `paths.build_cir` (WyredSpiceContract §5). |
+
+The SPICE `.cir` **deck** itself (`*.cir`) is emitted alongside the `cir`
+sidecar but is **raw ngspice text, not JSON** — it carries **no schema** and is
+deliberately outside the JSON contract (the validator globs only `*.json`, so
+the deck is never validated and no `cir-deck` schema exists). The deck's trust
+comes from the `XCIR_*` structural differential (`paths.crosscheck_cir`, run
+from disk by `python3 -m wyred.crosscheck`) proving it denotes the same circuit
+as the L2, not from JSON-schema validation. Its header pins `deck_format=0`
+(`paths.SPICE_DECK_VERSION`), distinct from the engine `solver_version` and this
+contract rev.
 
 ### Schema stamping & versioning convention
 
-Every file under `schemas/` (the ten `<kind>.schema.json` plus the shared
+Every file under `schemas/` (the eleven `<kind>.schema.json` plus the shared
 `common.defs.json`) is standard JSON Schema **draft 2020-12** and carries a
 top-level stamp:
 
@@ -642,6 +653,44 @@ Per `wyred-contract/CLAUDE.md`, every change to the emit contract is recorded
 here (newest first). The schema set (`schemas/`), its dependency-free validator
 (`tools/`), and its tests (`tests/`) are ratified together with the
 EMIT_CONTRACT version they stamp.
+
+## v3-ga019 — SPICE `.cir` data path + the sanctioned golden-census event (proposed; awaiting ratification)
+
+The third denotation (`dev-docs/WyredPlanSpice.md` / `dev-docs/WyredSpiceContract.md`):
+the engine now emits an ngspice-dialect `.cir` deck plus its machine-readable
+`.cir.json` confession sidecar for every fully-modelled (or explicitly
+emit-requesting) intent, and the cross-path differential gained a fourth data
+path (`paths.crosscheck_cir`) that checks it from disk. This entry records the
+**one sanctioned golden-census change** of the whole program (WyredPlanIndex
+rule 4):
+
+- **New corpus intent `intent_10_spice_divider`** — a fully-modelled V source +
+  resistive divider + load — lands in `wyred-examples/corpus` with its full
+  **ADDITIVE** artifact set in `goldens/ga019`: seven JSON goldens
+  (`alloc`/`bom`/`cir.json`/`l1`/`l2`/`pinmap`/`records`) plus the raw `.cir`
+  deck. **No pre-existing golden byte was touched.** The census grows from
+  **107 → 114** validated JSON goldens (115 files including the non-JSON deck);
+  census-dependent acceptance counts now read from the tree, not a constant.
+- **New artifact kind `cir`** — the `.cir.json` confession sidecar
+  ([`schemas/cir.schema.json`](schemas/cir.schema.json), §5). The schema set
+  grows **11 → 12** files. This is **additive**: no existing schema's assertions
+  changed, and every schema keeps the same `x-wyred-contract` stamp
+  (`v3-ga019`, `schema_rev 0`), so the stamp-consistency test still holds. The
+  `.cir` **deck** is raw ngspice text and carries no schema by design (see
+  Part E).
+- **New structural-oracle codes** — `XCIR_COMPONENTS` (deck refdes set vs L2
+  minus the confessed set), `XCIR_NET_PARTITION` (deck node partition vs L2 net
+  partition over the simulated subgraph), `XCIR_ELEMENT` (element letter/value
+  vs the kind table), and `XCIR_CONFESSION` (a forged or stale sidecar). Each is
+  committed with a negative battery probe (`cir_element_dropped`,
+  `cir_node_rewired`, `cir_value_rewritten`, `cir_confession_forged`) that JOINS
+  the harness gate's lobotomy verdict — every probe fires every run.
+
+The `spice_model` attr shape, the passives kind→letter auto-map + value
+canonicalization, the name-preserving node sanitization (ground → `0`), the
+inline-model-in-deck policy, and the sidecar confession shape are all specified
+in `dev-docs/WyredSpiceContract.md` §1–§10 (the ratified proposal); this entry
+is their contract-side landing record.
 
 ## v3-ga019 — schema extraction (proposed; awaiting ratification)
 

@@ -7,7 +7,7 @@ Drives tools/validate.py AS A SUBPROCESS — the way a consumer (and the future
 Rust rewrite) would — to assert two things:
 
   1. PRISTINE: validating the untouched ga019 golden tree exits 0 and reports
-     "107/107 valid" (invariant 1: goldens are never hand-edited to pass).
+     "114/114 valid" (invariant 1: goldens are never hand-edited to pass).
   2. MUTANTS: every committed fixture under tests/fixtures/ exits 1 AND names
      its expected JSON pointer + keyword in the FAIL line (proving the schema
      rejects what the emitter never produced, at the mutated location).
@@ -31,8 +31,15 @@ GOLDENS = os.path.join(REPO, "goldens", "ga019")
 FIXTURES = os.path.join(HERE, "fixtures")
 SCHEMAS = os.path.join(REPO, "schemas")
 
-GOLDEN_COUNT = 107  # ga019 corpus size; a drift here is itself a finding.
-SCHEMA_COUNT = 11   # ten <kind>.schema.json + common.defs.json; drift is a finding.
+# ga019 corpus size, counted as *.json the validator globs. Was 107; the ONE
+# sanctioned golden-census event (WyredPlanIndex rule 4 / WyredSpiceContract §10)
+# added intent_10_spice_divider's 7 JSON goldens (alloc/bom/cir.json/l1/l2/
+# pinmap/records). Its non-JSON `.cir` deck is NOT globbed, so it does not count
+# here. A drift OTHER than that recorded event is itself a finding.
+GOLDEN_COUNT = 114
+# eleven <kind>.schema.json + common.defs.json; the census event added
+# cir.schema.json (the .cir.json confession sidecar, §5). Drift is a finding.
+SCHEMA_COUNT = 12
 DRAFT = "https://json-schema.org/draft/2020-12/schema"  # required $schema.
 ID_PREFIX = "https://wyred.dev/contract/v0/"            # $id namespace (EMIT_CONTRACT Part E).
 

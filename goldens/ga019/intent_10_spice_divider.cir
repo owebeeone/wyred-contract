@@ -1,0 +1,12 @@
+* wyred spice deck: intent_10_spice_divider
+* engine=ga019-trivial-1 deck_format=0
+* stamp={"locks": {}, "series": "A"}
+* not_simulated: 0 (see intent_10_spice_divider.cir.json)
+* nodes:
+*   GND -> 0
+*   div.VOUT -> div_VOUT
+RR1 VIN div_VOUT 10k
+RR2 div_VOUT 0 10k
+RR3 div_VOUT 0 100k
+VV1 VIN 0 12
+.end
