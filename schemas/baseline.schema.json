@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/baseline.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — retained external lock baseline (.baseline.json)",
+  "description": "Descriptive schema for the retained EXTERNAL lock baseline, emitted only for LOCKED emits (intent_05a_pinned, mppt_2420_hc_reva, watchy_v1_reva, watchy_v1_revb). Source: harness/emit.py `snapshot_locks` (which returns {series, solver_version, groups}) PLUS the engine-added `connector_pinout` key (emit.py: `baseline[\"connector_pinout\"] = [...]`, noting \"extra keys are ignored by the harness gate\"). This is F6: the golden four-key shape is snapshot_locks output plus one extra key; the harness snapshot_locks docstring (three keys) is the stale tier (goldens > code). All four keys always emitted. `groups` is a map <group name> -> {version, covers, entries}; a group's `entries` is the canonical covered allocation entries (empty when the group covers no pool_allocation decision class, e.g. the external-interface/connector_pinout group — F5). `connector_pinout` reuses the shared ICD row $def (empty array when no external-interface rows, e.g. intent_05a_pinned). additionalProperties:false throughout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["connector_pinout", "groups", "series", "solver_version"],
+  "properties": {
+    "series": {"type": "string", "description": "the design series letter this baseline was taken at (free string; \"A\"/\"B\" in goldens)"},
+    "solver_version": {"type": "string", "description": "the emitting solver version (free string, e.g. \"ga019-trivial-1\")"},
+    "connector_pinout": {
+      "description": "the external-interface connector-pinout (ICD) rows retained alongside the snapshot; the decision class the harness allocation record does not materialize as entries (F6). Empty when the emit has no external-interface rows.",
+      "type": "array",
+      "items": {"$ref": "common.defs.json#/$defs/connector_pinout_row"}
+    },
+    "groups": {
+      "description": "lock groups keyed by name (snapshot_locks emits `groups` as a name -> group map, groups sorted by name in the serialization). Each value is the per-group frozen state.",
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/baseline_group"}
+    }
+  },
+  "$defs": {
+    "baseline_group": {
+      "description": "One lock group's baselined state (emit.py `snapshot_locks`: {version, covers, entries}). Note this differs from common.defs.json#/$defs/lock_group (the l1/records declared-lock shape, which carries name/snapshot/owner/sync_point): here the name is the map key, there is no `snapshot`, and `entries` holds the canonical covered allocation entries. `entries` is [] when the group does not cover the pool_allocation decision class (F5: the external-interface/connector_pinout group is locked at version 1 with entries []). `covers` members are the closed DECISION_CLASSES vocabulary (mirrors lock_group.covers). All three keys always emitted.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["covers", "entries", "version"],
+      "properties": {
+        "version": {"type": "integer", "minimum": 0},
+        "covers": {
+          "type": "array",
+          "items": {"enum": ["pool_allocation", "part_binding", "pin_map", "footprint", "connector_pinout", "design_rule"]}
+        },
+        "entries": {
+          "type": "array",
+          "items": {"$ref": "common.defs.json#/$defs/alloc_entry"}
+        }
+      }
+    }
+  }
+}

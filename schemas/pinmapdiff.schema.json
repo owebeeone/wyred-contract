@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/pinmapdiff.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — ECO pin-map diff (.pinmapdiff.json)",
+  "description": "Descriptive schema for the ECO / lifecycle pin-map diff, emitted once (watchy_v1_draft_btn3, the incumbent-seeded re-solve). Source: wyred/paths.py `diff_pinmaps` (which returns stamp_a/stamp_b/allocation/terminals/components_only_in_a/components_only_in_b) PLUS the two keys emit.py adds (`incumbents`, `minimal_disturbance_violations`). There is NO prose (F1). Eight keys, all always emitted. `allocation` buckets demand ids by added/changed/removed; `terminals` lists per-(refdes,terminal) net changes with NULLABLE `a`/`b` sides (a=old net, b=new net; null on the side where the terminal was absent — F9/F3-adjacent). `stamp_a`/`stamp_b` reuse the shared stamp $def (non-null; both compared maps carry a stamp). additionalProperties:false throughout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["allocation", "components_only_in_a", "components_only_in_b", "incumbents", "minimal_disturbance_violations", "stamp_a", "stamp_b", "terminals"],
+  "properties": {
+    "incumbents": {"type": "string", "description": "the incumbent artifact this emit was diffed against (emit.py adds this key)"},
+    "stamp_a": {"$ref": "common.defs.json#/$defs/stamp", "description": "the incumbent (side a) compatibility stamp"},
+    "stamp_b": {"$ref": "common.defs.json#/$defs/stamp", "description": "the re-solve (side b) compatibility stamp"},
+    "allocation": {
+      "description": "allocation-row deltas keyed by demand id, bucketed. All three arrays always present; each holds demand-id strings, sorted. All empty means the allocations agree.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["added", "changed", "removed"],
+      "properties": {
+        "added": {"type": "array", "items": {"type": "string"}},
+        "changed": {"type": "array", "items": {"type": "string"}},
+        "removed": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "terminals": {
+      "description": "per-terminal net changes between the two maps (empty means every terminal's net agrees).",
+      "type": "array",
+      "items": {"$ref": "#/$defs/terminal_delta"}
+    },
+    "components_only_in_a": {
+      "description": "sorted refdes present only in the incumbent (side a) component set.",
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "components_only_in_b": {
+      "description": "sorted refdes present only in the re-solve (side b) component set.",
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "minimal_disturbance_violations": {
+      "description": "human-readable violation strings from emit.py `_check_incumbency` (a solver-chosen incumbent entry that moved although its unit stayed free). [] means minimal disturbance held.",
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "terminal_delta": {
+      "description": "One (refdes, terminal) whose net differs between the two maps (diff_pinmaps `term_changes`). `a` is the incumbent net, `b` is the re-solve net; each is `string|null` — null on the side where the terminal carried no net (Optional[str] from `t.get(\"net\")`), and every golden row has exactly one non-null side. refdes/terminal always strings. All four keys always emitted.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["a", "b", "refdes", "terminal"],
+      "properties": {
+        "refdes": {"type": "string"},
+        "terminal": {"type": "string"},
+        "a": {"type": ["string", "null"]},
+        "b": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

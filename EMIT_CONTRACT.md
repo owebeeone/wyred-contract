@@ -10,6 +10,13 @@ the oracle stack through structured fields only:
 | **Allocation record** (embedded in the L1 doc under `"allocation"`) | `schema_l1.AllocationRecord` | allocation checks (§4.2: legal bijection, provenance, deterministic re-solve, lock-violation detection) |
 | **Layer-2 netlist** | `schema.CanonicalGraph` (`schema.to_json/from_json`) | the v2 hardened stack (ERC / invariants / equivalence / round-trip), unchanged |
 
+> **The three artifacts above are the per-intent core.** The gen-4 data-path
+> and lifecycle tooling additionally emits standalone JSON artifacts — the
+> allocation wrapper plus BOM, pin-map, records, baseline, connector-lock,
+> pin-map diff, and lifecycle — that this prose historically did not specify.
+> **Part E** indexes them and points at their schemas; this gap and its closure
+> are finding **F1** in the changelog.
+
 Layer 1 is valid and scoreable **standalone**. A layer-2 refinement may only
 **narrow** layer-1 semantics — binding a role to a part, adding constraints,
 pinning allocations — never change them.
@@ -21,6 +28,14 @@ on `Net`, and a worked example.
 ---
 
 # Part A — Layer-2 netlist contract (v2, unchanged)
+
+> **Schema:** [`schemas/l2.schema.json`](schemas/l2.schema.json) (shared
+> sub-shapes in [`schemas/common.defs.json`](schemas/common.defs.json)) is the
+> machine-checkable form of this part, descriptive of the ga019 goldens
+> (contract v0). The prose below is the human spec it was extracted from; where
+> the two diverge the goldens win — see the changelog findings **F2** (`kind`
+> vocabulary), **F3** (ground `voltage`), **F7** (string escalations), **F9**
+> (`[refdes, terminal]` node encoding).
 
 The oracle stack (ERC, equivalence, invariants) reads **only structured fields**
 on the neutral `CanonicalGraph`. It NEVER parses a `function` string. `function`
@@ -172,6 +187,13 @@ The invariant layer emits:
 ---
 
 # Part B — Layer-1 (intent) JSON shape (v3, NEW)
+
+> **Schema:** [`schemas/l1.schema.json`](schemas/l1.schema.json) (shared
+> sub-shapes in [`schemas/common.defs.json`](schemas/common.defs.json)) is the
+> machine-checkable form of this part — including the embedded Part-C
+> allocation record — descriptive of the ga019 goldens (contract v0). See the
+> changelog findings **F4** (`forked_from` object here vs string in lifecycle)
+> and **F5** (`snapshot: null | []`).
 
 Module: `schema_l1` (`IntentDoc`, `to_json`, `from_json`). Top-level dict:
 
@@ -328,6 +350,16 @@ low-quality (UNSAT-core-style explanations are required by §2.4 rung 4).
 ---
 
 # Part C — Allocation record schema (v3, NEW)
+
+> **Schema:** the **embedded** allocation record described here is the
+> `allocation_record` `$def` in
+> [`schemas/common.defs.json`](schemas/common.defs.json), referenced from
+> [`schemas/l1.schema.json`](schemas/l1.schema.json). Do **not** conflate it
+> with the **standalone** `*.alloc.json` artifact, which is a wider eight-key
+> *wrapper* around this record (`allocation`, `bindings`, `bound_parts`,
+> `connector_pinout`, `series`, `solver_version`, `stamp`, `wiring`) described
+> by its own [`schemas/alloc.schema.json`](schemas/alloc.schema.json) — see
+> Part E and finding **F1**.
 
 Embedded in the layer-1 doc under `"allocation"` (module:
 `schema_l1.AllocationRecord`):
@@ -547,3 +579,115 @@ pair (non-equivalent alternatives — no pool declares them interchangeable) and
 no policy exists, the L1 doc must instead carry an escalation (Part B shape,
 `code="AMBIGUOUS_NONEQUIV"` with `conflict` + `relaxation`) and **no**
 allocation entry for that demand (corpus #5b).
+
+---
+
+# Part E — Emitted data-path & lifecycle artifacts (schema-specified)
+
+Parts A–C specify three documents: the L2 netlist, the L1 intent doc, and the
+allocation record embedded in it. The gen-4 data-path and lifecycle tooling
+(`wyred/paths.py`, `wyred/emit.py`) emits **standalone** artifacts beyond those
+three, which the prose above historically did not describe (finding **F1**).
+This part is their index. Each is **normatively defined by its schema file**,
+not by the one-sentence gloss here: `*.<kind>.json` validates against
+`schemas/<kind>.schema.json`, and the schemas are descriptive of the ga019
+goldens (contract v0). The gloss is orientation only.
+
+The standalone allocation wrapper `*.alloc.json`
+([`schemas/alloc.schema.json`](schemas/alloc.schema.json)) is already
+introduced in Part C. The seven further prose-less kinds:
+
+| kind | file suffix | schema | one-sentence purpose |
+|---|---|---|---|
+| **bom** | `*.bom.json` | [`bom.schema.json`](schemas/bom.schema.json) | Bill of materials: authored/generated/component line-item roll-up; every generated (`authored:false`) line carries a `derived` provenance map and no authored line does (**F10**). Producer `paths.build_bom`. |
+| **pinmap** | `*.pinmap.json` | [`pinmap.schema.json`](schemas/pinmap.schema.json) | Firmware-facing pin map: components with strict `l1_role` **xor** `for_demand` provenance and allocation rows binding demands to dotted `"REFDES.PIN"` nodes (**F9**/**F11**); a spare terminal's `net` may be `null`. Producer `paths.build_pinmap` (the "v3 data path" mentioned in D.3). |
+| **records** | `*.records.json` | [`records.schema.json`](schemas/records.schema.json) | Standalone allocation/lock/escalation record: bindings plus **rich** escalation objects (**F7**), `pool_spares`, `resolutions`, and an optional `forked_from` object (**F4**). Producer `paths.build_records`. |
+| **baseline** | `*.baseline.json` | [`baseline.schema.json`](schemas/baseline.schema.json) | Retained external lock baseline: `snapshot_locks` output (`series`, `solver_version`, `groups`) plus the engine-added `connector_pinout` rows (**F6**); emitted only for locked artifacts. Producer `harness.allocation.snapshot_locks` + `emit.py`. |
+| **connlock** | `*.connlock.json` | [`connlock.schema.json`](schemas/connlock.schema.json) | Connector-pinout lock-gate record: gate verdict plus tamper-probe code arrays closed to the two-code gate vocabulary `CONNECTOR_LOCK_VIOLATION`/`CONNECTOR_SERIES_UNJUSTIFIED` (**F12**); forks additionally carry `fork_vs_parent_codes`. Producer `paths.check_connector_locks`. |
+| **pinmapdiff** | `*.pinmapdiff.json` | [`pinmapdiff.schema.json`](schemas/pinmapdiff.schema.json) | ECO pin-map diff between two stamps: added/changed/removed allocation deltas, per-terminal `a`/`b` sides (each nullable), and minimal-disturbance violations. Producer `paths.diff_pinmaps`. |
+| **lifecycle** | `*.lifecycle.json` | [`lifecycle.schema.json`](schemas/lifecycle.schema.json) | Series-fork lifecycle record: parent/child stamps, a **string** `forked_from` naming the parent artifact (**F4**), and lock-tamper code arrays closed to `LOCK_VIOLATION`/`SERIES_UNJUSTIFIED` (**F12**). Producer `emit.py` fork path. |
+
+### Schema stamping & versioning convention
+
+Every file under `schemas/` (the ten `<kind>.schema.json` plus the shared
+`common.defs.json`) is standard JSON Schema **draft 2020-12** and carries a
+top-level stamp:
+
+```json
+"x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0}
+```
+
+- **`contract`** names the EMIT_CONTRACT prose version the schema set was
+  extracted from, qualified by the golden corpus it is descriptive of — here
+  EMIT_CONTRACT **v3** against the **ga019** goldens, hence `"v3-ga019"`. A
+  future EMIT_CONTRACT version bump rewrites the `contract` field of **every**
+  schema in the same proposal, so the stamp and this document never drift apart.
+- **`schema_rev`** (integer, starts at `0`) increments on any ratified change
+  to a schema's assertions that is not itself a `contract` bump (e.g. a widening
+  recorded as a contract event).
+- **`$id`** is `https://wyred.dev/contract/v0/<kind>.schema.json` — a stable
+  namespace, not a URL that must resolve. The `/v0/` segment is the
+  **breaking-change** axis: it moves to `/v1/` only when a schema change is not
+  backward-compatible for existing consumers. `contract` and `schema_rev` move
+  within a `/v0/` line; `/vN/` moves only on a break.
+- Stamp presence and cross-schema consistency are asserted mechanically by
+  `tests/run_schema_tests.py`: a schema missing the stamp, or one whose
+  `contract`/`schema_rev` disagrees with its siblings, fails the run.
+
+---
+
+# Changelog
+
+Per `wyred-contract/CLAUDE.md`, every change to the emit contract is recorded
+here (newest first). The schema set (`schemas/`), its dependency-free validator
+(`tools/`), and its tests (`tests/`) are ratified together with the
+EMIT_CONTRACT version they stamp.
+
+## v3-ga019 — schema extraction (proposed; awaiting ratification)
+
+First machine-checkable form of the contract: ten
+`schemas/<kind>.schema.json` draft-2020-12 files plus
+`schemas/common.defs.json`, a dependency-free subset validator
+(`tools/validate.py`), and a test harness (`tests/`). All **107** ga019
+goldens validate (schema + canonical serialization). The schemas are
+**descriptive of the ga019 goldens** (contract v0): wherever prose,
+harness/engine code, and the goldens disagreed, the goldens won and the
+disagreement was recorded as a finding rather than a silent widening (invariant
+1). Cross-reference pointers were added to Parts A/B/C and Part E was added to
+index the prose-less artifacts. **No golden was edited** — the corpus is
+byte-for-byte the emitted ga019 set.
+
+Ratified prose-vs-artifact clarifications (full detail in
+`dev-docs/WyredPlanContractSchemas.md` § Findings):
+
+- **F1** — the prose covered only 3 of 10 artifact kinds; the standalone
+  `alloc` wrapper and `bom`/`pinmap`/`records`/`baseline`/`connlock`/
+  `pinmapdiff`/`lifecycle` were schema-extracted from the goldens + producer
+  code. Closed by **Part E**.
+- **F2** — `Component.kind` is an open string (12 declared vs 35 used); the
+  observed vocabulary is listed non-normatively in `l2.schema.json`.
+- **F3** — ground nets carry `voltage: 0.0`, not `null`; every net's `voltage`
+  is typed `number | null`.
+- **F4** — `forked_from` is an object `{series, reason}` in `l1`/`records` but
+  a parent-naming **string** in `lifecycle`; each schema defines it
+  independently.
+- **F5** — a locked group may carry `snapshot: []` (or `null`); both are legal
+  at any `version`.
+- **F6** — the `baseline` artifact is `snapshot_locks` output plus an
+  engine-added `connector_pinout` key (four keys); the harness docstring is the
+  stale tier.
+- **F7** — L2 `escalations` are strings; L1/records escalations are rich
+  objects; encoded per-kind.
+- **F8** — EMIT_CONTRACT.md had no changelog section. This section is that
+  closure.
+- **F9** — nodes are `[refdes, terminal]` pairs in L2 but dotted
+  `"REFDES.PIN"` strings in alloc `wiring` / pinmap; documented per-kind.
+- **F10** — `bom` `derived` is a golden-observed **biconditional** (present iff
+  `authored:false`), tighter than the producer; encoded via a two-branch
+  `oneOf`.
+- **F11** — landed net/node fields are pinned to their golden-narrow non-null
+  shape; pin-map component provenance is a strict `l1_role` **xor**
+  `for_demand`.
+- **F12** — `connlock` and `lifecycle` gate-code arrays are closed to their
+  producer's two-code vocabulary; emit-side sentinel strings (absent from every
+  golden) are excluded.

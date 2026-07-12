@@ -1,0 +1,99 @@
+{
+  "artifact": "intent_01_sensor_node",
+  "authored_total": 5,
+  "component_total": 12,
+  "generated_total": 7,
+  "line_items": [
+    {
+      "authored": false,
+      "kind": "capacitor",
+      "qty": 3,
+      "refdes": [
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "value": "100nF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C1": "input cap for reg"
+      },
+      "kind": "capacitor",
+      "qty": 1,
+      "refdes": [
+        "C1"
+      ],
+      "value": "1uF"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "C2": "output cap for reg"
+      },
+      "kind": "capacitor",
+      "qty": 1,
+      "refdes": [
+        "C2"
+      ],
+      "value": "2.2uF"
+    },
+    {
+      "authored": true,
+      "kind": "ldo",
+      "qty": 1,
+      "refdes": [
+        "U1"
+      ],
+      "value": "LDO-5-3.3V"
+    },
+    {
+      "authored": true,
+      "kind": "mcu",
+      "qty": 1,
+      "refdes": [
+        "U2"
+      ],
+      "value": "MCU-I2C"
+    },
+    {
+      "authored": false,
+      "derived": {
+        "R1": "pull-up 2.2k for i2c_speed=fast (author lever) on bus I2C0, rail +3V3",
+        "R2": "pull-up 2.2k for i2c_speed=fast (author lever) on bus I2C0, rail +3V3"
+      },
+      "kind": "resistor",
+      "qty": 2,
+      "refdes": [
+        "R1",
+        "R2"
+      ],
+      "value": "2.2k"
+    },
+    {
+      "authored": true,
+      "kind": "sensor",
+      "qty": 2,
+      "refdes": [
+        "U3",
+        "U4"
+      ],
+      "value": "TMP-I2C"
+    },
+    {
+      "authored": true,
+      "kind": "source",
+      "qty": 1,
+      "refdes": [
+        "PS1"
+      ],
+      "value": "SRC-5V"
+    }
+  ],
+  "path": "bom",
+  "stamp": {
+    "locks": {},
+    "series": "A"
+  }
+}

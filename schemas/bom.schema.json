@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/bom.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — bill of materials (.bom.json)",
+  "description": "Descriptive schema for the grouped BOM data path, extracted from its producer wyred/paths.py `build_bom` — there is NO prose for this kind (F1). Seven top-level keys, all always emitted: artifact/authored_total/component_total/generated_total/line_items/path/stamp. `path` is const \"bom\". Each line_item groups components by (kind, value, authored). F10: the `derived` map (a per-refdes derivation confession) is present in the goldens IFF authored is false — a biconditional STRICTER than the producer (`build_bom` only adds `derived` when non-empty, so it merely guarantees the forward implication derived⇒¬authored); the schema encodes the golden-observed iff via a two-branch oneOf. additionalProperties:false throughout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "authored_total", "component_total", "generated_total", "line_items", "path", "stamp"],
+  "properties": {
+    "artifact": {"type": "string", "description": "the intent/artifact base name"},
+    "path": {"const": "bom"},
+    "stamp": {"$ref": "common.defs.json#/$defs/stamp"},
+    "component_total": {"type": "integer", "minimum": 0, "description": "total components in the netlist"},
+    "authored_total": {"type": "integer", "minimum": 0, "description": "count of authored components"},
+    "generated_total": {"type": "integer", "minimum": 0, "description": "component_total - authored_total"},
+    "line_items": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/line_item"}
+    }
+  },
+  "$defs": {
+    "line_item": {
+      "description": "One grouped BOM line: components sharing (kind, value, authored), with the group's refdes list. F10 biconditional: an authored:true line carries NO `derived` key; an authored:false line ALWAYS carries a non-empty `derived` map (<refdes> -> derivation-reason string). The two oneOf branches make exactly one match: the authored=true branch omits `derived` (and additionalProperties:false forbids it); the authored=false branch requires it.",
+      "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authored", "kind", "qty", "refdes", "value"],
+          "properties": {
+            "authored": {"const": true},
+            "kind": {"type": "string"},
+            "value": {"type": "string"},
+            "qty": {"type": "integer", "minimum": 1},
+            "refdes": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authored", "kind", "qty", "refdes", "value", "derived"],
+          "properties": {
+            "authored": {"const": false},
+            "kind": {"type": "string"},
+            "value": {"type": "string"},
+            "qty": {"type": "integer", "minimum": 1},
+            "refdes": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+            "derived": {
+              "description": "per-refdes derivation confession; <refdes> -> human reason string (e.g. \"decoupling for mcu.pwr\"). Non-empty by construction (only added when the group has derived-value components).",
+              "type": "object",
+              "additionalProperties": {"type": "string"}
+            }
+          }
+        }
+      ]
+    }
+  }
+}

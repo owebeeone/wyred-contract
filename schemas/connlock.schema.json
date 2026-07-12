@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/connlock.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — connector-pinout lock gate record (.connlock.json)",
+  "description": "Descriptive schema for the connector-pinout lock-gate self-check, emitted for every emit that fired a group covering connector_pinout (mppt_2420_hc_reva, watchy_v1_reva, watchy_v1_revb). Source: wyred/emit.py connlock path + wyred/paths.py `check_connector_locks`. There is NO prose (F1). Eight keys always emitted (artifact/gate_clean/groups/ok/rows/tamper_net_codes/tamper_series_codes/unlocked_rows); `fork_vs_parent_codes` is OPTIONAL — present only on forks (watchy_v1_revb), where the emit re-verifies its rows against the PARENT baseline. The four code arrays hold connector-lock gate codes: see F12 for the closed-vocabulary decision (the arrays are enum-constrained to the two codes `check_connector_locks` can emit). additionalProperties:false.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "gate_clean", "groups", "ok", "rows", "tamper_net_codes", "tamper_series_codes", "unlocked_rows"],
+  "properties": {
+    "artifact": {"type": "string", "description": "the intent/artifact base name"},
+    "groups": {
+      "description": "the fired lock-group names that cover the connector_pinout decision class (author-defined names, e.g. \"external-interface\").",
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "rows": {"type": "integer", "minimum": 0, "description": "number of connector-pinout rows the emit produced"},
+    "unlocked_rows": {
+      "description": "sorted \"<connector>.<pin>\" identifiers of any connector-pinout row that carries no `locked_by` (a gate-clean emit has none). Free strings; [] in every golden.",
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "gate_clean": {"$ref": "#/$defs/connector_lock_code_array", "description": "codes from validating the emit against its OWN retained baseline; [] means the gate is clean."},
+    "tamper_net_codes": {"$ref": "#/$defs/connector_lock_code_array", "description": "codes the gate must raise when a locked row's net is rewritten under the same series (counter-probe): [\"CONNECTOR_LOCK_VIOLATION\"] in goldens."},
+    "tamper_series_codes": {"$ref": "#/$defs/connector_lock_code_array", "description": "codes the gate must raise for a hand-edited series with no fork record (counter-probe): [\"CONNECTOR_SERIES_UNJUSTIFIED\"] in goldens."},
+    "fork_vs_parent_codes": {"$ref": "#/$defs/connector_lock_code_array", "description": "OPTIONAL, forks only: codes from re-verifying the fork's rows against the PARENT's baseline; [] means the fork honors the parent lock (watchy_v1_revb)."},
+    "ok": {"type": "boolean", "description": "overall gate verdict for this emit"}
+  },
+  "$defs": {
+    "connector_lock_code_array": {
+      "description": "An array of connector-pinout lock-gate codes. F12: the vocabulary is CLOSED to the two codes `wyred/paths.py::check_connector_locks` can emit — CONNECTOR_LOCK_VIOLATION and CONNECTOR_SERIES_UNJUSTIFIED — the sole gate producer of every code in gate_clean/tamper_net_codes/tamper_series_codes/fork_vs_parent_codes. Duplicates are legal (the gate emits one code per violating row). The only out-of-vocabulary string any producer can inject is the emit.py sentinel \"(no parent baseline)\" into fork_vs_parent_codes, which appears in NO golden and only on a broken fork (ok=false); encoding it would be a silent widening (invariant 1), so it is excluded — a future connlock carrying it, or any third code, is a contract event.",
+      "type": "array",
+      "items": {"enum": ["CONNECTOR_LOCK_VIOLATION", "CONNECTOR_SERIES_UNJUSTIFIED"]}
+    }
+  }
+}

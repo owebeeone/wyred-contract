@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/common.defs.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — shared sub-shapes ($defs library)",
+  "description": "Shared sub-shapes for the wyred emit contract v0 (ga019 goldens). This file is a $defs container referenced via relative-file $ref (e.g. \"common.defs.json#/$defs/allocation_record\"); it is never validated directly against an instance. Created by plan Step 1.1a with the allocation record family (Part C, shared by l1/alloc/records) and the forked_from object (F4). Step 1.1b added the solver-data-path shared shapes: stamp, connector_pinout_row, bound_part_row, wiring_row (producers wyred/emit.py + resolve.py + paths.py; there is no prose — F1).",
+  "$defs": {
+    "alloc_entry": {
+      "description": "One realized allocation (schema_l1._alloc_entry_to_json). All six keys are ALWAYS emitted (no emit-only-when-set on this object); locked_by is \"<group>@<version>\" or null. chosen_by/state are the closed CHOSEN_BY/ALLOC_STATES vocabularies.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pool", "unit", "demand", "chosen_by", "state", "locked_by"],
+      "properties": {
+        "pool": {"type": "string"},
+        "unit": {"type": "integer", "minimum": 0},
+        "demand": {"type": "string"},
+        "chosen_by": {"enum": ["solver", "author"]},
+        "state": {"enum": ["free", "sticky", "pinned"]},
+        "locked_by": {"type": ["string", "null"]}
+      }
+    },
+    "lock_group": {
+      "description": "Declared lock group (schema_l1._lock_group_to_json). name/covers/version/snapshot always emitted; owner/sync_point emit-only-when-non-empty (default \"\"), so they are optional here even though every ga019 golden happens to carry both. covers members are the closed DECISION_CLASSES set. snapshot is F5: null if never locked, else an array of frozen alloc-entry dicts — an EMPTY array is legal at any version (e.g. the external-interface group at version 1 in watchy_v1_reva/_revb).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "covers", "version", "snapshot"],
+      "properties": {
+        "name": {"type": "string"},
+        "covers": {
+          "type": "array",
+          "items": {"enum": ["pool_allocation", "part_binding", "pin_map", "footprint", "connector_pinout", "design_rule"]}
+        },
+        "version": {"type": "integer", "minimum": 0},
+        "snapshot": {
+          "type": ["array", "null"],
+          "items": {"$ref": "#/$defs/alloc_entry"}
+        },
+        "owner": {"type": "string"},
+        "sync_point": {"type": "string"}
+      }
+    },
+    "allocation_record": {
+      "description": "Part C allocation record (schema_l1._allocation_to_json). Embedded in the l1 doc under \"allocation\" and reused by the alloc-wrapper and records artifacts (Step 1.1b). entries/lock_groups/solver_version are all always emitted (solver_version is a free string).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entries", "lock_groups", "solver_version"],
+      "properties": {
+        "entries": {"type": "array", "items": {"$ref": "#/$defs/alloc_entry"}},
+        "lock_groups": {"type": "array", "items": {"$ref": "#/$defs/lock_group"}},
+        "solver_version": {"type": "string"}
+      }
+    },
+    "forked_from_record": {
+      "description": "F4: the series-fork record {series, reason}. This is the OBJECT form used by the l1 and records artifacts (schema_l1 IntentDoc.forked_from, break_lock's escape hatch). NOTE the lifecycle artifact uses forked_from as a bare STRING naming the parent artifact — that is a different shape defined locally in lifecycle.schema.json, not this $def.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["series", "reason"],
+      "properties": {
+        "series": {"type": "string"},
+        "reason": {"type": "string"}
+      }
+    },
+    "stamp": {
+      "description": "The (series, lock-group versions) compatibility stamp shared by the alloc/bom/pinmap/records data paths (resolve.py `alloc[\"stamp\"]`, paths.py `_stamp`). Both keys always emitted. `locks` is a map <lock-group name> -> <version int>; it is {} when no group has fired. A firmware<->board-spin compatibility question is a stamp comparison on the artifact.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locks", "series"],
+      "properties": {
+        "series": {"type": "string"},
+        "locks": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "connector_pinout_row": {
+      "description": "One external-interface connector-pinout (ICD) row (resolve.py `_connector_rows`, carried by the alloc and records artifacts and — Step 1.1c — the baseline artifact). All five keys always emitted. `net` is the landed net name or null (an unwired connector pin — e.g. a mechanical/shield/ID pin); `locked_by` is the firing connector_pinout lock-group tag \"<group>@<version>\" or null when the external-interface group has not fired. `pin` is a STRING (\"1\", \"10\", \"6\"), never an integer.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["connector", "pin", "function", "net", "locked_by"],
+      "properties": {
+        "connector": {"type": "string"},
+        "pin": {"type": "string"},
+        "function": {"type": "string"},
+        "net": {"type": ["string", "null"]},
+        "locked_by": {"type": ["string", "null"]}
+      }
+    },
+    "bound_part_row": {
+      "description": "One realized part under a role's bound_parts list (resolve.py: {refdes, part, chosen_by}). All three keys always emitted. `chosen_by` is the closed CHOSEN_BY vocabulary (solver|author) — matching alloc_entry.chosen_by. `part` is the part value/MPN string. Shared by the alloc and records artifacts (bound_parts is a map role-id -> array of these rows).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["chosen_by", "part", "refdes"],
+      "properties": {
+        "chosen_by": {"enum": ["solver", "author"]},
+        "part": {"type": "string"},
+        "refdes": {"type": "string"}
+      }
+    },
+    "wiring_row": {
+      "description": "One landed-allocation wiring row (resolve.py `alloc_wiring`): where an allocation entry landed. All five keys always emitted. F9: `node` is the DOTTED \"REFDES.PIN\" encoding (\"U1.A1\", \"U4.5\") — the SAME concept the l2 nets encode as a [refdes, terminal] 2-tuple; the alloc-wiring and pinmap data paths use the dotted string form instead. `net` is the net the node sits on. NOTE: the producer's `self.b.node_net.get(node)` could in principle yield null (an entry whose node is on no net), but NO ga019 golden exhibits that, so this schema keeps `net` a non-null string (tight-to-goldens; see finding F11).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["demand", "net", "node", "pool", "unit"],
+      "properties": {
+        "pool": {"type": "string"},
+        "unit": {"type": "integer", "minimum": 0},
+        "demand": {"type": "string"},
+        "node": {"type": "string"},
+        "net": {"type": "string"}
+      }
+    }
+  }
+}

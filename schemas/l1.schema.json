@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/l1.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — layer-1 intent document (.l1.json)",
+  "description": "Descriptive schema for the layer-1 intent doc, extracted from harness schema_l1.to_json (precedence: goldens > harness > EMIT_CONTRACT Part B/C prose). Optionality mirrors _put (emit-only-when-non-default): the six keys layer/series/roles/rails/grounds/allocation are always emitted; forked_from/scopes/bonds/buses/pools/invariants/escalations/attrs appear only when non-empty/non-null. Per-object optional fields are likewise elided at their default. Closed vocabularies encoded as enums: CHOSEN_BY, ALLOC_STATES, DECISION_CLASSES (in common.defs.json), INVARIANT_KINDS, GROUND_KINDS, GROUND_ROLES; Role.kind and every iface (capability/demand/bus/pool.provides) are left OPEN per finding F2. forked_from here is the {series, reason} OBJECT (F4). additionalProperties:false everywhere except the free attrs dicts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["layer", "series", "roles", "rails", "grounds", "allocation"],
+  "properties": {
+    "layer": {"const": 1},
+    "series": {"type": "string", "description": "document series identity (board-spin semantics)"},
+    "forked_from": {"$ref": "common.defs.json#/$defs/forked_from_record"},
+    "scopes": {"type": "array", "items": {"$ref": "#/$defs/scope"}},
+    "roles": {"type": "array", "items": {"$ref": "#/$defs/role"}},
+    "rails": {"type": "array", "items": {"$ref": "#/$defs/rail"}},
+    "grounds": {"type": "array", "items": {"$ref": "#/$defs/ground"}},
+    "bonds": {"type": "array", "items": {"$ref": "#/$defs/bond"}},
+    "buses": {"type": "array", "items": {"$ref": "#/$defs/bus"}},
+    "pools": {"type": "array", "items": {"$ref": "#/$defs/pool"}},
+    "invariants": {"type": "array", "items": {"$ref": "#/$defs/invariant_decl"}},
+    "escalations": {"type": "array", "items": {"$ref": "#/$defs/escalation"}},
+    "allocation": {"$ref": "common.defs.json#/$defs/allocation_record"},
+    "attrs": {"$ref": "#/$defs/attrs"}
+  },
+  "$defs": {
+    "attrs": {
+      "type": "object",
+      "description": "free-form salient-property dict; the one open shape (additionalProperties intentionally unconstrained)"
+    },
+    "capability": {
+      "description": "Something a role PROVIDES (schema_l1._capability_to_json). iface always emitted; volts/rail/attrs emit-only-when-set. iface is OPEN (F2).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["iface"],
+      "properties": {
+        "iface": {"type": "string"},
+        "volts": {"type": "number"},
+        "rail": {"type": "string"},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "demand": {
+      "description": "Something a role NEEDS (schema_l1._demand_to_json). id/iface always emitted; volts/bus/qty(default 1)/default/attrs emit-only-when-non-default. iface is OPEN (F2).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "iface"],
+      "properties": {
+        "id": {"type": "string"},
+        "iface": {"type": "string"},
+        "volts": {"type": "number"},
+        "bus": {"type": "string"},
+        "qty": {"type": "integer"},
+        "default": {"type": "string"},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "role": {
+      "description": "An abstract part/module (schema_l1._role_to_json). id/kind always emitted; scope(default \"\")/capabilities/demands/attrs emit-only-when-non-default. kind is OPEN vocabulary (F2).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"type": "string"},
+        "scope": {"type": "string"},
+        "capabilities": {"type": "array", "items": {"$ref": "#/$defs/capability"}},
+        "demands": {"type": "array", "items": {"$ref": "#/$defs/demand"}},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "scope": {
+      "description": "A named nested lexical scope (schema_l1._scope_to_json). id always emitted; parent(default \"\") emit-only-when-set.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {"type": "string"},
+        "parent": {"type": "string"}
+      }
+    },
+    "rail": {
+      "description": "A scoped, functionally named power rail (schema_l1._rail_to_json). name/volts always emitted; scope/attrs emit-only-when-set.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "volts"],
+      "properties": {
+        "name": {"type": "string"},
+        "volts": {"type": "number"},
+        "scope": {"type": "string"},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "ground": {
+      "description": "A 0V return tagged by kind+role (schema_l1._ground_to_json). name always emitted; kind(default \"ground\")/role(default \"none\")/scope/attrs emit-only-when-non-default. kind/role are the closed GROUND_KINDS/GROUND_ROLES vocabularies.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string"},
+        "kind": {"enum": ["ground", "chassis", "earth"]},
+        "role": {"enum": ["none", "analog", "digital", "power", "reference"]},
+        "scope": {"type": "string"},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "bond": {
+      "description": "An authored star-point / net-tie join between grounds (schema_l1._bond_to_json). name/joins always emitted; attrs emit-only-when-set.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "joins"],
+      "properties": {
+        "name": {"type": "string"},
+        "joins": {"type": "array", "items": {"type": "string"}},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "bus": {
+      "description": "A shared multi-drop interface instance (schema_l1._bus_to_json). name/iface always emitted; scope/attrs emit-only-when-set. iface is OPEN (F2).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "iface"],
+      "properties": {
+        "name": {"type": "string"},
+        "iface": {"type": "string"},
+        "scope": {"type": "string"},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "pool": {
+      "description": "A declared swap group of interchangeable units (schema_l1._pool_to_json). name/role/provides/unit_count/port_signature always emitted; attrs emit-only-when-set. provides is an OPEN iface (F2).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "role", "provides", "unit_count", "port_signature"],
+      "properties": {
+        "name": {"type": "string"},
+        "role": {"type": "string"},
+        "provides": {"type": "string"},
+        "unit_count": {"type": "integer"},
+        "port_signature": {"type": "array", "items": {"type": "string"}},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "invariant_decl": {
+      "description": "A layer-1 invariant declaration over intent-level references (schema_l1._invariant_decl_to_json). kind/subjects always emitted; inputs/attrs emit-only-when-set. kind is the closed INVARIANT_KINDS vocabulary. NOTE: distinct from the layer-2 invariant (l2.schema.json) whose anchors are concrete (refdes, pin) node pairs.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "subjects"],
+      "properties": {
+        "kind": {"enum": ["mutual_exclusion"]},
+        "subjects": {"type": "array", "items": {"type": "string"}},
+        "inputs": {"type": "array", "items": {"type": "string"}},
+        "attrs": {"$ref": "#/$defs/attrs"}
+      }
+    },
+    "escalation": {
+      "description": "A ladder-rung-4 escalation WITH explanation (schema_l1._escalation_to_json). code/msg always emitted; subjects/conflict/relaxation emit-only-when-non-default. F7: this rich-object encoding is the l1/records form; the layer-2 escalations field is a plain STRING array (l2.schema.json).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "msg"],
+      "properties": {
+        "code": {"type": "string"},
+        "msg": {"type": "string"},
+        "subjects": {"type": "array", "items": {"type": "string"}},
+        "conflict": {"type": "array", "items": {"type": "string"}},
+        "relaxation": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/records.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — standalone allocation/lock/escalation records (.records.json)",
+  "description": "Descriptive schema for the standalone records data path, extracted from its producer wyred/paths.py `build_records` — there is NO prose (F1). Twelve keys are always emitted (allocation/artifact/bindings/bound_parts/connector_pinout/escalations/path/pool_spares/resolutions/series/solver_version/stamp); `forked_from` is the ONE optional key (added only when the l1 doc carries a series-fork record — in ga019 only watchy_v1_revb). `path` is const \"records\". F4: `forked_from` here is the {series, reason} OBJECT (common.defs forked_from_record), NOT the bare string the lifecycle artifact uses. F7: `escalations` are the RICH objects (same shape as the l1 escalations, copied verbatim from the l1 doc), NOT the l2 string array. `resolutions` maps a demand-id to a \"rail:|bus:|role:\" target; `pool_spares` maps a pool to its free-unit index array. additionalProperties:false throughout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["allocation", "artifact", "bindings", "bound_parts", "connector_pinout", "escalations", "path", "pool_spares", "resolutions", "series", "solver_version", "stamp"],
+  "properties": {
+    "artifact": {"type": "string"},
+    "path": {"const": "records"},
+    "stamp": {"$ref": "common.defs.json#/$defs/stamp"},
+    "series": {"type": "string"},
+    "solver_version": {"type": "string"},
+    "allocation": {"$ref": "common.defs.json#/$defs/allocation_record"},
+    "bindings": {
+      "description": "map <role-id> -> <refdes> for singly-bound roles (== the alloc artifact's bindings).",
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "bound_parts": {
+      "description": "map <role-id> -> array of realized part rows (== the alloc artifact's bound_parts).",
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"$ref": "common.defs.json#/$defs/bound_part_row"}
+      }
+    },
+    "connector_pinout": {
+      "description": "external-interface ICD rows (== the alloc artifact's connector_pinout); [] when the design declares no connectors.",
+      "type": "array",
+      "items": {"$ref": "common.defs.json#/$defs/connector_pinout_row"}
+    },
+    "escalations": {
+      "description": "F7: the RICH escalation objects sourced verbatim from the l1 doc's escalations (build_records copies l1[\"escalations\"]). The l2 graph's same-named field is a plain string array instead. [] when the resolve produced no escalations.",
+      "type": "array",
+      "items": {"$ref": "#/$defs/escalation"}
+    },
+    "resolutions": {
+      "description": "map <demand-id> -> the resolved target, a \"<kind>:<name>\" string where <kind> is rail | bus | role (from l1 attrs.resolutions). Pattern-constrained to those three prefixes.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^(rail|bus|role):.+$",
+        "$comment": "Regex-engine caveat (shared-oracle blind spot): in Python `re`, `$` also matches just before a single trailing '\\n' and `.` never matches '\\n', so a value like 'rail:VBAT\\n' MATCHES here but would be REJECTED by an ECMAScript engine (ajv), whose `$` anchors only at the very end. The goldens carry no trailing-newline resolution targets, so the two oracles agree on the corpus; a stricter '^(rail|bus|role):[^\\n]+\\z' (Python) / '...$' with no trailing newline (ECMA) would remove the divergence if ever needed."
+      }
+    },
+    "pool_spares": {
+      "description": "map <pool> -> array of that pool's free (unallocated) unit indices (from l1 attrs.pool_spares). {} when no pool has spares.",
+      "type": "object",
+      "additionalProperties": {"type": "array", "items": {"type": "integer", "minimum": 0}}
+    },
+    "forked_from": {"$ref": "common.defs.json#/$defs/forked_from_record"}
+  },
+  "$defs": {
+    "escalation": {
+      "description": "A ladder-rung-4 escalation WITH explanation (F7), identical in shape to the l1 escalation (schema_l1._escalation_to_json): code/msg always emitted; subjects/conflict/relaxation emit-only-when-non-empty. Defined locally to keep the records schema self-contained (the l1 schema defines the same shape independently).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "msg"],
+      "properties": {
+        "code": {"type": "string"},
+        "msg": {"type": "string"},
+        "subjects": {"type": "array", "items": {"type": "string"}},
+        "conflict": {"type": "array", "items": {"type": "string"}},
+        "relaxation": {"type": "string"}
+      }
+    }
+  }
+}

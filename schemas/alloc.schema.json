@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/alloc.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — standalone allocation artifact (.alloc.json)",
+  "description": "Descriptive schema for the standalone allocation artifact, extracted from its producer wyred/resolve.py (`ResolveResult.alloc`, serialized by `alloc_json_str`) — there is NO prose for this kind (F1: the wrapper is a golden+engine artifact, not Part C). F1 distinction: this is a WRAPPER around the Part-C allocation record, not the bare record — it has EXACTLY the eight keys allocation/bindings/bound_parts/connector_pinout/series/solver_version/stamp/wiring, all always emitted. `allocation` is the shared Part-C record; `bindings` maps a role-id to its single bound refdes (emitted only for roles with exactly one part, so the map is a subset of bound_parts' keys); `bound_parts` maps every role-id to its realized part rows; `wiring` is the landed-allocation view (F9 dotted nodes); `connector_pinout` is the external-interface ICD rows. additionalProperties:false everywhere (closed shape throughout).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["allocation", "bindings", "bound_parts", "connector_pinout", "series", "solver_version", "stamp", "wiring"],
+  "properties": {
+    "series": {"type": "string", "description": "document series identity (board-spin semantics), copied from the l1 doc"},
+    "solver_version": {"type": "string", "description": "free-form solver-version string (e.g. \"ga019-trivial-1\"); == allocation.solver_version"},
+    "stamp": {"$ref": "common.defs.json#/$defs/stamp"},
+    "allocation": {"$ref": "common.defs.json#/$defs/allocation_record"},
+    "bindings": {
+      "description": "map <role-id> -> <refdes> for roles bound to EXACTLY ONE part (resolve.py emits a binding only when len(parts)==1); a subset of bound_parts' keys. May be {} when every role binds multiple parts.",
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "bound_parts": {
+      "description": "map <role-id> -> array of the role's realized part rows (refdes/part/chosen_by).",
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"$ref": "common.defs.json#/$defs/bound_part_row"}
+      }
+    },
+    "wiring": {
+      "description": "landed-allocation view: one row per realized allocation entry, with its dotted node (F9) and net.",
+      "type": "array",
+      "items": {"$ref": "common.defs.json#/$defs/wiring_row"}
+    },
+    "connector_pinout": {
+      "description": "external-interface ICD rows; [] when the design declares no connectors. locked_by is set once an external-interface (connector_pinout-covering) lock group fires.",
+      "type": "array",
+      "items": {"$ref": "common.defs.json#/$defs/connector_pinout_row"}
+    }
+  }
+}

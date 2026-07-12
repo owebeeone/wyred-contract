@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/l2.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — layer-2 canonical netlist (.l2.json)",
+  "description": "Descriptive schema for the layer-2 CanonicalGraph netlist, extracted from harness schema.to_json (precedence: goldens > harness > EMIT_CONTRACT Part A prose). The top-level object has EXACTLY the four keys components/nets/escalations/invariants, all always emitted — schema.to_json emits NO top-level 'layer' key (unlike l1). Terminals emit all seven keys unconditionally (req_v/prov_v/iface/iface_member nullable); nets emit ground_kind/ground_role/bond ONLY when set. Closed vocabularies as enums: TERMINAL_ROLES, NET_KINDS, LOGIC_FNS (plus null), GROUND_KINDS, GROUND_ROLES, INVARIANT_KINDS; Component.kind and every iface are OPEN per finding F2. Findings encoded: F3 (voltage number|null on EVERY net kind — ground nets carry 0.0), F7 (escalations is a plain STRING array here), F9 (nodes are [refdes, terminal] 2-tuples). additionalProperties:false everywhere except the free attrs dict.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["components", "nets", "escalations", "invariants"],
+  "properties": {
+    "components": {"type": "array", "items": {"$ref": "#/$defs/component"}},
+    "nets": {"type": "array", "items": {"$ref": "#/$defs/net"}},
+    "escalations": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "F7: layer-2 escalations are plain strings (harness CanonicalGraph.escalations: List[str]); the l1/records escalations field is an array of rich objects instead."
+    },
+    "invariants": {"type": "array", "items": {"$ref": "#/$defs/invariant"}}
+  },
+  "$defs": {
+    "attrs": {
+      "type": "object",
+      "description": "free-form salient-property dict (e.g. i2c_addr, l1_role, for_demand provenance); the one open shape"
+    },
+    "node": {
+      "description": "F9: an (refdes, terminal_name) pair — exactly two strings. In l2 nets/invariants nodes are these 2-tuples; the alloc-wiring and pinmap data paths encode the same thing as a dotted \"REFDES.PIN\" string instead (see those schemas in Step 1.1b).",
+      "type": "array",
+      "prefixItems": [{"type": "string"}, {"type": "string"}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "terminal": {
+      "description": "A connection point / pin (schema._terminal_to_json). ALL SEVEN keys always emitted (no emit-only-when-set on terminals); req_v/prov_v/iface/iface_member are nullable. role is the closed TERMINAL_ROLES vocabulary; iface is OPEN (F2); function is a human label nothing keys off.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "role", "function", "req_v", "prov_v", "iface", "iface_member"],
+      "properties": {
+        "name": {"type": "string"},
+        "role": {"enum": ["power_in", "power_out", "ground", "signal", "passive", "logic_in", "logic_out"]},
+        "function": {"type": "string"},
+        "req_v": {"type": ["number", "null"]},
+        "prov_v": {"type": ["number", "null"]},
+        "iface": {"type": ["string", "null"]},
+        "iface_member": {"type": ["string", "null"]}
+      }
+    },
+    "component": {
+      "description": "A single instance (schema._component_to_json). ALL SEVEN keys always emitted; logic_fn is nullable and, when set, one of LOGIC_FNS. kind is OPEN vocabulary (F2: 35 kinds observed across ga019 l2 goldens vs 12 declared in schema.COMPONENT_KINDS).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["refdes", "kind", "value", "authored", "terminals", "attrs", "logic_fn"],
+      "properties": {
+        "refdes": {"type": "string"},
+        "kind": {
+          "type": "string",
+          "description": "OPEN string (F2), NOT enum-constrained. Non-normative observed vocabulary: the 35 distinct kinds present across the ga019 l2 goldens (derived mechanically from the corpus, not hand-listed): antenna, buck_regulator, can_transceiver, capacitor, charger, connector, crystal, current_sense, diode, fiducial, flash, fuse, fuse_holder, gate_driver, inductor, jumper, ldo, led, logic_gate, mcu, mechanical, mosfet, motor, resistor, resonator, sensor, source, supervisor, switch, test_point, thermistor, transistor, uart_device, usb_protection, varistor. Only 12 of these are declared in schema.COMPONENT_KINDS; the rest are producer-emitted but undeclared. Consumers MUST accept kinds outside this list."
+        },
+        "value": {"type": "string"},
+        "authored": {"type": "boolean"},
+        "terminals": {"type": "array", "items": {"$ref": "#/$defs/terminal"}},
+        "attrs": {"$ref": "#/$defs/attrs"},
+        "logic_fn": {"enum": ["and", "or", "not", "nand", "nor", "xor", "buf", null]}
+      }
+    },
+    "net": {
+      "description": "A logical node / net (schema._net_to_json). name/kind/voltage/nodes always emitted; ground_kind/ground_role/bond emit-only-when-set (backward-compatible v3 fields). kind is the closed NET_KINDS vocabulary. F3: voltage is number|null on EVERY kind — ground nets carry voltage 0.0 across all goldens (and in prose worked example D.3), contradicting Part A's 'else None' field-table text; the schema follows the goldens.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "kind", "voltage", "nodes"],
+      "properties": {
+        "name": {"type": "string"},
+        "kind": {"enum": ["power", "ground", "signal", "open"]},
+        "voltage": {"type": ["number", "null"]},
+        "nodes": {"type": "array", "items": {"$ref": "#/$defs/node"}},
+        "ground_kind": {"enum": ["ground", "chassis", "earth"]},
+        "ground_role": {"enum": ["none", "analog", "digital", "power", "reference"]},
+        "bond": {"type": "string"}
+      }
+    },
+    "invariant": {
+      "description": "A layer-2 structural safety invariant over concrete nodes (schema._invariant_to_json). kind/a/b/inputs always emitted; a/b are single (refdes, terminal) node pairs and inputs an array of such pairs. kind is the closed INVARIANT_KINDS vocabulary. NOTE: distinct from the layer-1 invariant_decl (l1.schema.json) whose subjects are intent-level string references.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "a", "b", "inputs"],
+      "properties": {
+        "kind": {"enum": ["mutual_exclusion"]},
+        "a": {"$ref": "#/$defs/node"},
+        "b": {"$ref": "#/$defs/node"},
+        "inputs": {"type": "array", "items": {"$ref": "#/$defs/node"}}
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/lifecycle.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — series-fork lifecycle record (.lifecycle.json)",
+  "description": "Descriptive schema for the break_lock -> series-fork lifecycle record, emitted once (watchy_v1_revb, the fork of watchy_v1_reva). Source: wyred/emit.py fork path + `check_lock_violations`. There is NO prose (F1). Nine keys, all always emitted. F4: `forked_from` here is a bare STRING naming the parent artifact (\"watchy_v1_reva\") — NOT the {series, reason} object the l1/records artifacts use (common.defs.json#/$defs/forked_from_record). `parent_stamp`/`child_stamp` reuse the shared stamp $def. The three code arrays hold lock-gate codes: F12 records the closed-vocabulary decision (enum-constrained to the two codes `check_lock_violations` can emit). additionalProperties:false.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "child_stamp", "forked_from", "legal_fork_codes", "new_series", "ok", "parent_stamp", "tamper_locked_edit_codes", "tamper_series_hand_edit_codes"],
+  "properties": {
+    "artifact": {"type": "string", "description": "the forked (child) artifact base name"},
+    "forked_from": {"type": "string", "description": "F4: the PARENT artifact name as a bare string (\"watchy_v1_reva\"). Distinct from the {series, reason} object form of `forked_from` in l1/records."},
+    "new_series": {"type": "string", "description": "the child's new series letter (free string; \"B\" in golden)"},
+    "parent_stamp": {"$ref": "common.defs.json#/$defs/stamp", "description": "the parent artifact's compatibility stamp"},
+    "child_stamp": {"$ref": "common.defs.json#/$defs/stamp", "description": "the forked child's compatibility stamp"},
+    "legal_fork_codes": {"$ref": "#/$defs/lock_violation_code_array", "description": "codes from validating the legal fork against the parent baseline; [] means the fork is legal."},
+    "tamper_series_hand_edit_codes": {"$ref": "#/$defs/lock_violation_code_array", "description": "codes the gate must raise when the fork record is stripped but the series is hand-edited (counter-probe): [\"SERIES_UNJUSTIFIED\"] in golden."},
+    "tamper_locked_edit_codes": {"$ref": "#/$defs/lock_violation_code_array", "description": "codes the gate must raise when a locked parent decision is edited in place with no fork (counter-probe): [\"LOCK_VIOLATION\"] in golden."},
+    "ok": {"type": "boolean", "description": "overall lifecycle verdict for this fork"}
+  },
+  "$defs": {
+    "lock_violation_code_array": {
+      "description": "An array of lock-gate codes. F12: the vocabulary is CLOSED to the two codes `wyred/emit.py::check_lock_violations` can emit — LOCK_VIOLATION and SERIES_UNJUSTIFIED — the sole gate producer of every code in legal_fork_codes/tamper_series_hand_edit_codes/tamper_locked_edit_codes. Duplicates are legal (one code per violating locked group). The only out-of-vocabulary string any producer can inject is the emit.py sentinel \"(no locked entry to tamper)\" into tamper_locked_edit_codes (used only when the parent has no locked entry to probe), which appears in NO golden; encoding it would be a silent widening (invariant 1), so it is excluded — a future lifecycle carrying it, or any third code, is a contract event.",
+      "type": "array",
+      "items": {"enum": ["LOCK_VIOLATION", "SERIES_UNJUSTIFIED"]}
+    }
+  }
+}

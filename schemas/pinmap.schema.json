@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wyred.dev/contract/v0/pinmap.schema.json",
+  "x-wyred-contract": {"contract": "v3-ga019", "schema_rev": 0},
+  "title": "wyred contract v0 — firmware-facing pin-map (.pinmap.json)",
+  "description": "Descriptive schema for the firmware-facing pin-map data path, extracted from its producer wyred/paths.py `build_pinmap` — there is NO prose (F1; pinmap is named once, in passing, in Part D.3). Six top-level keys, all always emitted: allocations/artifact/components/path/solver_version/stamp. `path` is const \"pinmap\". `components` is the per-component terminal->net view; each component carries EXACTLY ONE provenance key — `l1_role` XOR `for_demand` (goldens: 263 l1_role-only, 586 for_demand-only, never both, never neither) — encoded as a two-branch oneOf. `allocations` is the allocation record's entries enriched with each entry's landed dotted node (F9) and net. Terminal `net` is nullable (an unwired spare pin). additionalProperties:false throughout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["allocations", "artifact", "components", "path", "solver_version", "stamp"],
+  "properties": {
+    "artifact": {"type": "string"},
+    "path": {"const": "pinmap"},
+    "stamp": {"$ref": "common.defs.json#/$defs/stamp"},
+    "solver_version": {"type": "string"},
+    "components": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/pinmap_component"}
+    },
+    "allocations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/pinmap_alloc_row"}
+    }
+  },
+  "$defs": {
+    "pinmap_terminal": {
+      "description": "One terminal in the pin-map view (build_pinmap): name/role/function copied from the l2 terminal, plus the landed `net` (F9 look-up on (refdes, terminal)). All four keys always emitted. `net` is the net name or null (unwired — a spare terminal on no net). `role` is the closed TERMINAL_ROLES vocabulary (same as the l2 terminal); `function` is the free-form pin label (often \"\").",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["function", "name", "net", "role"],
+      "properties": {
+        "name": {"type": "string"},
+        "role": {"enum": ["power_in", "power_out", "ground", "signal", "passive", "logic_in", "logic_out"]},
+        "function": {"type": "string"},
+        "net": {"type": ["string", "null"]}
+      }
+    },
+    "pinmap_component": {
+      "description": "One component's firmware-facing view (build_pinmap). refdes/kind/value/authored/terminals always emitted; then EXACTLY ONE provenance key — `l1_role` (the intent role this instance realizes) XOR `for_demand` (the demand a generated instance was created to satisfy). The oneOf makes both-present and neither-present illegal, matching every ga019 golden. kind is OPEN (F2).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["refdes", "kind", "value", "authored", "terminals"],
+      "properties": {
+        "refdes": {"type": "string"},
+        "kind": {"type": "string"},
+        "value": {"type": "string"},
+        "authored": {"type": "boolean"},
+        "terminals": {"type": "array", "items": {"$ref": "#/$defs/pinmap_terminal"}},
+        "l1_role": {"type": "string"},
+        "for_demand": {"type": "string"}
+      },
+      "oneOf": [
+        {"required": ["l1_role"]},
+        {"required": ["for_demand"]}
+      ]
+    },
+    "pinmap_alloc_row": {
+      "description": "One allocation-view row (build_pinmap): the allocation entry (pool/unit/demand/chosen_by/state/locked_by — same fields as common.defs alloc_entry) enriched with `node` and `net` — where the entry LANDED. All eight keys always emitted. F9: `node` is the dotted \"REFDES.PIN\" string. NOTE: build_pinmap sets node/net to null for an entry with no matching wiring row, but every ga019 golden entry has a wiring match, so this schema keeps node/net non-null strings (tight-to-goldens; finding F11).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pool", "unit", "demand", "chosen_by", "state", "locked_by", "node", "net"],
+      "properties": {
+        "pool": {"type": "string"},
+        "unit": {"type": "integer", "minimum": 0},
+        "demand": {"type": "string"},
+        "chosen_by": {"enum": ["solver", "author"]},
+        "state": {"enum": ["free", "sticky", "pinned"]},
+        "locked_by": {"type": ["string", "null"]},
+        "node": {"type": "string"},
+        "net": {"type": "string"}
+      }
+    }
+  }
+}
